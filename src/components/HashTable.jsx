@@ -1,9 +1,3 @@
-import React, { useState, useEffect } from "react";
-import { AlertCircle } from "lucide-react";
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-
 const ARRAY_SIZE = 10;
 
 const HashTable = () => {
@@ -31,7 +25,12 @@ const HashTable = () => {
       const index = hash(key);
       setTable((prevTable) => {
         const newTable = [...prevTable];
-        newTable[index] = [...newTable[index], [key, value]];
+        const existingPairIndex = newTable[index].findIndex(([k]) => k === key);
+        if (existingPairIndex !== -1) {
+          newTable[index][existingPairIndex] = [key, value];
+        } else {
+          newTable[index] = [...newTable[index], [key, value]];
+        }
         return newTable;
       });
       setHighlightIndex(index);
@@ -57,44 +56,53 @@ const HashTable = () => {
   }, [highlightIndex]);
 
   return (
-    <div className="p-4 max-w-2xl mx-auto">
-      <h2 className="text-2xl font-bold mb-4">Interactive Hash Table</h2>
+    <div className="bg-white rounded-lg shadow-md p-6 max-w-2xl mx-auto">
+      <h2 className="text-2xl font-bold mb-6 text-gray-800">
+        Interactive Hash Table
+      </h2>
 
-      <div className="mb-4">
-        <Input
-          type="text"
-          placeholder="Enter key"
-          value={key}
-          onChange={(e) => setKey(e.target.value)}
-          className="mb-2"
-        />
-        <Input
-          type="text"
-          placeholder="Enter value"
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-          className="mb-2"
-        />
-        <Button onClick={handleSet} className="w-full">
-          Set
-        </Button>
-      </div>
-
-      <div className="mb-4">
-        <Input
-          type="text"
-          placeholder="Search key"
-          value={searchKey}
-          onChange={(e) => setSearchKey(e.target.value)}
-          className="mb-2"
-        />
-        <Button onClick={handleGet} className="w-full">
-          Get
-        </Button>
+      <div className="grid grid-cols-2 gap-4 mb-6">
+        <div>
+          <Input
+            type="text"
+            placeholder="Enter key"
+            value={key}
+            onChange={(e) => setKey(e.target.value)}
+            className="mb-2"
+          />
+          <Input
+            type="text"
+            placeholder="Enter value"
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+            className="mb-2"
+          />
+          <Button
+            onClick={handleSet}
+            className="w-full bg-blue-500 hover:bg-blue-600"
+          >
+            Set
+          </Button>
+        </div>
+        <div>
+          <Input
+            type="text"
+            placeholder="Search key"
+            value={searchKey}
+            onChange={(e) => setSearchKey(e.target.value)}
+            className="mb-2"
+          />
+          <Button
+            onClick={handleGet}
+            className="w-full bg-green-500 hover:bg-green-600"
+          >
+            Get
+          </Button>
+        </div>
       </div>
 
       {searchResult !== null && (
-        <Alert className="mb-4">
+        <Alert className="mb-6">
           <AlertCircle className="h-4 w-4" />
           <AlertTitle>Search Result</AlertTitle>
           <AlertDescription>
@@ -105,29 +113,33 @@ const HashTable = () => {
         </Alert>
       )}
 
-      <div className="border rounded p-4">
-        <h3 className="text-lg font-semibold mb-2">Hash Table Structure</h3>
-        {table.map((bucket, index) => (
-          <div
-            key={index}
-            className={`mb-2 p-2 border rounded ${
-              highlightIndex === index ? "bg-yellow-200" : ""
-            }`}
-          >
-            <strong>Index {index}:</strong>
-            {bucket.length === 0 ? (
-              <span className="text-gray-500 ml-2">Empty</span>
-            ) : (
-              <ul className="list-disc list-inside">
-                {bucket.map(([k, v], i) => (
-                  <li key={i}>
-                    {k}: {v}
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
-        ))}
+      <div className="border rounded-lg p-4 bg-gray-50">
+        <h3 className="text-lg font-semibold mb-4 text-gray-700">
+          Hash Table Structure
+        </h3>
+        <div className="grid grid-cols-2 gap-4">
+          {table.map((bucket, index) => (
+            <div
+              key={index}
+              className={`p-3 border rounded-md ${
+                highlightIndex === index ? "bg-yellow-100" : "bg-white"
+              } transition-colors duration-300`}
+            >
+              <strong className="text-gray-700">Index {index}:</strong>
+              {bucket.length === 0 ? (
+                <span className="text-gray-400 ml-2">Empty</span>
+              ) : (
+                <ul className="list-disc list-inside mt-1">
+                  {bucket.map(([k, v], i) => (
+                    <li key={i} className="text-sm">
+                      {k}: <span className="font-medium">{v}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
 const Node = ({ data, isLast }) => (
   <div className="flex items-center">
-    <div className="border-2 border-blue-500 rounded-lg p-2 w-16 h-16 flex items-center justify-center bg-blue-100">
-      <span className="text-sm font-bold">{data}</span>
+    <div className="border-2 border-blue-500 rounded-lg p-2 w-24 h-24 flex items-center justify-center bg-blue-100">
+      <span className="text-lg font-bold">{data}</span>
     </div>
     {!isLast && <ArrowRight className="mx-2" />}
   </div>
@@ -21,33 +23,18 @@ const LinkedListVisualization = () => {
     }
   };
 
-  const resetList = () => {
-    setList([]);
-    setNewItem("");
-  };
-
   return (
-    <div>
+    <div className="p-4 max-w-4xl mx-auto">
+      <h2 className="text-2xl font-bold mb-4">Linked List Visualization</h2>
       <div className="flex mb-4">
-        <input
+        <Input
           type="text"
           value={newItem}
           onChange={(e) => setNewItem(e.target.value)}
           placeholder="Enter item to append"
-          className="flex-grow mr-2 px-2 py-1 border rounded"
+          className="mr-2"
         />
-        <button
-          onClick={appendItem}
-          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mr-2"
-        >
-          Append
-        </button>
-        <button
-          onClick={resetList}
-          className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
-        >
-          Reset
-        </button>
+        <Button onClick={appendItem}>Append</Button>
       </div>
       <div className="flex flex-wrap items-center mt-4">
         {list.map((item, index) => (
