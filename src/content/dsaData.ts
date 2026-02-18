@@ -1,4 +1,4 @@
-import { DSATopic } from "../types/dsa";
+import type { DSATopic } from "../types/dsa";
 
 export const topics: Record<string, DSATopic> = {
   "arrays": {
