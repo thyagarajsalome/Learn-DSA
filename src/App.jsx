@@ -1,13 +1,18 @@
 import React from "react";
-import ArrayVisualizer from "./components/ArrayVisualizer";
-import GraphVisualization from "./components/GraphVisualization";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import AppLayout from "./layouts/AppLayout";
+import TopicPage from "./pages/TopicPage";
 
 function App() {
   return (
-    <div className="app-container bg-slate-200 m-4 p-4">
-      <ArrayVisualizer />
-      <GraphVisualization />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<AppLayout />}>
+          <Route index element={<Navigate to="/topic/arrays" replace />} />
+          <Route path="topic/:topicId" element={<TopicPage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
