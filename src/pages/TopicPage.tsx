@@ -1,18 +1,18 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { topics } from "../data/topics.js";
+// Corrected import path and removed .js
+import { topics } from "../content/dsaData";
 
-
-// Import ALL your components
-import ArrayVisualizer from "../components/ArrayVisualizer.js";
-import LinkedListVisualization from "../components/LinkedListVisualization.js";
-import StackVisualization from "../components/StackVisualization.js";
-import QueueVisualization from "../components/QueueVisualization.js";
-import HashTable from "../components/HashTable.js";
-import TreeVisualization from "../components/TreeVisualization.js";
-import GraphVisualization from "../components/GraphVisualization.js";
-import SortingVisualization from "../components/SortingVisualization.js";
-import SearchingVisualization from "../components/SearchingVisualization.js";
+// Corrected component imports: removed the .js extensions
+import ArrayVisualizer from "../components/ArrayVisualizer";
+import LinkedListVisualization from "../components/LinkedListVisualization";
+import StackVisualization from "../components/StackVisualization";
+import QueueVisualization from "../components/QueueVisualization";
+import HashTable from "../components/HashTable";
+import TreeVisualization from "../components/TreeVisualization";
+import GraphVisualization from "../components/GraphVisualization";
+import SortingVisualization from "../components/SortingVisualization";
+import SearchingVisualization from "../components/SearchingVisualization";
 
 export default function TopicPage() {
   const { topicId } = useParams<{ topicId: string }>();
