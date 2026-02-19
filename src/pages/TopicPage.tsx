@@ -1,21 +1,30 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { topics } from "../content/dsaData";
+import { topics } from "../data/topics.js";
 
-// Import ALL your components (Ensure you rename these to .tsx in your folders)
-import ArrayVisualizer from "../components/ArrayVisualizer";
-import LinkedListVisualization from "../components/LinkedListVisualization";
-import StackVisualization from "../components/StackVisualization";
-import QueueVisualization from "../components/QueueVisualization";
-import HashTable from "../components/HashTable";
-import TreeVisualization from "../components/TreeVisualization";
-import GraphVisualization from "../components/GraphVisualization";
+
+// Import ALL your components
+import ArrayVisualizer from "../components/ArrayVisualizer.js";
+import LinkedListVisualization from "../components/LinkedListVisualization.js";
+import StackVisualization from "../components/StackVisualization.js";
+import QueueVisualization from "../components/QueueVisualization.js";
+import HashTable from "../components/HashTable.js";
+import TreeVisualization from "../components/TreeVisualization.js";
+import GraphVisualization from "../components/GraphVisualization.js";
+import SortingVisualization from "../components/SortingVisualization.js";
+import SearchingVisualization from "../components/SearchingVisualization.js";
 
 export default function TopicPage() {
   const { topicId } = useParams<{ topicId: string }>();
   const topicData = topics[topicId || ""];
 
-  if (!topicData) return <div className="p-8 text-xl font-bold text-red-500">Topic not found! Please select a valid topic from the sidebar.</div>;
+  if (!topicData) {
+    return (
+      <div className="p-8 text-xl font-bold text-red-500">
+        Topic not found! Please select a valid topic from the sidebar.
+      </div>
+    );
+  }
 
   // FACTORY PATTERN
   const renderVisualizer = () => {
@@ -27,6 +36,8 @@ export default function TopicPage() {
       case "hash-table": return <HashTable />;
       case "trees": return <TreeVisualization />;
       case "graphs": return <GraphVisualization />;
+      case "sorting": return <SortingVisualization />;
+      case "searching": return <SearchingVisualization />;
       default: return <div>Visualizer coming soon!</div>;
     }
   };
@@ -47,12 +58,14 @@ export default function TopicPage() {
             <h3 className="text-xl font-bold mb-2">Explanation</h3>
             <p className="text-slate-600 leading-relaxed">{topicData.explanation}</p>
           </div>
+          
           <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
             <h3 className="text-xl font-bold mb-2">Real-World Use Cases</h3>
             <ul className="list-disc pl-5 text-slate-600 space-y-1">
               {topicData.useCases.map((uc, i) => <li key={i}>{uc}</li>)}
             </ul>
           </div>
+          
           <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
             <h3 className="text-xl font-bold mb-2">Complexity</h3>
             <p className="text-slate-600"><strong>Time (Avg):</strong> {topicData.timeComplexity.average}</p>
