@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import { PlusCircle, MinusCircle, Check, X } from "lucide-react";
+import { useState } from "react";
+import { PlusCircle, MinusCircle, Check } from "lucide-react";
 
 const SetVisualization = () => {
-  const [set, setSet] = useState(new Set());
+  const [set, setSet] = useState<Set<string>>(new Set());
   const [inputValue, setInputValue] = useState("");
   const [checkValue, setCheckValue] = useState("");
   const [message, setMessage] = useState("");

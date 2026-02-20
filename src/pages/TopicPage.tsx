@@ -1,4 +1,3 @@
-import React from "react";
 import { useParams } from "react-router-dom";
 // Corrected import path and removed .js
 import { topics } from "../content/dsaData";
