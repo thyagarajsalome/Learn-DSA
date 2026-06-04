@@ -1,475 +1,57 @@
+# Module 9: Searching Algorithms
 
-*Module 9 – Searching*
+Searching is the process of locating a target value within a collection of data.
 
-Algorithms
-🚀 **Module 9**: – Searching Algorithms
-(Structured Learning in C)
-Now we begin one of the most practical DSA modules:
-👉 Searching Algorithms
-Searching means finding an element inside data.
-Used everywhere:
-Find contact number
-Search product on website
-Find student record
-Database lookup
-Game leaderboard lookup
-📚 **Module 9**: Topics
-We will learn step-by-step:
-- Introduction to Searching
-- Linear Search
-- Binary Search
-- Recursive Binary Search
-🎯 **Lesson 1**: – Introduction to Searching
-✅
+---
 
-*Module 9 – Searching Algorithms*
+## 1. Linear Search vs. Binary Search
 
-1
-✅ **What is**: Searching?
-Searching means:
-Finding the position or presence of a target value in a collection of data.
-Example:
-Array:
-[10, 25, 30, 45, 60]
-Find:
-30
-Result:
-Found at index 2
-- 0-based indexing)
-🧠 **Why Searching**: Important?
-Almost every software uses searching:
-ATM finds account
-E-commerce finds products
-Mobile finds contacts
-Browser finds history
-OS finds files
-📌 **Types We**: Learn
+| Feature | Linear Search | Binary Search |
+| :--- | :--- | :--- |
+| **Prerequisite** | None (Works on unsorted arrays) | Array **must be sorted** |
+| **Strategy** | Scan index 0 to N-1 sequentially | Divide-and-Conquer (Halve space) |
+| **Time Complexity** | $O(N)$ (Slow) | $O(\log N)$ (Extremely Fast) |
+| **Comparison Limit** | Up to $N$ steps | Up to $\log_2 N$ steps |
 
-*Module 9 – Searching Algorithms*
+---
 
-2
-Algorithm Works On Speed
-Linear Search Any list Slower
-Binary Search Sorted data onlyFast
-Recursive Binary SearchSorted data onlyFast
-🎯 **Example Comparison**
-Array:
-[5,10,15,20,25]
-Find 25
-Linear Search
-Check one by one:
-5 → 10 → 15 → 20 → 25
-Binary Search
-Check middle first:
-15 → 20 → 25
-Much faster.
-💻 **Simple Search**: Example in C
-int arr[] = {10,20,30};
-int key = 20;
+## 2. Binary Search: The Divide-and-Conquer Strategy
 
-*Module 9 – Searching Algorithms*
+### 🔍 How does it work?
+1. Find the midpoint of the sorted array: `mid = low + (high - low) / 2`.
+2. Compare target with `A[mid]`.
+   - If target == `A[mid]`, target found! Return index.
+   - If target < `A[mid]`, search the left half (`high = mid - 1`).
+   - If target > `A[mid]`, search the right half (`low = mid + 1`).
+3. Repeat until `low > high` (target not found).
 
-3
-Need to know if 20 exists.
-📌 **Search Results**: Can Be
-Found / Not Found
-Index position
-Number of occurrences
-Closest value (advanced)
-⏱ Time Complexity Overview
-Method Time
-Linear Search O(n)
-Binary Search O(log n)
-Binary Search is much better for large sorted data.
-🧪 Practice
-Find 8 in:
-[3,5,8,10]
-Answer:
-Found at index 2
-📌 **Summary**
-Searching = locating data efficiently.
+```
+Target = 70
+Sorted Array: [ 10 | 20 | 30 | 40 | 50 | 60 | 70 ]
+                 ▲              ▲              ▲
+                Low            Mid            High
+Compare Target 70 with Mid 40. 70 > 40, so narrow search space to right half:
+                               [ 50 | 60 | 70 ]
+                                 ▲    ▲    ▲
+                                Low  Mid  High
+Compare Target 70 with Mid 60. 70 > 60, right half:
+                                     [ 70 ]
+                                      Low/Mid/High (Found! 🎉)
+```
 
-*Module 9 – Searching Algorithms*
-
-4
-Two major ways:
-Linear Search
-Binary Search
-⏭ Next Lesson
-Linear Search (Simple & Beginner Friendly)
-Type next
-🚀
-🚀 **Module 9 – Lesson 2**: Linear Search
-(Simple & Beginner Friendly)
-Now we learn the easiest searching algorithm:
-👉 Linear Search
-🎯 **What is**: Linear Search?
-Linear Search means:
-Check each element one by one from start to end until target is found.
-🧠 **Real Life**: Example
-Searching your notebook in a stack:
-Check first notebook
-Then second
-Then third
-Until found.
-
-*Module 9 – Searching Algorithms*
-
-5
-📦 **Example**
-Array:
-[12, 25, 7, 40, 18]
-Find:
-40
-Steps:
-12
-❌
-25
-❌
-7
-❌
-40
-✅
-Found at index 3
-📌 **When to**: Use?
-✅ **Unsorted array**
-✅ **Small data**: size
-✅ **Simplicity needed**
-💻 **C Program**
-#include <stdio.h>
-int main() {
-- int arr[] = {12, 25, 7, 40, 18};
-- int n = 5;
-- int key = 40;
-
-*Module 9 – Searching Algorithms*
-
-6
-- int found = -1;
-- for (int i = 0; i < n; i++) {
-- if (arr[i] == key) {
-- found = i;
-- break;
-- }
-- }
-- if (found != -1)
-- printf("Found at index %d", found);
-- else
-- printf("Not Found");
-- return 0;
+### 💻 Implementation
+```c
+int binarySearch(int arr[], int low, int high, int target) {
+    while (low <= high) {
+        int mid = low + (high - low) / 2;
+        
+        if (arr[mid] == target) return mid;
+        if (arr[mid] < target) low = mid + 1;
+        else high = mid - 1;
+    }
+    return -1; // Not found
 }
-🧾 Output
-Found at index 3
-🧠 **Dry Run**
-Searching 40
-i arr[i] Result
-0 12 No
-1 25 No
-2 7 No
-3 40 Yes
-Stop there.
+```
 
-*Module 9 – Searching Algorithms*
-
-7
-🎯 **If Element**: Not Present
-Search 99
-12 → 25 → 7 → 40 → 18
-Not found.
-⏱ Time Complexity
-Case Time
-Best Case O 1
-Worst Case O(n)
-Average O(n)
-Best case: item at first position.
-Worst case: last or absent.
-📌 **Advantages**
-Very easy
-Works on unsorted data
-No preparation needed
-⚠ Disadvantages
-Slow for large data
-Checks many items
-🧪 Practice
-
-*Module 9 – Searching Algorithms*
-
-8
-Find 15 in:
-[5,10,15,20]
-✅ **Answer**:
-Index 2
-📌 **Summary**
-Linear Search:
-Compare one by one
-Works everywhere
-Good for small lists
-⏭ Next Lesson
-Binary Search (Very Important & Fast)
-Type next
-🚀
-🚀 **Module 9 – Lesson 3**: Binary Search
-(Very Important & Fast)
-Now we learn one of the most famous algorithms:
-👉 Binary Search
-Much faster than Linear Search.
-
-*Module 9 – Searching Algorithms*
-
-9
-🎯 **What is**: Binary Search?
-Binary Search means:
-Search by repeatedly dividing the sorted array into two halves.
-Instead of checking one by one.
-⚠ Important Condition
-Array must be SORTED
-Example:
-[5,10,15,20,25,30]
-🧠 **Real Life**: Example
-Searching a word in dictionary:
-You open middle pages first, not page 1.
-That is Binary Search.
-📦 **Example**
-Find:
-25
-Array:
-[5,10,15,20,25,30]
-
-*Module 9 – Searching Algorithms*
-
-10
-Check middle:
-15
-25 15 → search right half
-Then middle of right half:
-25
-✅
-Found.
-📌 **Formula**
-Mid index:
-mid=\frac{low+high}{2
-- Usually integer division in C
-💻 **C Program**
-#include <stdio.h>
-int main() {
-- int arr[] = {5,10,15,20,25,30};
-- int n = 6;
-- int key = 25;
-- int low = 0, high = n - 1;
-- int found = -1;
-- while (low <= high) {
-- int mid = (low + high) / 2;
-
-*Module 9 – Searching Algorithms*
-
-11
-- if (arr[mid] == key) {
-- found = mid;
-- break;
-- }
-- else if (key < arr[mid]) {
-- high = mid - 1;
-- }
-- else {
-- low = mid + 1;
-- }
-- }
-- if (found != -1)
-- printf("Found at index %d", found);
-- else
-- printf("Not Found");
-- return 0;
-}
-🧾 Output
-Found at index 4
-🧠 **Dry Run**
-Find 25
-low high mid arr[mid] Action
-0 5 2 15 Right
-3 5 4 25 Found
-
-*Module 9 – Searching Algorithms*
-
-12
-🎯 **Why Powerful?**
-For 1,000,000 items:
-Linear Search may check many values
-Binary Search needs about 20 checks only
-⏱ Time Complexity
-Case Time
-Best O 1
-Worst O(log n)
-Very fast.
-📌 **Advantages**
-Extremely efficient
-Great for large sorted data
-Used in databases / indexing
-⚠ Disadvantages
-Data must be sorted first
-Harder than linear search
-🧪 Practice
-Find 8 in:
-[2,4,6,8,10]
-
-*Module 9 – Searching Algorithms*
-
-13
-Middle = 6 → go right → 8 found
-✅ **Index =**: 3
-📌 **Summary**
-Binary Search:
-Uses middle element
-Halves search space each step
-Requires sorted data
-⏭ Next Lesson
-Recursive Binary Search
-Type next
-🚀
-🚀 **Module 9 – Lesson 4**: Recursive Binary
-Search
-Now we learn Binary Search using recursion.
-👉 Recursive Binary Search
-Instead of loop:
-while(low <= high)
-We use function calling itself.
-🎯 **Idea**
-
-*Module 9 – Searching Algorithms*
-
-14
-Each call searches smaller half:
-Left half
-or Right half
-Until found or range ends.
-📌 **Condition**
-Array must be sorted.
-[5,10,15,20,25,30]
-💻 **C Program**
-#include <stdio.h>
-int binarySearch(int arr[], int low, int high, int key) {
-- if (low > high)
-- return -1;
-- int mid = (low + high) / 2;
-- if (arr[mid] == key)
-- return mid;
-- if (key < arr[mid])
-- return binarySearch(arr, low, mid - 1, key);
-- return binarySearch(arr, mid + 1, high, key);
-}
-int main() {
-- int arr[] = {5,10,15,20,25,30};
-
-*Module 9 – Searching Algorithms*
-
-15
-- int n = 6;
-- int key = 20;
-- int result = binarySearch(arr, 0, n - 1, key);
-- if (result != -1)
-- printf("Found at index %d", result);
-- else
-- printf("Not Found");
-- return 0;
-}
-🧾 Output
-Found at index 3
-🧠 **How It**: Works
-Search 20
-Call 1
-low = 0
-high = 5
-mid = 2
-arr[2] = 15
-20 15 → search right half
-Call 2
-
-*Module 9 – Searching Algorithms*
-
-16
-low = 3
-high = 5
-mid = 4
-arr[4] = 25
-20 25 → search left half
-Call 3
-low = 3
-high = 3
-mid = 3
-arr[3] = 20
-Found
-✅
-🎯 **Base Case**
-When no range left:
-if(low > high)
-- return -1;
-Means not found.
-📌 **Recursive Tree**: View
-binary(0,5)
-- ↓
-binary(3,5)
-- ↓
-binary(3,3)
-
-*Module 9 – Searching Algorithms*
-
-17
-⏱ Time Complexity
-Case Time
-Best O 1
-Worst O(log n)
-Same as iterative binary search.
-⚠ Space Complexity
-Uses recursion stack:
-O(log n)
-Loop version uses less memory.
-📌 **Iterative vs**: Recursive
-Type Pros
-Iterative Faster memory usage
-Recursive Cleaner logic
-🧪 Practice
-Find 30 in:
-[5,10,15,20,25,30]
-Calls end at index:
-✅ **5**
-
-*Module 9 – Searching Algorithms*
-
-18
-📌 **Summary**
-Recursive Binary Search:
-Same logic as binary search
-Uses recursive calls
-Elegant and structured
-🎓 **Module 9 Completed**: Searching
-Algorithms
-Topics Covered:
-✅ **Introduction**
-✅ **Linear Search**
-✅ **Binary Search**
-✅ **Recursive Binary**: Search
-🧠 **Importance Rating**
-Topic Importance
-Linear Search
-⭐
-⭐
-⭐
-⭐
-Binary Search
-⭐
-⭐
-⭐
-⭐
-⭐
-Recursive Binary Search
-⭐
-⭐
-⭐
-⭐
-⏭ Next Module
-🚀 **Module 10**: – Sorting Algorithms
-Type:
-Start Module 10
-
-*Module 9 – Searching Algorithms*
-
-19
+🧠 **Logarithmic Scaling Analogy**:
+If you search a physical **Phone Book** of 1,000 pages for a name starting with "T", you don't scan page 1, then page 2. You open the book to the middle, check the letter, determine which half contains the name, discard the other half, and repeat. You will find the name in under 10 flips!
