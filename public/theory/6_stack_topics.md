@@ -1,0 +1,1002 @@
+
+*Module 6 – Stack Topics*
+
+Excellent
+👍
+🔥
+Welcome to Module 6 Stack
+This is one of the most useful data structures in DSA and real programming.
+
+*Module 6 – Stack Topics*
+
+Lesson Topic
+1 Introduction to Stack
+2 Stack using Array
+3 Stack using Linked List
+4 Push Operation
+5 Pop Operation
+6 Peek / Top Operation
+7 Applications of Stack
+Lesson 1 – Introduction to Stack
+🚀
+What is a Stack?
+A stack is a linear data structure that follows:
+
+## LIFO
+
+Last In, First Out
+Meaning:
+The last item inserted is removed first.
+
+*Module 6 – Stack T opics*
+
+1
+Real-Life Example
+📚
+Think of plate stack:
+Top Plate added last
+Top Plate removed first
+You donʼt remove from middle.
+Visual Example
+- [30] ← Top
+- [20]
+- [10]
+If remove one:
+30 removed first
+Why Called Stack?
+Because items are:
+Stacked one above another.
+Two Main Operations
+Operation Meaning
+Push Insert item
+Pop Remove top item
+
+*Module 6 – Stack T opics*
+
+2
+Additional Operations
+Operation Meaning
+Peek / Top See top item
+isEmpty Check empty
+isFull Check full (array stack)
+Where Insertion/Deletion Happens?
+Only at:
+
+## TOP
+
+Not middle or bottom.
+Why Stack is Powerful
+Because it simplifies:
+Reverse operations
+Backtracking
+Undo systems
+Function calls
+Real-Life Examples
+Used in:
+Browser back button
+Undo/Redo
+Call stack in C programs
+
+*Module 6 – Stack T opics*
+
+3
+Expression evaluation
+Parentheses checking
+Stack Example
+Push:
+Push 10
+Push 20
+Push 30
+Stack:
+[30]
+[20]
+[10]
+Now Pop:
+Removes 30
+Time Complexity Preview
+Operation Complexity
+Push O 1
+Pop O 1
+Peek O 1
+Very efficient.
+Stack vs Queue Preview
+
+*Module 6 – Stack T opics*
+
+4
+Stack Queue
+
+## LIFO FIFO
+
+- Queue later in Module 7
+Important Terms
+Term Meaning
+Top Current last inserted item
+Underflow Pop from empty stack
+Overflow Push into full stack
+Practice Questions
+🧠
+Tell me:
+
+## Q1
+
+What does LIFO mean?
+
+## Q2
+
+If push 10,20,30 then pop, what removes first?
+
+## Q3
+
+Where do push/pop happen?
+
+## Q4
+
+One real-world use of stack?
+Reply and we go to:
+Lesson 2 – Stack using Array
+🚀
+
+*Module 6 – Stack T opics*
+
+5
+Excellent
+👍
+🔥
+Letʼs continue.
+
+*Module 6 – Lesson 2: Stack using Array*
+
+🚀
+Now we implement stack using:
+Array
+This is the simplest stack implementation.
+Idea
+We store elements in array and track top position.
+Example
+Index: 0 1 2
+Value:10 20 30
+Top points to:
+2
+Because 30 is last inserted.
+Required Variables
+int stack[100];
+int top = -1;
+
+*Module 6 – Stack T opics*
+
+6
+Why top = -1 ?
+Means:
+Stack is empty initially.
+No elements yet.
+Visual
+Empty stack:
+top = -1
+After push 10
+[10]
+top = 0
+After push 20
+[10][20]
+top = 1
+Basic Structure Code
+#include <stdio.h>
+int stack[100];
+int top = -1;
+
+*Module 6 – Stack T opics*
+
+7
+Push Logic Preview
+Add item:
+top++;
+stack[top]=value;
+Pop Logic Preview
+Remove item:
+top--;
+Peek Logic Preview
+Top item:
+stack[top]
+Why Array Stack is Good
+Advantage Why
+Simple Easy to code
+Fast O 1) operations
+Efficient Direct index access
+Limitations
+Limitation Why
+Fixed Size Array capacity limited
+
+*Module 6 – Stack T opics*
+
+8
+Limitation Why
+Overflow Risk Too many pushes
+Example Walkthrough
+Initial:
+top = -1
+Push 5
+top = 0
+stack[0]=5
+Push 8
+top = 1
+stack[1]=8
+Current stack:
+[5][8]
+Memory Representation
+Index 0 = 5
+Index 1 = 8
+Index 2 = empty
+Time Complexity
+
+*Module 6 – Stack T opics*
+
+9
+Operation Complexity
+Push O 1
+Pop O 1
+Peek O 1
+Why Use Array Stack?
+Used when:
+Maximum size known
+Fast implementation needed
+Simple programs/interviews
+Common Beginner Mistakes ⚠
+Mistake 1
+Starting:
+top=0
+Wrong for empty stack.
+Correct:
+top=-1
+Mistake 2
+Accessing stack when empty.
+Practice Questions
+🧠
+
+*Module 6 – Stack T opics*
+
+10
+Tell me:
+
+## Q1
+
+Why top starts at 1?
+
+## Q2
+
+After pushing first element, top becomes?
+
+## Q3
+
+Where is current top item stored?
+
+## Q4
+
+Main limitation of array stack?
+Reply and we go to:
+Lesson 3 – Stack using Linked List
+🚀
+Excellent
+👍
+🔥
+Now we learn a better dynamic version of stack.
+
+*Module 6 – Lesson 3: Stack using Linked*
+
+List
+🚀
+Instead of array, we use:
+Linked List nodes
+This removes fixed-size problem.
+Why Use Linked List Stack?
+Array stack problem:
+
+*Module 6 – Stack T opics*
+
+11
+Fixed size
+Overflow if full
+Linked list stack:
+Can grow dynamically
+- As long as memory available)
+Stack Rule Still Same
+Still follows:
+
+## LIFO
+
+Last In First Out
+Only implementation changes.
+Where is Top?
+In linked list stack:
+Head node acts as Top
+Visual Example
+top → [30] → [20] → [10] → NULL
+Top item:
+
+*Module 6 – Stack T opics*
+
+12
+30
+Why Insert at Beginning?
+Because:
+Fast push
+Fast pop
+No traversal needed.
+Node Structure
+struct Node
+{
+- int data;
+- struct Node* next;
+};
+Top Pointer
+struct Node* top = NULL;
+Means:
+Empty stack.
+Push Preview
+Insert new node at beginning.
+
+*Module 6 – Stack T opics*
+
+13
+Old:
+top → [20] → [10]
+Push 30
+New:
+top → [30] → [20] → [10]
+Pop Preview
+Remove first node.
+Old:
+top → [30] → [20] → [10]
+Pop
+New:
+top → [20] → [10]
+Basic Setup Code
+#include <stdio.h>
+#include <stdlib.h>
+struct Node
+{
+- int data;
+- struct Node* next;
+};
+struct Node* top = NULL;
+
+*Module 6 – Stack T opics*
+
+14
+Advantages
+Advantage Why
+Dynamic Size No fixed capacity
+Push Fast O 1
+Pop Fast O 1
+Disadvantages
+Disadvantage Why
+Extra Memory Pointer in each node
+Slightly Complexmalloc/free needed
+Time Complexity
+Operation Complexity
+Push O 1
+Pop O 1
+Peek O 1
+Array vs Linked List Stack
+Feature Array Linked List
+Size Fixed Dynamic
+Memory Compact Extra pointer
+Push/Pop O 1 O 1
+Real Use Cases
+Used when:
+
+*Module 6 – Stack T opics*
+
+15
+Unknown data size
+Dynamic applications
+Frequent insert/delete at top
+Common Beginner Mistakes ⚠
+Forget free() on pop
+Memory leak.
+Forget update top
+Stack breaks.
+Practice Questions
+🧠
+Tell me:
+
+## Q1
+
+What acts as top in linked list stack?
+
+## Q2
+
+Why linked list stack better than array stack?
+
+## Q3
+
+Where do we insert new node in stack?
+
+## Q4
+
+Big O of push/pop?
+Reply and we go to:
+
+*Module 6 – Stack T opics*
+
+16
+Lesson 4 – Push Operation
+🚀
+Excellent
+👍
+🔥
+Now we learn the first main stack operation.
+
+*Module 6 – Lesson 4: Push Operation*
+
+🚀
+Push means:
+Insert a new element into stack
+Remember stack rule:
+Insert only at TOP
+Stack Example
+Before push:
+Top
+- ↓
+[20]
+[10]
+Push:
+30
+After push:
+Top
+- ↓
+[30]
+[20]
+[10]
+
+*Module 6 – Stack T opics*
+
+17
+Push in Array Stack
+Logic
+- Check stack full or not
+- Increase top
+- Store value
+Code
+top++;
+stack[top]=30;
+Full Function
+void push(int value)
+{
+- if(top==99)
+- {
+- printf("Overflow");
+- return;
+- }
+- top++;
+- stack[top]=value;
+}
+Why Overflow?
+If array size full:
+
+*Module 6 – Stack T opics*
+
+18
+No more space
+Push in Linked List Stack
+Logic
+- Create new node
+- Put data
+- Point new node to old top
+- Move top to new node
+Code
+struct Node* newNode;
+newNode=(struct Node*)malloc(sizeof(struct Node));
+newNode->data=value;
+newNode->next=top;
+top=newNode;
+Visual
+Before:
+top → [20] → [10]
+Push 30
+
+*Module 6 – Stack T opics*
+
+19
+newNode[30]
+After:
+top → [30] → [20] → [10]
+Time Complexity
+Both array and linked list:
+
+## O(1)
+
+Because:
+Constant steps only.
+Why Push is Important
+Used in:
+Function call stack
+Undo action save
+Browser history add page
+Expression evaluation
+Common Mistakes ⚠
+Array Stack
+Forget checking overflow.
+
+*Module 6 – Stack T opics*
+
+20
+Linked List Stack
+Forget:
+newNode->next=top;
+Then old stack disconnects.
+Practice Questions
+🧠
+Tell me:
+
+## Q1
+
+Push means?
+
+## Q2
+
+Where does new element go?
+
+## Q3
+
+Big O of push?
+
+## Q4
+
+What problem occurs if array stack full?
+Reply and we go to:
+Lesson 5 – Pop Operation
+🚀
+Excellent
+👍
+🔥
+Now we learn the second main stack operation.
+
+*Module 6 – Lesson 5: Pop Operation*
+
+🚀
+
+*Module 6 – Stack T opics*
+
+21
+Pop means:
+Remove the top element from stack
+Remember:
+Stack follows LIFO
+Last inserted item removed first.
+Example Stack
+Before pop:
+Top
+- ↓
+[30]
+[20]
+[10]
+Pop operation removes:
+30
+After pop:
+Top
+- ↓
+[20]
+[10]
+Pop in Array Stack
+Logic
+
+*Module 6 – Stack T opics*
+
+22
+- Check stack empty or not
+- Read top item
+- Decrease top
+Code
+int value = stack[top];
+top--;
+Full Function
+int pop()
+{
+- if(top==-1)
+- {
+- printf("Underflow");
+- return -1;
+- }
+- return stack[top--];
+}
+Why Underflow?
+If stack empty:
+Nothing to remove
+
+*Module 6 – Stack T opics*
+
+23
+Pop in Linked List Stack
+Logic
+- Check empty
+- Save top node
+- Move top forward
+- Free old node
+Code
+struct Node* temp = top;
+top = top->next;
+free(temp);
+Full Function
+int pop()
+{
+- if(top==NULL)
+- {
+- printf("Underflow");
+- return -1;
+- }
+- struct Node* temp = top;
+- int value = temp->data;
+- top = top->next;
+- free(temp);
+
+*Module 6 – Stack T opics*
+
+24
+- return value;
+}
+Visual
+Before:
+top → [30] → [20] → [10]
+After pop:
+top → [20] → [10]
+Time Complexity
+Both implementations:
+
+## O(1)
+
+Very fast.
+Why Pop is Important
+Used in:
+Undo last action
+Back button remove current page
+Expression solving
+Returning from function calls
+
+*Module 6 – Stack T opics*
+
+25
+Common Mistakes ⚠
+Array Stack
+Forget checking:
+top == -1
+Linked List Stack
+Forget:
+free(temp);
+Memory leak.
+Forget to return removed value
+Push vs Pop
+Operation Meaning
+Push Add top
+Pop Remove top
+Practice Questions
+🧠
+Tell me:
+
+## Q1
+
+Pop removes from where?
+
+## Q2
+
+What is underflow?
+
+*Module 6 – Stack T opics*
+
+26
+
+## Q3
+
+Big O of pop?
+
+## Q4
+
+Why use free() in linked list pop?
+Reply and we go to:
+Lesson 6 – Peek / Top Operation
+🚀
+Excellent
+👍
+🔥
+Now we learn the third important stack operation.
+
+*Module 6 – Lesson 6: Peek / Top Operation*
+
+🚀
+Peek (or Top) means:
+See the top element without removing it
+Simple meaning:
+Look at top item only.
+Example Stack
+Top
+- ↓
+[30]
+[20]
+[10]
+Peek gives:
+
+*Module 6 – Stack T opics*
+
+27
+30
+But stack remains same.
+Difference from Pop
+Operation Removes Item?
+Pop Yes
+Peek No
+Why Peek is Useful
+Used when you need:
+Check next item
+Compare top symbol
+See current state
+Decision making without delete
+Peek in Array Stack
+Code
+int peek()
+{
+- if(top==-1)
+- {
+- printf("Empty Stack");
+- return -1;
+- }
+
+*Module 6 – Stack T opics*
+
+28
+- return stack[top];
+}
+Why This Works
+Because:
+top stores last inserted index
+So:
+stack[top]
+is top item.
+Peek in Linked List Stack
+Code
+int peek()
+{
+- if(top==NULL)
+- {
+- printf("Empty Stack");
+- return -1;
+- }
+- return top->data;
+}
+
+*Module 6 – Stack T opics*
+
+29
+Why This Works
+Because:
+top pointer points first node
+And first node = stack top.
+Visual
+Before peek:
+top → [50] → [40] → [30]
+After peek:
+Still same stack
+Only value seen.
+Time Complexity
+Both versions:
+
+## O(1)
+
+Very fast.
+Real Use Cases
+Peek used in:
+Parentheses matching
+
+*Module 6 – Stack T opics*
+
+30
+Browser current page check
+Calculator expression parsing
+Undo stack preview
+Common Mistakes ⚠
+Mistake 1
+Using pop instead of peek.
+Then data gets removed accidentally.
+Mistake 2
+No empty check.
+Can cause invalid access.
+Push / Pop / Peek Summary
+Operation Action
+Push Add item
+Pop Remove top
+Peek View top
+Practice Questions
+🧠
+Tell me:
+
+## Q1
+
+Peek returns which element?
+
+## Q2
+
+*Module 6 – Stack T opics*
+
+31
+Does peek remove item?
+
+## Q3
+
+Big O of peek?
+
+## Q4
+
+Why check empty stack first?
+Reply and we go to:
+Lesson 7 – Applications of Stack
+🚀
+(final lesson of Module 6 .
+Excellent
+👍
+🔥
+Youʼve reached the final lesson of Module 6.
+
+*Module 6 – Lesson 7: Applications of Stack*
+
+🚀
+Now youʼll learn:
+Where stacks are actually used in real programming
+This is very important for interviews and understanding why stack exists.
+Core Idea Reminder
+Stack follows:
+
+## LIFO
+
+Last In First Out
+
+*Module 6 – Stack T opics*
+
+32
+So it is useful when:
+Latest item must be handled first.
+1. Function Call Stack 📞
+Whenever a function runs:
+main()
+sum()
+display()
+Computer stores calls in stack.
+Example
+main()
+- ↓
+sum()
+- ↓
+display()
+When returning:
+display returns first
+sum returns next
+main returns last
+LIFO behavior.
+2. Undo / Redo
+✍
+Typing in editor:
+
+*Module 6 – Stack T opics*
+
+33
+Type A
+Type B
+Type C
+Undo removes:
+C first
+Then B
+Then A
+Perfect stack use.
+3. Browser Back Button
+🌐
+Visited:
+Google
+YouTube
+GitHub
+Press Back:
+GitHub removed first
+Then YouTube
+Stack logic.
+4. Parentheses Matching 🧮
+Check expressions:
+( ) { } [ ]
+Example:
+
+*Module 6 – Stack T opics*
+
+34
+(a+b) * (c+d)
+Use stack to ensure opening/closing brackets match.
+5. Expression Evaluation
+Math expressions:
+(2+3)*5
+Compilers/calculators use stacks.
+6. String Reversal
+Push characters:
+
+## C A T
+
+Pop gives:
+
+## T A C
+
+Reversed string.
+7. Backtracking / DFS
+Used in:
+Maze solving
+Browser navigation
+Depth First Search in graphs
+
+*Module 6 – Stack T opics*
+
+35
+Why Stack Is Powerful
+Because many problems need:
+Remember last state first.
+Real-World Summary Table
+Application Why Stack?
+Function Calls Return in reverse order
+Undo Last action undone first
+Browser Back Latest page first
+Parentheses Track openings
+Expression EvalOperator handling
+Interview Questions Often Ask
+Give real-life uses of stack.
+Now you know several strong answers.
+Time Complexity Reminder
+Operation Complexity
+Push O 1
+Pop O 1
+Peek O 1
+Practice Questions
+🧠
+Tell me:
+
+*Module 6 – Stack T opics*
+
+36
+
+## Q1
+
+Why undo feature uses stack?
+
+## Q2
+
+Why function calls use stack?
+
+## Q3
+
+Which stack property helps browser back button?
+
+## Q4
+
+Can stack help reverse string? How?
+
+*MODULE 6 COMPLETE 🎉*
+
+You finished:
+Lesson Topic
+1 Introduction
+2 Stack using Array
+3 Stack using Linked List
+4 Push
+5 Pop
+6 Peek
+7 Applications
+Next Module Preview
+Now we move to:
+
+*Module 7 – Queue*
+
+*Module 6 – Stack T opics*
+
+37
+Where you'll learn:
+FIFO principle
+Enqueue / Dequeue
+Circular Queue
+Priority Queue
+Deque
+👉 Reply “Start Module 7” when ready
+🚀
+
+*Module 6 – Stack T opics*
+
+38

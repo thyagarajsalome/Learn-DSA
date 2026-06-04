@@ -1,0 +1,910 @@
+
+*Module 12 – Trees*
+
+🚀 **Module 12**: – Trees (Structured Learning
+in C)
+Now we begin one of the most important DSA modules:
+👉 Trees
+Trees are used everywhere in computer science.
+Used in:
+File systems
+Databases
+Search engines
+Compilers
+AI decision systems
+Autocomplete
+Heaps / Priority queues
+📚 **Module 12**: Topics
+We will learn step-by-step:
+- Introduction to Trees
+- Binary Tree
+- Binary Search Tree BST
+- Tree Traversals
+- AVL Tree
+- Heap
+
+*Module 12 – T rees*
+
+1
+- Trie
+🎯 **Lesson 1**: – Introduction to Trees
+✅ **What is**: a Tree?
+A Tree is:
+A hierarchical non-linear data structure made of nodes connected by edges.
+Unlike arrays/linked lists, data is organized in levels.
+🧠 **Real Life**: Example
+Family Tree
+Grandparent
+- |
+- Parent
+- / \
+Child1 Child2
+Folder Structure
+
+## C:
+
+├── Documents
+├── Photos
+└── Music
+📦 **Basic Tree**: Example
+- A
+- / \
+
+*Module 12 – T rees*
+
+2
+- B C
+- / \ \
+- D E F
+📌 **Important Terms**
+Term Meaning
+Root Top node
+Parent Node with children
+Child Connected below parent
+Leaf Node with no children
+Edge Connection line
+Level Depth position
+Subtree Tree inside tree
+🎯 **In Example**: Above
+Root = A
+Children of A = B, C
+Leaf nodes = D, E, F
+📌 **Why Trees**: Better?
+For many operations, trees are faster than linear structures.
+Example:
+Search in balanced tree = fast
+Hierarchical data fits naturally
+💻 **C Node**: Structure (Binary Tree Style)
+
+*Module 12 – T rees*
+
+3
+struct Node {
+- int data;
+- struct Node* left;
+- struct Node* right;
+};
+🎯 **Where Trees**: Used?
+Search Engine
+Word indexes
+Databases
+B Trees / indexing
+
+## OS
+
+Folder directories
+Priority Systems
+Heap trees
+⏱ Complexity Preview
+Balanced trees often provide:
+O(log n)
+for search/insert/delete.
+🧪 Practice
+
+*Module 12 – T rees*
+
+4
+In this tree:
+- 10
+- / \
+- 5 20
+Root = ?
+✅ **10**
+Leaf nodes = ?
+✅ **5, 20**
+📌 **Summary**
+Tree:
+Hierarchical structure
+Nodes + edges
+Used widely in real systems
+⏭ Next Lesson
+Binary Tree
+Type next
+🚀
+🚀 **Module 12 – Lesson 2**: Binary Tree
+Now we learn the most common tree type:
+👉 Binary Tree
+Foundation for BST, Heap, AVL and more.
+
+*Module 12 – T rees*
+
+5
+🎯 **What is**: Binary Tree?
+A Binary Tree is:
+A tree where each node can have at most two children.
+Children are called:
+Left child
+Right child
+📦 **Example**
+- 10
+- / \
+- 5 20
+- / \ \
+- 2 8 30
+📌 **In This**: Tree
+Root = 10
+Left child of 10 = 5
+Right child of 10 = 20
+Leaf nodes = 2, 8, 30
+🧠 **Why Binary**: Tree Important?
+Many advanced structures are based on it:
+Binary Search Tree
+AVL Tree
+Heap
+
+*Module 12 – T rees*
+
+6
+Expression Tree
+📌 **Types of**: Binary Trees
+- Full Binary Tree
+Every node has 0 or 2 children.
+- Complete Binary Tree
+All levels filled except maybe last, filled left to right.
+- Perfect Binary Tree
+All internal nodes have 2 children and all leaves same level.
+- Skewed Tree
+All nodes one side only.
+📦 **Skewed Example**
+10
+- \
+- 20
+- \
+- 30
+💻 **C Structure**
+#include <stdio.h>
+#include <stdlib.h>
+struct Node {
+
+*Module 12 – T rees*
+
+7
+- int data;
+- struct Node* left;
+- struct Node* right;
+};
+struct Node* createNode(int val) {
+- struct Node* newNode =
+- (struct Node*)malloc(sizeof(struct Node));
+- newNode->data = val;
+- newNode->left = NULL;
+- newNode->right = NULL;
+- return newNode;
+}
+📌 **Build Example**: Tree
+struct Node* root = createNode(10);
+root->left = createNode(5);
+root->right = createNode(20);
+root->left->left = createNode(2);
+root->left->right = createNode(8);
+🎯 **Real Use**: Cases
+Expression Trees
+Math expressions
+Decision Trees
+AI / ML logic
+
+*Module 12 – T rees*
+
+8
+DOM Tree
+HTML page structure
+⏱ Operations (General Binary Tree)
+Operation Typical Time
+Search O(n)
+Insert (specific place) Depends
+Traversal O(n)
+- No ordering rule yet)
+⚠ Important Note
+Binary Tree is not same as BST.
+Binary Tree has no sorting rule.
+🧪 Practice
+How many max children can one node have?
+✅ **2**
+📌 **Summary**
+Binary Tree:
+Each node max two children
+Left and right child
+Base for many advanced trees
+⏭ Next Lesson
+
+*Module 12 – T rees*
+
+9
+Binary Search Tree (BST)
+Type next
+🚀
+🚀 **Module 12 – Lesson 3**: Binary Search
+Tree (BST)
+Now we learn one of the most important tree structures:
+👉 Binary Search Tree (BST)
+This is a Binary Tree with a special ordering rule.
+🎯 **What is**: BST?
+A BST is:
+For every node:
+Left subtree values are smaller
+Right subtree values are greater
+📦 **Example**
+- 15
+- / \
+- 10 25
+- / \ / \
+- 5 12 20 30
+📌 **Check Rule**
+For node 15
+
+*Module 12 – T rees*
+
+10
+Left side: 10,5,12 < 15
+✅
+Right side: 25,20,30 > 15
+✅
+🧠 **Why BST**: Powerful?
+Because searching becomes faster than linear search.
+Instead of checking all nodes, move left or right.
+🎯 **Search Example**
+Find 20
+Start 15
+20 > 15 → go right
+25
+20 < 25 → go left
+20 found
+✅
+📌 **Compare with**: Binary Tree
+Feature Binary Tree BST
+Max children 2 2
+Ordered values No Yes
+Fast search Not guaranteed Yes
+💻 **C Structure**
+struct Node {
+- int data;
+- struct Node* left;
+
+*Module 12 – T rees*
+
+11
+- struct Node* right;
+};
+Same structure, different rules.
+💻 **BST Insert**: Program
+#include <stdio.h>
+#include <stdlib.h>
+struct Node {
+- int data;
+- struct Node* left;
+- struct Node* right;
+};
+struct Node* createNode(int val) {
+- struct Node* node =
+- (struct Node*)malloc(sizeof(struct Node));
+- node->data = val;
+- node->left = node->right = NULL;
+- return node;
+}
+struct Node* insert(struct Node* root, int val) {
+- if (root == NULL)
+- return createNode(val);
+- if (val < root->data)
+- root->left = insert(root->left, val);
+- else if (val > root->data)
+- root->right = insert(root->right, val);
+
+*Module 12 – T rees*
+
+12
+- return root;
+}
+int main() {
+- struct Node* root = NULL;
+- root = insert(root, 15);
+- insert(root, 10);
+- insert(root, 25);
+- insert(root, 5);
+- return 0;
+}
+🎯 **Time Complexity**
+Case Search / Insert
+Balanced BST O(log n)
+Skewed BST O(n)
+⚠ Skewed Problem
+Insert sorted values:
+10,20,30,40
+Becomes:
+10
+- \
+- 20
+- \
+- 30
+
+*Module 12 – T rees*
+
+13
+- \
+- 40
+Slow like linked list
+❌
+Solved later by AVL Tree.
+🎯 **Real Use**: Cases
+Fast searching sets
+Symbol tables
+Ordered data storage
+🧪 Practice
+If current node = 50
+Where does 30 go?
+✅ **Left**
+Where does 80 go?
+✅ **Right**
+📌 **Summary**
+
+## BST
+
+Left smaller
+Right greater
+Fast search if balanced
+⏭ Next Lesson
+
+*Module 12 – T rees*
+
+14
+Tree Traversals
+Type next
+🚀
+🚀 **Module 12 – Lesson 4**: Tree Traversals
+Now we learn how to visit nodes of a tree systematically.
+👉 Tree Traversals
+Traversal means:
+Visit every node in a specific order.
+Very important for interviews and coding.
+🎯 **Example Tree**
+- 10
+- / \
+- 5 20
+- / \ \
+- 2 8 30
+📚 **Main Traversals**
+Depth First Traversals
+- Inorder
+- Preorder
+- Postorder
+Breadth First Traversal
+
+*Module 12 – T rees*
+
+15
+- Level Order (later with Queue)
+🎯
+- Inorder (Left, Root, Right)
+Rule:
+Left → Node → Right
+For tree:
+2 5 8 10 20 30
+📌 **In BST,**: inorder gives sorted order.
+🎯
+- Preorder (Root, Left, Right)
+Rule:
+Node → Left → Right
+Output:
+10 5 2 8 20 30
+Used for copying tree / prefix expressions.
+🎯
+- Postorder (Left, Right, Root)
+Rule:
+Left → Right → Node
+
+*Module 12 – T rees*
+
+16
+Output:
+2 8 5 30 20 10
+Used for delete/free tree / postfix expressions.
+💻 **C Program**
+#include <stdio.h>
+#include <stdlib.h>
+struct Node {
+- int data;
+- struct Node* left;
+- struct Node* right;
+};
+void inorder(struct Node* root) {
+- if (root == NULL) return;
+- inorder(root->left);
+- printf("%d ", root->data);
+- inorder(root->right);
+}
+void preorder(struct Node* root) {
+- if (root == NULL) return;
+- printf("%d ", root->data);
+- preorder(root->left);
+- preorder(root->right);
+}
+void postorder(struct Node* root) {
+
+*Module 12 – T rees*
+
+17
+- if (root == NULL) return;
+- postorder(root->left);
+- postorder(root->right);
+- printf("%d ", root->data);
+}
+🧠 **Memory Trick**
+Traversal Rule
+Inorder L N R
+Preorder N L R
+Postorder L R N
+Where:
+L Left
+N Node
+R Right
+🎯 **Real Use**: Cases
+Inorder
+Sorted BST data
+Preorder
+Save tree structure
+Postorder
+Delete tree safely
+
+*Module 12 – T rees*
+
+18
+⏱ Complexity
+Traversal Time
+All traversals O(n)
+Need to visit each node once.
+🧪 Practice
+Tree:
+- 1
+- / \
+- 2 3
+Preorder?
+✅
+1 2 3
+Inorder?
+✅
+2 1 3
+Postorder?
+✅
+2 3 1
+📌 **Summary**
+
+*Module 12 – T rees*
+
+19
+Tree Traversals:
+Inorder = LNR
+Preorder = NLR
+Postorder = LRN
+Core recursion topic.
+⏭ Next Lesson
+AVL Tree (Self Balancing BST)
+Type next
+🚀
+🚀 **Module 12 – Lesson 5**: AVL Tree (Self
+Balancing BST)
+Now we learn an advanced BST
+👉 AVL Tree
+AVL Tree solves the biggest BST problem:
+Skewed tree = slow search
+🎯 **What is**: AVL Tree?
+AVL Tree is:
+A self-balancing Binary Search Tree.
+After insert/delete, it automatically balances itself.
+
+*Module 12 – T rees*
+
+20
+🧠 **Why Needed?**
+Normal BST can become:
+10
+- \
+- 20
+- \
+- 30
+- \
+- 40
+This acts like linked list.
+Search becomes:
+O(n)
+Bad
+❌
+✅ **AVL Solution**
+Keeps height balanced.
+Example:
+- 20
+- / \
+- 10 30
+- \
+- 40
+Better shape.
+📌 **Balance Factor**
+For each node:
+
+*Module 12 – T rees*
+
+21
+BF = height(left) - height(right)
+Allowed values:
+-1, 0, +1
+If outside this range → rotate tree.
+🎯 **Rotations**
+AVL uses rotations to rebalance.
+- Right Rotation
+- Left Rotation
+- Left-Right Rotation
+- Right-Left Rotation
+📦 **Example (Right**: Rotation)
+Before:
+- 30
+- /
+- 20
+- /
+10
+After balance:
+- 20
+- / \
+
+*Module 12 – T rees*
+
+22
+10 30
+🎯 **Why Powerful?**
+Search / Insert / Delete remain fast.
+⏱ Time Complexity
+Operation Time
+Search O(log n)
+Insert O(log n)
+Delete O(log n)
+Guaranteed balanced performance.
+💻 **Basic Node**: Structure
+struct Node {
+- int data;
+- struct Node* left;
+- struct Node* right;
+- int height;
+};
+Height stored for balance calculations.
+🎯 **Real Use**: Cases
+Databases
+Memory indexes
+Ordered sets/maps
+
+*Module 12 – T rees*
+
+23
+Systems needing guaranteed fast search
+⚠ Tradeoff
+AVL is faster searching than plain BST, but insertion logic is more complex due to
+rotations.
+🧪 Practice
+If left height = 3 and right height = 1
+Balance factor:
+
+## BF 3 1 2
+
+Is balanced?
+❌ **No**
+📌 **Summary**
+AVL Tree:
+Self-balancing BST
+Uses rotations
+Keeps operations O(log n)
+⏭ Next Lesson
+Heap
+Type next
+🚀
+🚀 **Module 12 – Lesson 6**: Heap
+Now we learn one of the most useful tree-based structures:
+
+*Module 12 – T rees*
+
+24
+👉 Heap
+Heap is heavily used in:
+Priority Queue
+Scheduling
+Heap Sort
+Graph algorithms
+Real-time systems
+🎯 **What is**: Heap?
+A Heap is:
+A complete binary tree that follows heap property.
+Usually stored in an array.
+📚 **Types of**: Heap
+- Max Heap
+Parent is greater than children.
+- 50
+- / \
+- 30 40
+- / \
+20 10
+Largest value at root.
+- Min Heap
+Parent is smaller than children.
+
+*Module 12 – T rees*
+
+25
+- 10
+- / \
+- 20 30
+- / \
+40 50
+Smallest value at root.
+📌 **Complete Binary**: Tree
+All levels filled except last, filled left to right.
+This makes heap compact.
+🎯 **Array Representation**
+For heap:
+[50,30,40,20,10]
+Indexes:
+Left child = 2i + 1
+Right child = 2i + 2
+Parent = (i-1)/2
+📦 **Example**
+Index 0 50
+Children:
+2 0 1 1
+2 0 2 2
+So children are 30 and 40.
+
+*Module 12 – T rees*
+
+26
+🎯 **Main Operations**
+Insert
+Add at end, then heapify upward.
+Delete Root
+Replace root with last item, then heapify downward.
+💻 **Simple C**: Array
+int heap[] = {50,30,40,20,10};
+🎯 **Why Heap**: Powerful?
+Get max/min quickly:
+Root element
+⏱ Time Complexity
+Operation Time
+Get Max/Min O 1
+Insert O(log n)
+Delete Root O(log n)
+Build Heap O(n)
+📌 **Heap vs**: BST
+
+*Module 12 – T rees*
+
+27
+| Feature | Heap | BST |
+| | |
+| Fast max/min root | Yes | No guarantee root |
+| Sorted traversal | No | Yes |
+| Priority Queue | Excellent | Less common |
+🎯 **Real Use**: Cases
+Priority Queue
+Highest priority first.
+CPU Scheduler
+Next important task.
+Dijkstra / Prim
+Use min heap.
+🧪 Practice
+In Max Heap, largest element is always at:
+✅ **Root**
+In Min Heap, smallest element is always at:
+✅ **Root**
+📌 **Summary**
+Heap:
+Complete binary tree
+Max Heap / Min Heap
+
+*Module 12 – T rees*
+
+28
+Great for priority operations
+⏭ Next Lesson
+Trie
+Type next
+🚀
+🚀 **Module 12 – Lesson 7**: Trie
+Now we learn a special tree used for strings:
+👉 Trie
+Trie is extremely useful for fast word searching.
+Used in:
+Autocomplete
+Dictionary apps
+Spell checkers
+Search suggestions
+IP routing (variants)
+🎯 **What is**: Trie?
+Trie (pronounced try) is:
+A tree where each node stores characters of words.
+Each path from root can form a word.
+🧠 **Real Life**: Example
+
+*Module 12 – T rees*
+
+29
+Phone keyboard suggestions:
+Type:
+ap
+Suggestions:
+apple
+app
+apply
+Trie makes this fast.
+📦 **Example Words**
+Insert:
+cat
+car
+can
+Trie:
+(root)
+- |
+- c
+- |
+- a
+- / | \
+t r n
+Each branch completes a word.
+📌 **Important Idea**
+Common prefixes share nodes.
+
+*Module 12 – T rees*
+
+30
+All words start with:
+ca
+So memory and searching become efficient.
+🎯 **Operations**
+Insert Word
+Add characters one by one.
+Search Word
+Follow character path.
+Prefix Search
+Find words starting with given letters.
+💻 **Basic C**: Structure
+#include <stdio.h>
+#include <stdlib.h>
+struct TrieNode {
+- struct TrieNode* child[26];
+- int isEnd;
+};
+26 children for a-z
+isEnd = 1 means complete word
+
+*Module 12 – T rees*
+
+31
+📦 **Search Example**
+Find:
+car
+Go:
+root -> c -> a -> r
+If final node has isEnd = 1
+Found
+✅
+🎯 **Why Trie**: Better Than Hashing for Prefix?
+Hashing finds exact words well.
+Trie can easily find:
+all words starting with "ca"
+Like:
+cat
+car
+can
+⏱ Time Complexity
+If word length = L
+Operation Time
+Insert O L
+
+*Module 12 – T rees*
+
+32
+Operation Time
+Search O L
+Prefix Search O L
+Depends on word length, not number of words.
+📌 **Advantages**
+Very fast prefix search
+Great for autocomplete
+Predictable speed
+⚠ Disadvantages
+Uses more memory
+More complex than arrays
+🎯 **Real Use**: Cases
+Google Search Suggestions
+Type letters, get predictions.
+Dictionary
+Word existence check.
+Contacts App
+Search by starting letters.
+🧪 Practice
+
+*Module 12 – T rees*
+
+33
+Words:
+dog
+door
+dot
+Common prefix?
+✅ **do**
+📌 **Summary**
+Trie:
+Tree of characters
+Excellent for words/prefixes
+Used in autocomplete systems
+🎓 **Module 12 Completed**: Trees
+Topics Covered:
+✅ **Introduction to**: Trees
+✅ **Binary Tree**
+✅ **Binary Search**: Tree
+✅ **Tree Traversals**
+✅ **AVL Tree**
+✅ **Heap**
+✅ **Trie**
+🧠 **Importance Rating**
+
+*Module 12 – T rees*
+
+34
+Topic Importance
+Binary Tree
+⭐
+⭐
+⭐
+⭐
+⭐
+
+## BST
+
+⭐
+⭐
+⭐
+⭐
+⭐
+Traversals
+⭐
+⭐
+⭐
+⭐
+⭐
+AVL Tree
+⭐
+⭐
+⭐
+⭐
+Heap
+⭐
+⭐
+⭐
+⭐
+⭐
+Trie
+⭐
+⭐
+⭐
+⭐
+⏭ Next Module
+🚀 **Module 13**: – Graphs
+Type:
+Start Module 13
+
+*Module 12 – T rees*
+
+35

@@ -1,0 +1,811 @@
+
+*Module 10 – Sorting Algorithms*
+
+🚀 **Module 10**: – Sorting Algorithms (Structured Learning in C)
+Now we begin one of the most important DSA modules:
+👉 Sorting Algorithms
+Sorting means arranging data in order.
+Examples:
+Ascending: 1 2 3 4 5
+Descending: 5 4 3 2 1
+🧠 **Why Sorting**: Important?
+Used everywhere:
+Student rank lists
+Product prices low to high
+Search optimization
+Reports & analytics
+Database indexing
+Leaderboards
+📚 **Module 10**: Topics
+We will learn step-by-step:
+- Introduction to Sorting
+- Bubble Sort
+- Selection Sort
+- Insertion Sort
+- Merge Sort
+- Quick Sort
+- Heap Sort
+- Comparison of Sorting Techniques
+🎯 **Lesson 1**: – Introduction to Sorting
+✅ **What is**: Sorting?
+Sorting means:
+Rearranging elements into a desired order.
+Example:
+
+*Module 10 – Sorting Algorithms*
+
+1
+Before: 40 10 30 20After : 10 20 30 40
+📌 **Types of**: Sorting Order
+Type Example
+Ascending 1,2,3,4
+Descending 4,3,2,1
+Alphabetical A,B,C
+🎯 **Why Many**: Sorting Algorithms Exist?
+Because different situations need different strengths:
+Small data
+Nearly sorted data
+Huge data
+Low memory
+Fast average speed
+Stable ordering
+📦 **Example Use**: Cases
+E-commerce
+Sort products by:
+Price
+Rating
+Newest
+School
+Sort students by marks.
+Banking
+Sort transactions by date.
+💻 **Simple C**: Example
+int arr[] = {40,10,30,20};
+Need:
+10 20 30 40
+
+*Module 10 – Sorting Algorithms*
+
+2
+📌 **Terms You**: Must Know
+Stable Sort
+Equal elements keep original order.
+In-place Sort
+Uses little extra memory.
+Comparison Sort
+Uses <, > comparisons.
+⏱ Time Complexity Preview
+Algorithm Time Typical)
+Bubble O(n²)
+Selection O(n²)
+Insertion O(n²)
+Merge O(n log n)
+Quick O(n log n) average
+Heap O(n log n)
+🎯 **Real Example**
+Array:
+[5,1,4,2]
+Sorted:
+[1,2,4,5]
+🧪 Practice
+Sort ascending:
+[9,3,7]
+✅ **Answer**:
+[3,7,9]
+📌 **Summary**
+Sorting = arranging data in order.
+
+*Module 10 – Sorting Algorithms*
+
+3
+It improves:
+Searching
+Readability
+Efficiency
+⏭ Next Lesson
+Bubble Sort (Best for beginners)
+Type next
+🚀
+🚀 **Module 10 – Lesson 2**: Bubble Sort (Best for Beginners)
+Now we learn the easiest sorting algorithm:
+👉 Bubble Sort
+🎯 **What is**: Bubble Sort?
+Bubble Sort repeatedly compares adjacent elements and swaps them if they are in wrong order.
+Large values “bubble up” to the end.
+🧠 **Real Life**: Example
+Like air bubbles rising upward in water.
+Largest numbers move to the top/end each pass.
+📦 **Example**
+Sort:
+[5, 1, 4, 2]
+Pass 1
+Compare neighbors:
+5 and 1 → swap → [1,5,4,2]5 and 4 → swap → [1,4,5,2]5 and 2 → swap → [1,4,2,5]
+Largest value 5 reached end.
+Pass 2
+1 and 4 → ok4 and 2 → swap → [1,2,4,5]
+
+*Module 10 – Sorting Algorithms*
+
+4
+Pass 3
+Already sorted.
+[1,2,4,5]
+💻 **C Program**
+#include <stdio.h>
+int main() { int arr[] = {5,1,4,2}; int n = 4;
+- for (int i = 0; i < n - 1; i++) { for (int j = 0; j < n - i - 1; j++) { if (arr[j] > arr[j + 1]) { int temp = arr[j]; arr[j] = arr[j + 1]; arr[j + 1] = temp; } } }
+- for (int i = 0; i < n; i++) printf("%d ", arr[i]);
+- return 0;}
+🧾 Output
+1 2 4 5
+🧠 **Why n-i-1?**
+After each pass, largest item reaches correct end position.
+So no need to compare last sorted elements again.
+🎯 **Best Use**: Cases
+Learning sorting basics
+Very small arrays
+Nearly sorted data (with optimization)
+
+*Module 10 – Sorting Algorithms*
+
+5
+⏱ Time Complexity
+Case Time
+Best (optimized)O(n)
+Average O(n²)
+Worst O(n²)
+📌 **Space Complexity**
+
+## O(1)
+
+In-place sorting.
+✅ **Advantages**
+Very simple
+Easy to code
+Good for teaching swaps/comparisons
+⚠ Disadvantages
+Slow for large data
+Many unnecessary comparisons
+🧪 Practice
+Sort:
+[3,2,1]
+After full bubble sort:
+✅ **Answer**:
+[1,2,3]
+📌 **Summary**
+Bubble Sort:
+Compare adjacent elements
+Swap if wrong order
+Largest value moves to end each pass
+⏭ Next Lesson
+
+*Module 10 – Sorting Algorithms*
+
+6
+Selection Sort
+Type next
+🚀
+🚀 **Module 10 – Lesson 3**: Selection Sort
+Now we learn another simple sorting method:
+👉 Selection Sort
+🎯 **What is**: Selection Sort?
+Selection Sort repeatedly:
+Find the smallest element from unsorted part and place it in correct position.
+🧠 **Real Life**: Example
+Like arranging cards:
+Pick smallest card first
+Put it at beginning
+Then next smallest
+Continue
+📦 **Example**
+Sort:
+[64, 25, 12, 22, 11]
+Pass 1
+Find smallest = 11
+Swap with first:
+[11, 25, 12, 22, 64]
+Pass 2
+Find smallest from remaining:
+[25,12,22,64]
+Smallest = 12
+[11,12,25,22,64]
+
+*Module 10 – Sorting Algorithms*
+
+7
+Pass 3
+Smallest in remaining = 22
+[11,12,22,25,64]
+Sorted
+✅
+💻 **C Program**
+#include <stdio.h>
+int main() { int arr[] = {64,25,12,22,11}; int n = 5;
+- for (int i = 0; i < n - 1; i++) { int min = i;
+- for (int j = i + 1; j < n; j++) { if (arr[j] < arr[min]) min = j; }
+- int temp = arr[i]; arr[i] = arr[min]; arr[min] = temp; }
+- for (int i = 0; i < n; i++) printf("%d ", arr[i]);
+- return 0;}
+🧾 Output
+11 12 22 25 64
+🧠 **How It**: Works
+At index i:
+Search smallest from i to end
+Swap into index i
+Then move i forward.
+
+*Module 10 – Sorting Algorithms*
+
+8
+📌 **Number of**: Swaps
+Selection sort usually does fewer swaps than bubble sort.
+Good when swap cost is expensive.
+⏱ Time Complexity
+Case Time
+Best O(n²)
+Average O(n²)
+Worst O(n²)
+Always scans remaining array.
+📌 **Space Complexity**
+
+## O(1)
+
+In-place.
+✅ **Advantages**
+Easy to understand
+Fewer swaps
+Good for small lists
+⚠ Disadvantages
+Slow for large arrays
+Not adaptive (sorted input still O(n²))
+🧪 Practice
+Sort:
+[3,1,2]
+Pass 1 smallest = 1
+Final sorted:
+✅
+[1,2,3]
+📌 **Summary**
+
+*Module 10 – Sorting Algorithms*
+
+9
+Selection Sort:
+Repeatedly select smallest item
+Put it in correct place
+Simple but slow
+⏭ Next Lesson
+Insertion Sort
+Type next
+🚀
+🚀 **Module 10 – Lesson 4**: Insertion Sort
+Now we learn one of the most practical simple sorts:
+👉 Insertion Sort
+🎯 **What is**: Insertion Sort?
+Insertion Sort builds the sorted array one element at a time.
+Pick next element and insert it into correct place among already sorted elements.
+🧠 **Real Life**: Example
+Like arranging playing cards in your hand:
+Take one card
+Insert into correct position
+Repeat
+📦 **Example**
+Sort:
+[5, 2, 4, 6, 1]
+Step 1
+Take 2, insert before 5
+[2,5,4,6,1]
+Step 2
+Take 4, place between 2 and 5
+
+*Module 10 – Sorting Algorithms*
+
+10
+[2,4,5,6,1]
+Step 3
+Take 6
+Already correct.
+[2,4,5,6,1]
+Step 4
+Take 1
+Move others right.
+[1,2,4,5,6]
+Sorted
+✅
+💻 **C Program**
+#include <stdio.h>
+int main() { int arr[] = {5,2,4,6,1}; int n = 5;
+- for (int i = 1; i < n; i++) { int key = arr[i]; int j = i - 1;
+- while (j >= 0 && arr[j] > key) { arr[j + 1] = arr[j]; j--; }
+- arr[j + 1] = key; }
+- for (int i = 0; i < n; i++) printf("%d ", arr[i]);
+- return 0;}
+🧾 Output
+
+*Module 10 – Sorting Algorithms*
+
+11
+1 2 4 5 6
+🧠 **How It**: Works
+Sorted part grows from left side:
+[5] unsorted[2,5] unsorted[2,4,5] unsorted[2,4,5,6] unsorted[1,2,4,5,6]
+🎯 **Best Use**: Cases
+Small arrays
+Nearly sorted arrays
+Online insertion (new data arrives gradually)
+⏱ Time Complexity
+Case Time
+Best (already sorted) O(n)
+Average O(n²)
+Worst (reverse sorted)O(n²)
+📌 **Space Complexity**
+
+## O(1)
+
+In-place.
+✅ **Advantages**
+Simple
+Fast for nearly sorted data
+Stable sort
+⚠ Disadvantages
+Slow for large random arrays
+🧪 Practice
+Sort:
+
+*Module 10 – Sorting Algorithms*
+
+12
+[3,1,2]
+Final:
+✅
+[1,2,3]
+📌 **Summary**
+Insertion Sort:
+Insert next element into sorted portion
+Great for small / nearly sorted data
+⏭ Next Lesson
+Merge Sort (Divide and Conquer)
+Type next
+🚀
+🚀 **Module 10 – Lesson 5**: Merge Sort (Divide and Conquer)
+Now we learn one of the most powerful sorting algorithms:
+👉 Merge Sort
+Used in real systems because it is fast and reliable.
+🎯 **What is**: Merge Sort?
+Merge Sort uses:
+Divide and Conquer
+- Divide array into halves
+- Sort each half recursively
+- Merge sorted halves
+🧠 **Real Life**: Example
+Sorting books:
+Split books into two piles
+Sort each pile
+Combine in order
+📦 **Example**
+
+*Module 10 – Sorting Algorithms*
+
+13
+Sort:
+[38, 27, 43, 3]
+Split:
+[38,27] [43,3]
+Split again:
+[38] [27] [43] [3]
+Merge sorted:
+[27,38] [3,43]
+Final merge:
+[3,27,38,43]
+🧠 **Recursive Tree**
+[38,27,43,3] / \[38,27] [43,3] / \ / \38 27 43 3
+💻 **C Program**
+#include <stdio.h>
+void merge(int arr[], int l, int m, int r) { int i = l, j = m + 1, k = 0; int temp[100];
+- while (i <= m && j <= r) { if (arr[i] < arr[j]) temp[k++] = arr[i++]; else temp[k++] = arr[j++]; }
+- while (i <= m) temp[k++] = arr[i++];
+- while (j <= r) temp[k++] = arr[j++];
+
+*Module 10 – Sorting Algorithms*
+
+14
+- for (i = l, k = 0; i <= r; i++, k++) arr[i] = temp[k];}
+void mergeSort(int arr[], int l, int r) { if (l < r) { int m = (l + r) / 2;
+- mergeSort(arr, l, m); mergeSort(arr, m + 1, r);
+- merge(arr, l, m, r); }}
+int main() { int arr[] = {38,27,43,3}; int n = 4;
+- mergeSort(arr, 0, n - 1);
+- for (int i = 0; i < n; i++) printf("%d ", arr[i]);
+- return 0;}
+🧾 Output
+3 27 38 43
+🎯 **Why Merge**: Sort is Great
+Even for bad input, performance remains good.
+⏱ Time Complexity
+Case Time
+Best O(n log n)
+Average O(n log n)
+Worst O(n log n)
+Excellent consistency.
+📌 **Space Complexity**
+
+*Module 10 – Sorting Algorithms*
+
+15
+O(n)
+Needs extra temporary array.
+✅ **Advantages**
+Fast and stable
+Great for linked lists
+Predictable performance
+⚠ Disadvantages
+Uses extra memory
+More complex than basic sorts
+🧪 Practice
+Sort:
+[4,1,3,2]
+Final:
+✅
+[1,2,3,4]
+📌 **Summary**
+Merge Sort:
+Split recursively
+Merge sorted halves
+Fast: O(n log n)
+⏭ Next Lesson
+Quick Sort (Very Popular)
+Type next
+🚀
+🚀 **Module 10 – Lesson 6**: Quick Sort (Very Popular)
+Now we learn one of the fastest practical sorting algorithms:
+👉 Quick Sort
+
+*Module 10 – Sorting Algorithms*
+
+16
+Used widely because average performance is excellent.
+🎯 **What is**: Quick Sort?
+Quick Sort uses:
+Divide and Conquer
+- Choose a pivot element
+- Put smaller elements left of pivot
+- Put larger elements right of pivot
+- Recursively sort left and right parts
+🧠 **Real Life**: Example
+Choose one student as reference height:
+Shorter students stand left
+Taller students stand right
+Then sort both groups
+📦 **Example**
+Sort:
+[4, 2, 7, 1, 5]
+Choose pivot = 5
+Partition:
+[4,2,1] 5 [7]
+Sort left:
+[1,2,4]
+Final:
+[1,2,4,5,7]
+📌 **What is**: Pivot?
+Pivot is the element used to divide array.
+Can choose:
+First element
+Last element
+
+*Module 10 – Sorting Algorithms*
+
+17
+Middle
+Random
+💻 **C Program**: (Last Element Pivot)
+#include <stdio.h>
+int partition(int arr[], int low, int high) { int pivot = arr[high]; int i = low - 1;
+- for (int j = low; j < high; j++) { if (arr[j] < pivot) { i++;
+- int temp = arr[i]; arr[i] = arr[j]; arr[j] = temp; } }
+- int temp = arr[i + 1]; arr[i + 1] = arr[high]; arr[high] = temp;
+- return i + 1;}
+void quickSort(int arr[], int low, int high) { if (low < high) { int pi = partition(arr, low, high);
+- quickSort(arr, low, pi - 1); quickSort(arr, pi + 1, high); }}
+int main() { int arr[] = {4,2,7,1,5}; int n = 5;
+- quickSort(arr, 0, n - 1);
+- for (int i = 0; i < n; i++) printf("%d ", arr[i]);
+- return 0;}
+🧾 Output
+
+*Module 10 – Sorting Algorithms*
+
+18
+1 2 4 5 7
+🧠 **How Partition**: Works
+Pivot = 5
+Move all smaller values left:
+[4,2,1,5,7]
+Pivot placed correctly.
+⏱ Time Complexity
+Case Time
+Best O(n log n)
+Average O(n log n)
+Worst O(n²)
+Worst happens with poor pivot choices (already sorted input sometimes).
+📌 **Space Complexity**
+O(log n)
+(recursion stack average)
+✅ **Advantages**
+Very fast in practice
+In-place sorting
+Excellent average performance
+⚠ Disadvantages
+Worst case O(n²)
+Not stable by default
+Pivot choice matters
+🎯 **Where Used?**
+Large in-memory arrays
+Standard library implementations (variants)
+High-performance systems
+
+*Module 10 – Sorting Algorithms*
+
+19
+🧪 Practice
+Sort:
+[3,1,2]
+Choose pivot = 2
+Final:
+✅
+[1,2,3]
+📌 **Summary**
+Quick Sort:
+Choose pivot
+Partition array
+Recursively sort parts
+Very fast average case
+⏭ Next Lesson
+Heap Sort
+Type next
+🚀
+🚀 **Module 10 – Lesson 7**: Heap Sort
+Now we learn a powerful sorting algorithm:
+👉 Heap Sort
+Uses a data structure called Heap.
+Fast, memory efficient, and guaranteed performance.
+🎯 **What is**: Heap Sort?
+Heap Sort works in 2 steps:
+- Build a Max Heap
+- Repeatedly move largest element to end
+📌 **What is**: Max Heap?
+A binary tree where parent is greater than children.
+Example:
+
+*Module 10 – Sorting Algorithms*
+
+20
+- 9 / \ 5 8 / \ 2 1
+Largest value stays at root.
+🧠 **Array Representation**
+Heap stored in array:
+[9,5,8,2,1]
+Relations:
+Left child = 2i + 1
+Right child = 2i + 2
+📦 **Example**
+Sort:
+[4,10,3,5,1]
+Build max heap:
+[10,5,3,4,1]
+Swap root with last:
+[1,5,3,4,10]
+Heapify remaining.
+Final:
+[1,3,4,5,10]
+💻 **C Program**
+#include <stdio.h>
+void heapify(int arr[], int n, int i) { int largest = i; int left = 2*i + 1; int right = 2*i + 2;
+- if (left < n && arr[left] > arr[largest])
+
+*Module 10 – Sorting Algorithms*
+
+21
+- largest = left;
+- if (right < n && arr[right] > arr[largest]) largest = right;
+- if (largest != i) { int temp = arr[i]; arr[i] = arr[largest]; arr[largest] = temp;
+- heapify(arr, n, largest); }}
+void heapSort(int arr[], int n) { for (int i = n/2 - 1; i >= 0; i--) heapify(arr, n, i);
+- for (int i = n - 1; i > 0; i--) { int temp = arr[0]; arr[0] = arr[i]; arr[i] = temp;
+- heapify(arr, i, 0); }}
+int main() { int arr[] = {4,10,3,5,1}; int n = 5;
+- heapSort(arr, n);
+- for (int i = 0; i < n; i++) printf("%d ", arr[i]);
+- return 0;}
+🧾 Output
+1 3 4 5 10
+🧠 **How It**: Works
+Build Heap
+Largest element comes to root.
+Repeatedly:
+
+*Module 10 – Sorting Algorithms*
+
+22
+Swap root with last unsorted element
+Reduce heap size
+Heapify again
+⏱ Time Complexity
+Case Time
+Best O(n log n)
+Average O(n log n)
+Worst O(n log n)
+Guaranteed.
+📌 **Space Complexity**
+
+## O(1)
+
+In-place sorting.
+✅ **Advantages**
+Guaranteed O(n log n)
+No extra array needed
+Good for memory-limited systems
+⚠ Disadvantages
+More complex than merge sort
+Not stable
+Often slower constants than quick sort
+🎯 **Where Used?**
+Priority queues
+Scheduling systems
+Systems needing guaranteed performance
+🧪 Practice
+Largest element in max heap always at:
+✅ **Root**
+📌 **Summary**
+Heap Sort:
+
+*Module 10 – Sorting Algorithms*
+
+23
+Build max heap
+Remove largest repeatedly
+Fast and memory efficient
+⏭ Next Lesson
+Comparison of Sorting Techniques
+Type next
+🚀
+🚀 **Module 10 – Lesson 8**: Comparison of Sorting Techniques
+Now we compare all major sorting algorithms you learned.
+This is very important for interviews and choosing the right algorithm.
+📚 **Algorithms Covered**
+Bubble Sort
+Selection Sort
+Insertion Sort
+Merge Sort
+Quick Sort
+Heap Sort
+🎯 **Quick Comparison**: Table
+Algorithm Best Average Worst Space Stable In-place Good For
+Bubble O(n) O(n²) O(n²) O 1 Yes Yes Learning, tinydata
+Selection O(n²) O(n²) O(n²) O 1 No Yes Few swapsneeded
+Insertion O(n) O(n²) O(n²) O 1 Yes Yes Nearly sorteddata
+Merge O(n log n) O(n log n) O(n log n) O(n) Yes No Large stablesorting
+Quick O(n log n) O(n log n) O(n²) O(log n) avg No Yes Fast practicalsorting
+Heap O(n log n) O(n log n) O(n log n) O 1 No Yes Guaranteedperformance
+🧠 **Easy Memory**: Trick
+Beginner Sorts (Simple but slower)
+Bubble
+Selection
+
+*Module 10 – Sorting Algorithms*
+
+24
+Insertion
+Advanced Fast Sorts
+Merge
+Quick
+Heap
+🎯 **Which One**: to Use?
+If Data is Nearly Sorted
+✅ **Insertion Sort**
+Need Guaranteed Fast Performance
+✅ **Merge Sort**
+✅ **Heap Sort**
+Need Fast Practical Average Speed
+✅ **Quick Sort**
+Need Stability
+- Equal items keep order)
+✅ **Bubble**
+✅ **Insertion**
+✅ **Merge**
+Need Low Extra Memory
+✅ **Quick Sort**
+✅ **Heap Sort**
+📦 **Real World**: Examples
+Student Marks (small class)
+Insertion Sort works fine.
+Millions of Records
+Merge / Quick Sort.
+Embedded System with low memory
+Heap Sort.
+Database Internal Sorting
+Often hybrid algorithms based on Quick/Merge.
+
+*Module 10 – Sorting Algorithms*
+
+25
+📌 **Interview Questions**
+Fastest Sort?
+No single answer.
+Depends on situation.
+Best General Practical?
+Usually Quick Sort variants.
+Guaranteed O(n log n)?
+Merge Sort / Heap Sort.
+🧪 Practice
+Which sort for nearly sorted array?
+✅ **Insertion Sort**
+Which sort uses extra memory?
+✅ **Merge Sort**
+Which can become O(n²)?
+✅ **Quick Sort**: (worst case)
+📌 **Final Recommendation**: for You
+Must Master Deeply
+- Insertion Sort
+- Merge Sort
+- Quick Sort
+- Heap Sort
+Understand Basics
+- Bubble
+- Selection
+🎓 **Module 10 Completed**: Sorting Algorithms
+Topics Covered:
+✅ **Introduction**
+✅ **Bubble Sort**
+✅ **Selection Sort**
+✅ **Insertion Sort**
+✅ **Merge Sort**
+
+*Module 10 – Sorting Algorithms*
+
+26
+✅ **Quick Sort**
+✅ **Heap Sort**
+✅ **Comparison**
+🧠 **Importance Rating**
+Topic Importance
+Bubble / Selection
+⭐
+⭐
+⭐
+Insertion
+⭐
+⭐
+⭐
+⭐
+Merge
+⭐
+⭐
+⭐
+⭐
+⭐
+Quick
+⭐
+⭐
+⭐
+⭐
+⭐
+Heap
+⭐
+⭐
+⭐
+⭐
+Comparison
+⭐
+⭐
+⭐
+⭐
+⭐
+⏭ Next Module
+🚀 **Module 11**: – Hashing
+Type:
+Start Module 11
+
+*Module 10 – Sorting Algorithms*
+
+27

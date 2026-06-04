@@ -1,0 +1,1245 @@
+
+*Module 2 – Algorithm Analysis*
+
+Excellent
+👍
+Now we begin real DSA foundation.
+
+*Module 2 – Algorithm Analysis*
+
+Before learning data structures, you must understand:
+How to measure whether code/algorithm is fast or slow
+Because in DSA
+Writing code is not enough.
+You must write efficient code.
+
+*Module 2 Topics We'll Cover*
+
+Lesson Topic
+1 What is an Algorithm
+2 Time Complexity
+3 Space Complexity
+4 Big O Notation
+5 Big Omega
+6 Big Theta
+7 Best / Average / Worst Case
+8 Complexity of Loops
+9 Complexity of Nested Loops
+Lesson 1 – What is an Algorithm?
+
+*Module 2 – Algorithm Analysis*
+
+1
+Definition
+An algorithm is:
+A step-by-step procedure to solve a problem
+Simple meaning:
+Instructions to complete a task
+Real-Life Example 🍜
+Algorithm for making tea:
+1. Boil water
+2. Add tea powder
+3. Add sugar
+4. Add milk
+5. Serve
+That is a real-life algorithm.
+Programming Example
+Problem:
+Add two numbers
+Algorithm:
+1. Start
+2. Take two numbers
+3. Add them
+4. Print result
+5. Stop
+
+*Module 2 – Algorithm Analysis*
+
+2
+C Code Version
+int a = 5, b = 3;
+int sum = a + b;
+printf("%d", sum);
+Why Algorithm Matters
+Because before coding:
+You must know how to solve problem logically.
+Good programmers think:
+Problem → Algorithm → Code
+
+## NOT
+
+Problem → Random coding
+Characteristics of Good Algorithm
+A good algorithm should be:
+Quality Meaning
+Correct Gives right answer
+Fast Runs quickly
+Efficient Uses less memory
+Simple Easy to understand
+
+*Module 2 – Algorithm Analysis*
+
+3
+Real Example in DSA
+Suppose:
+Find number 8 in array:
+[2,4,6,8,10]
+Possible algorithms:
+Method 1:
+Check one by one → Linear Search
+Method 2:
+Use middle element → Binary Search
+Both solve same problem,
+
+## BUT
+
+One is faster.
+Thatʼs why algorithm analysis matters.
+Why Companies Care About Algorithm
+Because bad algorithm on huge data:
+1 second → for 10 items
+10 minutes → for million items
+Efficient algorithms save:
+Time
+Server cost
+User experience
+
+*Module 2 – Algorithm Analysis*
+
+4
+Key Mindset for DSA
+Whenever learning algorithm ask:
+- What problem does it solve?
+- How does it solve it?
+- Is it efficient?
+- Can it be improved?
+Practice / Thinking Task
+🧠
+Tell me in simple steps:
+Write algorithm for:
+Finding biggest of 2 numbers
+Example:
+Input:
+
+## A = 10
+
+## B = 20
+
+Write step-by-step algorithm in plain English.
+Reply with your algorithm, then we move to Lesson 2 Time Complexity
+🚀
+- This is where Big O starts.)
+Perfect
+👍 **Weʼll move**: ahead.
+
+*Module 2 – Lesson 2: Time Complexity*
+
+This is one of the most important DSA concepts.
+What is Time Complexity?
+
+*Module 2 – Algorithm Analysis*
+
+5
+Time Complexity means:
+How much time an algorithm takes to run as input size grows
+Simple meaning:
+If data becomes bigger, how much slower does code become?
+Real-Life Example 🍫
+Imagine searching for chocolate in a box.
+Box has 5 chocolates:
+Easy to find.
+Box has 500 chocolates:
+Takes longer.
+Question is:
+How does time increase when data increases?
+That is time complexity.
+Why We Measure It
+Because same problem can have many solutions:
+Example:
+Solution A:
+Needs 100 steps
+Solution B:
+Needs 10 steps
+Both correct, but:
+
+*Module 2 – Algorithm Analysis*
+
+6
+B is better because faster.
+Example 1 – Constant Time
+int x = arr[0];
+Why?
+Because:
+It takes same time always.
+Whether array has:
+10 elements
+1000 elements
+1 million elements
+Still:
+1 step only
+Example 2 – Linear Time
+for(int i=0;i<n;i++)
+{
+- printf("%d", arr[i]);
+}
+If:
+n = 5 → loop 5 times
+n = 100 → loop 100 times
+
+*Module 2 – Algorithm Analysis*
+
+7
+So time grows with n.
+Example 3 – Quadratic Time
+for(int i=0;i<n;i++)
+{
+- for(int j=0;j<n;j++)
+- {
+- printf("*");
+- }
+}
+If:
+n = 5 → 25 steps
+n = 10 → 100 steps
+Growth becomes huge.
+Why We Donʼt Measure Exact Seconds
+Because:
+Different computers run differently.
+Instead we measure:
+Number of operations
+Example:
+Fast PC → 1 sec
+Slow PC → 3 sec
+Algorithm same.
+So DSA checks:
+
+*Module 2 – Algorithm Analysis*
+
+8
+Logical steps, not stopwatch time.
+Input Size = n
+In DSA
+n = size of input/data
+Example:
+Array of 10 elements → n=10
+Array of 100 elements → n=100
+Quick Time Complexity Table
+Type Meaning
+Constant Same time always
+Linear Time grows with n
+Quadratic Time grows with n²
+Why Time Complexity Matters in Interviews
+Interviewers ask:
+"Can you solve problem efficiently?"
+Not just:
+"Can you solve problem?"
+Practice Thinking
+🧠
+
+*Module 2 – Algorithm Analysis*
+
+9
+Tell me:
+If loop runs from 1 to n:
+for(int i=1;i<=n;i++)
+As n increases, does time grow:
+- Same always
+- Linearly
+- Very slowly
+Reply with your answer, and then weʼll go to Lesson 3 Space Complexity
+🚀
+Perfect
+👍 **Letʼs continue.**
+
+*Module 2 – Lesson 3: Space Complexity*
+
+After time, second thing we measure is:
+How much memory an algorithm uses
+What is Space Complexity?
+Definition:
+Amount of memory required by an algorithm as input size grows
+Simple meaning:
+How much RAM/storage your code needs
+Real-Life Example 🎒
+Imagine packing school bag:
+
+*Module 2 – Algorithm Analysis*
+
+10
+Small work:
+Need 1 notebook.
+Bigger work:
+Need 10 notebooks.
+More work → More space needed.
+Thatʼs space complexity.
+Why It Matters
+Good algorithm should:
+- Run fast
+✅
+- Use less memory
+✅
+Sometimes:
+Fast algorithm uses too much memory
+Slow algorithm uses less memory
+We balance both.
+Example 1 – Constant Space
+int a = 5;
+int b = 10;
+int sum = a+b;
+Memory used:
+Only few variables
+Even if input grows:
+
+*Module 2 – Algorithm Analysis*
+
+11
+Memory remains same.
+Example 2 – Linear Space
+int arr[n];
+If:
+n = 5 → memory for 5 ints
+n = 100 → memory for 100 ints
+Memory grows with input.
+Example 3 – Extra Array
+int arr[n];
+int copy[n];
+Now memory:
+2 arrays of size n
+Still linear growth.
+Auxiliary Space vs Total Space
+Total Space
+All memory used by program.
+Auxiliary Space
+
+*Module 2 – Algorithm Analysis*
+
+12
+Extra temporary memory used by algorithm.
+Example:
+Input array already given
+Extra temp array created
+That temp array = auxiliary space.
+Why Space Complexity Matters in Real
+World
+If app uses too much memory:
+Phone crashes
+Server slows
+Program becomes expensive
+Time vs Space Tradeoff
+Sometimes:
+Faster algorithm needs more memory
+Example:
+Method A:
+Slow but low memory
+Method B:
+Fast but high memory
+Engineers choose based on need.
+Common Space Complexity Types
+
+*Module 2 – Algorithm Analysis*
+
+13
+Type Meaning
+O 1 Fixed memory
+O(n) Grows with input
+O(n²) Huge growth
+- Weʼll formally learn O next.)
+Practice Thinking
+🧠
+Which uses more memory?
+
+## A:
+
+int x;
+
+## B:
+
+int arr[100];
+And why?
+Reply with answer, then we go to:
+Lesson 4 – Big O Notation
+🔥
+- This combines everything youʼve learned so far.)
+Excellent
+👍
+Now we reach the heart of DSA:
+
+*Module 2 – Lesson 4: Big O Notation*
+
+🔥
+This is one of the most asked interview/exam concepts.
+
+*Module 2 – Algorithm Analysis*
+
+14
+What is Big O?
+Big O tells us:
+How fast or slow an algorithm grows when input gets bigger
+Simple meaning:
+Measures efficiency of algorithm
+Real-Life Example 🍫
+Imagine finding one chocolate in boxes:
+Box with 5 chocolates:
+Easy.
+Box with 500 chocolates:
+Harder.
+Question:
+How much extra work happens when box size grows?
+Big O answers that.
+Why Big O Exists
+Because exact time is unreliable:
+Laptop A → 1 sec
+Laptop B → 2 sec
+Different machines.
+So instead we measure:
+
+*Module 2 – Algorithm Analysis*
+
+15
+Growth rate of algorithm
+Big O Focuses On Worst Case
+Meaning:
+Maximum time algorithm may take.
+Because we prepare for worst situation.
+Common Big O Types
+1. O(1) → Constant Time
+Means:
+Time stays same always.
+Example:
+printf("%d", arr[0]);
+Why?
+Because:
+Direct access = 1 step only.
+Visual:
+10 items → 1 step
+100 items → 1 step
+1000 items → 1 step
+Best performance
+🚀
+
+*Module 2 – Algorithm Analysis*
+
+16
+2. O(n) → Linear Time
+Means:
+Time grows with n.
+Example:
+for(int i=0;i<n;i++)
+{
+- printf("%d", arr[i]);
+}
+Visual:
+10 items → 10 steps
+100 items → 100 steps
+3. O(n²) → Quadratic Time
+Means:
+Growth is square of n.
+Example:
+for(int i=0;i<n;i++)
+{
+- for(int j=0;j<n;j++)
+- {
+- printf("*");
+- }
+}
+Visual:
+
+*Module 2 – Algorithm Analysis*
+
+17
+10 → 100 steps
+100 → 10,000 steps
+Very slow for large data.
+4. O(log n) → Logarithmic Time
+Means:
+Problem reduces by half each step.
+Example:
+Binary Search.
+Visual:
+100 → 50 → 25 → 12 → 6 → 3 → 1
+Very efficient.
+Big O Ranking (Best to Worst)
+Big O Speed
+O 1 Fastest
+O(log n) Very Fast
+O(n) Good worst case
+O(n log n) Okay
+O(n²) Slow
+O(n³) Very Slow
+Big O Rules
+
+*Module 2 – Algorithm Analysis*
+
+18
+Rule 1: Drop Constants
+Example:
+O(2n) → O(n)
+
+## O(100) → O(1)
+
+Why?
+Because Big O cares about growth, not exact number.
+Rule 2: Keep Largest Term
+Example:
+O(n² + n + 5)
+Becomes:
+O(n²)
+Because largest dominates.
+Example Analysis
+Code:
+for(int i=0;i<n;i++)
+Big O
+O(n)
+
+*Module 2 – Algorithm Analysis*
+
+19
+Code:
+for(int i=0;i<n;i++)
+{
+- for(int j=0;j<n;j++)
+Big O
+O(n²)
+Why Big O Matters in DSA
+Every algorithm will be compared using Big O.
+Examples:
+Algorithm Big O
+Linear Search O(n)
+Binary Search O(log n)
+Bubble Sort O(n²)
+Practice Questions
+🧠
+Tell me Big O
+
+## Q1
+
+int x = arr[0];
+
+## Q2
+
+for(int i=0;i<n;i++)
+
+*Module 2 – Algorithm Analysis*
+
+20
+
+## Q3
+
+for(int i=0;i<n;i++)
+{
+- for(int j=0;j<n;j++)
+
+## Q4
+
+What Big O is considered faster:
+O(n) or O(n²)
+Reply with answers, then we go to:
+Lesson 5 – Big Omega
+🚀
+Excellent
+👍 **Letʼs continue.**
+
+*Module 2 – Lesson 5: Big Omega ( Ω )*
+
+Until now you learned:
+Big O Worst Case
+Now:
+Big Omega means:
+Best Case Performance of Algorithm
+Simple meaning:
+Minimum time algorithm can take
+
+*Module 2 – Algorithm Analysis*
+
+21
+Real-Life Example 🍫
+Suppose you search chocolate in box.
+Best Case:
+Chocolate found in first try
+1 step only
+That is Big Omega.
+Worst Case:
+Chocolate found at last
+Need check all chocolates
+That is Big O.
+Formal Definition
+Big Omega tells:
+Minimum growth rate of algorithm
+Why We Use It
+To know:
+"What is fastest possible situation?"
+Example – Linear Search
+Code:
+
+*Module 2 – Algorithm Analysis*
+
+22
+for(int i=0;i<n;i++)
+{
+- if(arr[i]==key)
+- return i;
+}
+Best Case
+If key is first element:
+Found immediately
+Only 1 step.
+So:
+Big Omega = Ω(1)
+Worst Case
+If key last/not found:
+Check all n elements
+So:
+Big O = O(n)
+Another Example
+Code:
+
+*Module 2 – Algorithm Analysis*
+
+23
+printf("Hello");
+Always same.
+Best case:
+
+## Ω(1)
+
+Worst case:
+
+## O(1)
+
+Comparison Table
+Notation Meaning
+Big O Worst Case
+Big Omega Best Case
+Why Big Omega Matters
+Sometimes interviewers ask:
+"Tell best and worst case complexity."
+So you should know both.
+Important Note
+Most real-world focus is on:
+Big O
+Because engineers prepare for worst case.
+
+*Module 2 – Algorithm Analysis*
+
+24
+But Big Omega still important academically/interviews.
+Visual Summary
+For Linear Search:
+Best → Ω(1)
+Worst → O(n)
+Practice Questions
+🧠
+Tell me:
+
+## Q1
+
+If searching first element in linear search:
+Big Omega = ?
+
+## Q2
+
+For this code:
+printf("Hi");
+Big Omega = ?
+
+## Q3
+
+Big Omega represents:
+- Worst Case
+- Best Case
+- Average Case
+Reply with answers, then we move to:
+
+*Module 2 – Algorithm Analysis*
+
+25
+Lesson 6 – Big Theta
+🚀
+- After that youʼll know all 3 major complexity notations.)
+Perfect
+👍 **Letʼs continue.**
+
+*Module 2 – Lesson 6: Big Theta ( Θ )*
+
+You now know:
+Big O → Worst Case
+Big Omega → Best Case
+Now third notation:
+Big Theta means:
+Average / Tight Bound Performance
+Simple meaning:
+Typical/expected performance of algorithm
+Easy Understanding
+Think of exam marks:
+Best Score → 100
+Worst Score → 30
+Average Score → 70
+Same idea:
+Type Meaning
+Omega Best
+O Worst
+
+*Module 2 – Algorithm Analysis*
+
+26
+Type Meaning
+Theta Average/Expected
+Formal Definition
+Big Theta tells:
+When algorithm grows at same upper and lower rate
+Meaning:
+Performance is tightly bounded.
+Real-Life Example 🚗
+Suppose travel time:
+Best = 10 mins
+Worst = 30 mins
+Usually = 20 mins
+That usual/normal = Theta.
+Example 1
+for(int i=0;i<n;i++)
+{
+- printf("%d", i);
+}
+Loop always runs n times.
+So:
+
+*Module 2 – Algorithm Analysis*
+
+27
+Best = n
+Worst = n
+Average = n
+Thus:
+Θ(n)
+Example 2 – Linear Search
+for(int i=0;i<n;i++)
+{
+- if(arr[i]==key)
+- return i;
+}
+Possible:
+Best:
+Found first → Ω 1
+Worst:
+Found last → O(n)
+Average:
+Found middle → Θ (n)
+Big O vs Omega vs Theta Table
+Notation Meaning
+O Maximum/Worst
+
+*Module 2 – Algorithm Analysis*
+
+28
+Notation Meaning
+Ω Minimum/Best
+Θ Average/Typical
+Important Interview Note
+Most interviewers ask mainly:
+Big O
+But sometimes they ask:
+Best/Worst/Average case
+Then you answer using all 3.
+Quick Visual Summary
+For Linear Search:
+
+## Ω(1)
+
+Θ(n)
+O(n)
+Why Theta Matters
+Shows:
+Real practical performance expectation.
+Practice Questions
+🧠
+Tell me:
+
+*Module 2 – Algorithm Analysis*
+
+29
+
+## Q1
+
+Theta represents:
+- Worst
+- Average
+- Best
+
+## Q2
+
+For fixed statement:
+printf("Hello");
+Theta = ?
+
+## Q3
+
+For one loop:
+for(i=0;i<n;i++)
+Theta = ?
+Reply with answers, then we move to:
+Lesson 7 – Best / Average / Worst Case
+Analysis
+🚀
+- Combines everything you learned so far.)
+Excellent
+👍 **Letʼs continue.**
+
+*Module 2 – Lesson 7: Best / Average / Worst*
+
+Case Analysis
+
+*Module 2 – Algorithm Analysis*
+
+30
+Now we combine everything learned so far:
+Big Omega → Best Case
+Big Theta → Average Case
+Big O → Worst Case
+This lesson teaches:
+How algorithm behaves in different situations
+1. Best Case Analysis
+Means:
+Minimum time taken by algorithm
+Example:
+Searching first item immediately.
+Need only 1 step
+2. Worst Case Analysis
+Means:
+Maximum time taken
+Example:
+Searching last item.
+Need check all elements
+
+*Module 2 – Algorithm Analysis*
+
+31
+3. Average Case Analysis
+Means:
+Normal/expected performance
+Example:
+Searching middle item.
+Need moderate number of checks
+Real-Life Example 🍫
+Searching chocolate in 5 boxes:
+[ 🍫 ][ 🍫 ][ 🍫 ][ 🍫 ][ 🍫 ]
+Need find target.
+Best Case
+Found in first box:
+1 step
+Worst Case
+Found in last box:
+5 steps
+Average Case
+
+*Module 2 – Algorithm Analysis*
+
+32
+Found around middle:
+2–3 steps
+Linear Search Example
+Code:
+for(int i=0;i<n;i++)
+{
+- if(arr[i]==key)
+- return i;
+}
+Analysis
+Case Complexity
+Best Ω 1
+Average Θ (n)
+Worst O(n)
+Binary Search Example
+Binary Search cuts data in half each step.
+Analysis
+Case Complexity
+Best Ω 1
+Average Θ (log n)
+Worst O(log n)
+
+*Module 2 – Algorithm Analysis*
+
+33
+Why Worst Case Most Important
+Because in real software:
+We prepare for maximum load/problem.
+Example:
+What if million users come?
+What if data huge?
+Need worst-case safety.
+Interview Tip
+💡
+When interviewer asks:
+"What is complexity?"
+Usually they mean:
+Worst Case / Big O
+Unless specified otherwise.
+Visual Summary
+Analysis Type Meaning
+Best Case Fastest possible
+Average Case Typical performance
+Worst Case Slowest possible
+Practice Thinking
+🧠
+Suppose:
+
+*Module 2 – Algorithm Analysis*
+
+34
+Linear Search in array of 100 elements
+Tell me:
+
+## Q1
+
+If item at first position → Which case?
+
+## Q2
+
+If item at last position → Which case?
+
+## Q3
+
+Which case is most commonly used in interviews?
+Reply with answers, then we go to:
+Lesson 8 – Complexity Analysis of Loops
+🚀
+- This is where you learn to calculate Big O yourself.)
+Excellent
+👍
+Now we enter one of the most practical parts of DSA:
+
+*Module 2 – Lesson 8: Complexity Analysis*
+
+of Loops
+🔥
+This lesson teaches you:
+How to calculate Big O by looking at loops
+This skill is used constantly in:
+Interviews
+Exams
+Coding problems
+
+*Module 2 – Algorithm Analysis*
+
+35
+Golden Rule of Loop Complexity
+Ask this question:
+"How many times does the loop run?"
+That tells you complexity.
+Case 1 – Single Loop
+Example:
+for(int i=0;i<n;i++)
+{
+- printf("%d", i);
+}
+Loop runs:
+n times
+So:
+Complexity = O(n)
+Why?
+If:
+n = 5 → 5 runs
+n = 100 → 100 runs
+Growth matches n.
+
+*Module 2 – Algorithm Analysis*
+
+36
+Case 2 – Fixed Loop
+Example:
+for(int i=0;i<10;i++)
+{
+- printf("Hi");
+}
+Runs:
+Always 10 times
+NOT dependent on n.
+So:
+
+## O(1)
+
+Important Rule
+If loop count is fixed number:
+5, 10, 100, 1000
+Still:
+
+## O(1)
+
+Because constant.
+Case 3 – Loop with Increment by 2
+
+*Module 2 – Algorithm Analysis*
+
+37
+Example:
+for(int i=0;i<n;i=i+2)
+Runs:
+n/2 times
+Big O
+O(n)
+Why?
+Because constants dropped.
+Rule Reminder
+O(n/2) = O(n)
+O(2n) = O(n)
+Case 4 – Decreasing by Half
+Example:
+for(int i=n;i>1;i=i/2)
+Runs like:
+n → n/2 → n/4 → n/8
+Complexity:
+
+*Module 2 – Algorithm Analysis*
+
+38
+O(log n)
+Why?
+Because problem halves every time.
+Visual Example
+If n = 16
+16
+8
+4
+2
+1
+Only 4 5 steps.
+Very efficient.
+Loop Complexity Cheat Sheet
+Loop Type Big O
+Fixed Count O 1
+1 to n O(n)
+n/2 O(n)
+Divide by 2 O(log n)
+Real Interview Examples
+Example 1
+
+*Module 2 – Algorithm Analysis*
+
+39
+for(i=0;i<n;i++)
+Answer:
+O(n)
+Example 2
+for(i=0;i<100;i++)
+Answer:
+
+## O(1)
+
+Example 3
+for(i=n;i>0;i/=2)
+Answer:
+O(log n)
+Practice Questions
+🧠
+Tell Big O
+
+## Q1
+
+for(i=0;i<50;i++)
+
+*Module 2 – Algorithm Analysis*
+
+40
+
+## Q2
+
+for(i=0;i<n;i++)
+
+## Q3
+
+for(i=0;i<n;i+=2)
+
+## Q4
+
+for(i=n;i>1;i/=2)
+Reply with answers, then we do:
+Lesson 9 – Complexity of Nested Loops
+🚀
+- Final lesson of Module 2.)
+Excellent
+👍
+Youʼve reached the final lesson of Module 2.
+This is VERY important because many DSA algorithms use nested loops.
+
+*Module 2 – Lesson 9: Complexity of Nested*
+
+Loops
+🔥
+Nested loop means:
+Loop inside another loop
+Example:
+for(int i=0;i<n;i++)
+{
+
+*Module 2 – Algorithm Analysis*
+
+41
+- for(int j=0;j<n;j++)
+- {
+- printf("*");
+- }
+}
+Golden Rule for Nested Loops
+Multiply the loop counts
+Why?
+Because:
+Outer loop runs many times
+Inner loop runs fully for each outer run
+Example 1 – Two Nested Loops
+for(int i=0;i<n;i++)
+{
+- for(int j=0;j<n;j++)
+Calculation:
+Outer = n
+Inner = n
+Total = n × n
+So:
+O(n²)
+
+*Module 2 – Algorithm Analysis*
+
+42
+Visual Example
+If:
+n = 3
+Then:
+Outer runs 3 times
+Each time inner runs 3 times
+Total = 9
+Example 2 – Three Nested Loops
+for(i=0;i<n;i++)
+{
+- for(j=0;j<n;j++)
+- {
+- for(k=0;k<n;k++)
+Calculation:
+n × n × n
+So:
+O(n³)
+Example 3 – Different Loop Sizes
+
+*Module 2 – Algorithm Analysis*
+
+43
+for(i=0;i<n;i++)
+{
+- for(j=0;j<m;j++)
+Complexity:
+O(n*m)
+Because variables are different.
+Example 4 – Nested Half Loop
+for(i=0;i<n;i++)
+{
+- for(j=0;j<n/2;j++)
+Calculation:
+n × n/2
+= n²/2
+Drop constants:
+O(n²)
+Important Rule
+Even if inner loop smaller:
+n × n/2 = O(n²)
+
+*Module 2 – Algorithm Analysis*
+
+44
+Still quadratic.
+Common Beginner Mistake ⚠
+Some think:
+Two loops = O(2n)
+
+## WRONG
+
+❌
+If nested:
+Multiply, not add.
+Add vs Multiply Rule
+Separate Loops → ADD
+for(i=0;i<n;i++)
+for(j=0;j<n;j++)
+(not inside each other)
+O(n+n)=O(n)
+Nested Loops → MULTIPLY
+for(i=0;i<n;i++)
+{
+- for(j=0;j<n;j++)
+}
+
+*Module 2 – Algorithm Analysis*
+
+45
+O(n*n)=O(n²)
+Nested Loop Cheat Table
+Structure Complexity
+1 loop O(n)
+2 nested O(n²)
+3 nested O(n³)
+n × m O(nm)
+Practice Questions
+🧠
+Tell Big O
+
+## Q1
+
+for(i=0;i<n;i++)
+{
+- for(j=0;j<n;j++)
+}
+
+## Q2
+
+for(i=0;i<n;i++)
+{
+- for(j=0;j<n;j++)
+- {
+- for(k=0;k<n;k++)
+
+## Q3
+
+*Module 2 – Algorithm Analysis*
+
+46
+for(i=0;i<n;i++)
+for(j=0;j<n;j++)
+- Separate loops)
+
+## Q4
+
+for(i=0;i<n;i++)
+{
+- for(j=0;j<m;j++)
+}
+
+*MODULE 2 COMPLETE 🎉*
+
+You finished:
+Lesson Topic
+1 Algorithm
+2 Time Complexity
+3 Space Complexity
+4 Big O
+5 Big Omega
+6 Big Theta
+7 Best/Average/Worst
+8 Loop Analysis
+9 Nested Loop Analysis
+Next Module Preview
+Now we begin actual Data Structures:
+
+*Module 2 – Algorithm Analysis*
+
+47
+
+*Module 3 – Arrays*
+
+Where you'll learn:
+Traversal
+Insertion
+Deletion
+Searching
+Matrix
+👉 Reply “Start Module 3” when ready, and we begin real DSA coding with
+arrays.
+
+*Module 2 – Algorithm Analysis*
+
+48

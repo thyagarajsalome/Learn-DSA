@@ -1,0 +1,843 @@
+
+*Module 8 – Recursion*
+
+🚀 **Module 8**: – Recursion (Structured
+Learning in C)
+Now we begin one of the most important DSA concepts:
+👉 Recursion
+Many students fear recursion at first.
+But once understood, it becomes powerful and simple.
+📚 **Module 8**: Topics
+We will learn step-by-step:
+- Introduction to Recursion
+- Base Case
+- Recursive Calls
+- Recursive Tree
+- Tail Recursion
+- Head Recursion
+- Backtracking Basics
+🎯 **Lesson 1**: – Introduction to Recursion
+✅ **What is**: Recursion?
+Recursion means:
+A function calls itself to solve a smaller version of the same problem.
+
+*Module 8 – Recursion*
+
+1
+Instead of loops, the function repeats by calling itself.
+🧠 **Real Life**: Example
+Climbing Stairs
+To reach stair 5
+first reach stair 4
+to reach stair 4, first reach stair 3
+to reach stair 3, first reach stair 2...
+Problem breaks into smaller same problems.
+📦 **Example**: Print Numbers 1 to 3
+print(1)
+print(2)
+print(3)
+With recursion:
+fun(1) calls fun(2) calls fun(3)
+💻 **Basic C**: Example
+#include <stdio.h>
+void fun(int n) {
+- if (n == 0)
+- return;
+
+*Module 8 – Recursion*
+
+2
+- printf("%d ", n);
+- fun(n - 1);
+}
+int main() {
+- fun(5);
+- return 0;
+}
+🧾 Output
+5 4 3 2 1
+🧠 **How It**: Works
+fun(5)
+-> prints 5
+-> calls fun(4)
+fun(4)
+-> prints 4
+-> calls fun(3)
+...
+Until:
+fun(0) stops
+🎯 **Why Use**: Recursion?
+Used when problem naturally breaks into smaller parts:
+
+*Module 8 – Recursion*
+
+3
+Factorial
+Fibonacci
+Tree Traversal
+Binary Search
+Graph DFS
+Maze Solving
+Backtracking
+📌 **Key Idea**
+Every recursion needs:
+- Base Case
+Stopping condition
+- Recursive Call
+Function calls itself
+⚠ Without Base Case
+Infinite recursion → program crash / stack overflow.
+⏱ Complexity
+Depends on problem.
+Example above:
+Operation Time
+fun(n) O(n)
+
+*Module 8 – Recursion*
+
+4
+🧪 Practice
+What prints?
+fun(3)
+✅ **Answer**:
+3 2 1
+📌 **Summary**
+Recursion = function calling itself.
+Must have:
+Base Case
+Smaller recursive calls
+⏭ Next Lesson
+Base Case (Most Important Part of Recursion)
+Type next
+🚀
+🚀 **Module 8 – Lesson 2**: Base Case (Most
+Important Part of Recursion)
+Now we learn the heart of recursion:
+👉 Base Case
+Without base case, recursion never stops.
+
+*Module 8 – Recursion*
+
+5
+🎯 **What is**: Base Case?
+Base Case is:
+The condition where recursive function stops calling itself.
+It is the exit door of recursion.
+🧠 **Real Life**: Example
+Countdown Rocket
+5
+4
+3
+2
+1
+Launch
+🚀
+When count reaches 0 → stop.
+That 0 is base case.
+💻 **Example in**: C
+#include <stdio.h>
+void fun(int n) {
+- if (n == 0)
+- return;
+- printf("%d ", n);
+- fun(n - 1);
+}
+int main() {
+
+*Module 8 – Recursion*
+
+6
+- fun(5);
+- return 0;
+}
+🧾 Output
+5 4 3 2 1
+🧠 **How It**: Works
+fun(5)
+fun(4)
+fun(3)
+fun(2)
+fun(1)
+fun(0) ← stop here
+📌 **Why Base**: Case Important?
+Without it:
+void fun(int n){
+- printf("%d", n);
+- fun(n-1);
+}
+This keeps calling forever
+❌
+Leads to:
+Stack Overflow
+
+*Module 8 – Recursion*
+
+7
+🎯 **Example**: Factorial
+Factorial:
+5! = 5 × 4 × 3 × 2 × 1
+Base Case:
+1! = 1
+0! = 1
+💻 **Factorial Code**
+int fact(int n) {
+- if (n == 0)
+- return 1;
+- return n * fact(n - 1);
+}
+🧠 **Dry Run**
+For fact(3) :
+fact(3)
+= 3 * fact(2)
+= 3 * 2 * fact(1)
+= 3 * 2 * 1 * fact(0)
+= 3 * 2 * 1 * 1
+= 6
+
+*Module 8 – Recursion*
+
+8
+📌 **Common Base**: Cases
+Problem Base Case
+Print numbers n == 0
+Factorial n == 0
+Fibonacci n == 0 or n == 1
+Binary Search low > high
+⚠ Golden Rule
+Base case should be:
+Reachable
+Correct
+Simple
+🧪 Practice
+What is base case here?
+sum(n){
+- if(n==1) return 1;
+- return n + sum(n-1);
+}
+✅ **Answer**:
+n == 1
+📌 **Summary**
+Base Case:
+
+*Module 8 – Recursion*
+
+9
+Stops recursion
+Prevents infinite calls
+Most important part of recursive logic
+⏭ Next Lesson
+Recursive Calls (How function calls itself step-by-
+step)
+Type next
+🚀
+🚀 **Module 8 – Lesson 3**: Recursive Calls
+Now we learn the second core part of recursion:
+👉 Recursive Call
+A recursive call means:
+A function calls itself with a smaller or modified input.
+This is how the problem gets reduced step-by-step.
+🎯 **Formula of**: Recursion
+Recursion = Base Case + Recursive Call
+Without recursive call → no repetition.
+Without base case → infinite repetition.
+🧠 **Real Life**: Example
+
+*Module 8 – Recursion*
+
+10
+Russian Dolls / Nested Boxes
+Open big box → smaller box inside
+Open smaller box → smaller one inside
+Continue until last box.
+Each step = same task on smaller input.
+💻 **Example in**: C
+#include <stdio.h>
+void fun(int n) {
+- if (n == 0)
+- return;
+- printf("%d ", n);
+- fun(n - 1); // recursive call
+}
+int main() {
+- fun(4);
+- return 0;
+}
+🧾 Output
+4 3 2 1
+🧠 **How Recursive**: Calls Work
+
+*Module 8 – Recursion*
+
+11
+Call:
+fun(4)
+Execution:
+fun(4)
+- prints 4
+- calls fun(3)
+fun(3)
+- prints 3
+- calls fun(2)
+fun(2)
+- prints 2
+- calls fun(1)
+fun(1)
+- prints 1
+- calls fun(0)
+fun(0)
+- stop
+📌 **Call Stack**: Concept
+Each recursive call waits in memory stack until deeper calls finish.
+fun(4)
+- fun(3)
+- fun(2)
+- fun(1)
+- fun(0)
+Then returns upward.
+🎯 **Example**: Sum of Numbers
+
+*Module 8 – Recursion*
+
+12
+int sum(int n) {
+- if (n == 1)
+- return 1;
+- return n + sum(n - 1);
+}
+For sum(4) :
+4 + sum(3)
+4 + 3 + sum(2)
+4 + 3 + 2 + sum(1)
+4 + 3 + 2 + 1 = 10
+📌 **Rules for**: Good Recursive Calls
+Recursive input should move toward base case
+Good:
+fun(n - 1)
+Bad:
+fun(n + 1)
+(if base case is n==0
+⚠ Common Mistake
+Calling same value again:
+fun(n);
+
+*Module 8 – Recursion*
+
+13
+This never progresses
+❌
+⏱ Complexity
+For one recursive call each time:
+Function Time
+fun(n) O(n)
+🧪 Practice
+What does this print?
+fun(3)
+(using previous code)
+✅ **Answer**:
+3 2 1
+📌 **Summary**
+Recursive Call:
+Function calls itself
+Must reduce problem size
+Moves toward base case
+⏭ Next Lesson
+Recursive Tree (Visualizing Multiple Recursive Calls)
+
+*Module 8 – Recursion*
+
+14
+Type next
+🚀
+🚀 **Module 8 – Lesson 4**: Recursive Tree
+Now we learn a very important concept:
+👉 Recursive Tree
+Used when a function makes multiple recursive calls.
+This helps visualize how recursion branches.
+🎯 **What is**: Recursive Tree?
+A recursive tree shows:
+Parent function call
+Child recursive calls
+How many times function runs
+Very useful for:
+Fibonacci
+Backtracking
+Merge Sort
+Tree recursion
+🧠 **Real Life**: Example
+Family tree
+🌳
+One parent splits into children.
+Same way:
+
+*Module 8 – Recursion*
+
+15
+fib(5)
+├── fib(4)
+└── fib(3)
+💻 **Example**: Fibonacci
+int fib(int n) {
+- if (n == 0) return 0;
+- if (n == 1) return 1;
+- return fib(n-1) + fib(n-2);
+}
+🎯 **Recursive Tree**: for fib(5)
+fib(5)
+├── fib(4)
+│ ├── fib(3)
+│ │ ├── fib(2)
+│ │ └── fib(1)
+│ └── fib(2)
+└── fib(3)
+- ├── fib(2)
+- └── fib(1)
+🧠 **What It**: Means
+To solve:
+fib(5)
+Need:
+
+*Module 8 – Recursion*
+
+16
+fib(4) + fib(3)
+Then those again need smaller values.
+📌 **Duplicate Work**: Problem
+Notice:
+fib(3)
+fib(2)
+are repeated many times.
+This makes normal recursion slow.
+⏱ Time Complexity
+For Fibonacci recursion:
+O(2^n)
+Very expensive.
+🎯 **Why Learn**: Recursive Tree?
+Because it helps understand:
+Why recursion repeats work
+Why Dynamic Programming is useful later
+How divide-and-conquer works
+Backtracking paths
+
+*Module 8 – Recursion*
+
+17
+💻 **Another Example**
+fun(n){
+- if(n==0) return;
+- fun(n-1);
+- fun(n-1);
+}
+Tree:
+fun(3)
+├── fun(2)
+│ ├── fun(1)
+│ └── fun(1)
+└── fun(2)
+- ├── fun(1)
+- └── fun(1)
+📌 **Quick Formula**
+If function calls itself twice:
+Often grows exponentially.
+🧪 Practice
+How many direct children does fib(5) have?
+fib(4), fib(3)
+✅ **Answer**: 2
+📌 **Summary**
+
+*Module 8 – Recursion*
+
+18
+Recursive Tree:
+Visual map of recursive calls
+Useful for multi-call recursion
+Shows repeated work
+Helps in DP later
+⏭ Next Lesson
+Tail Recursion (Efficient recursion style)
+Type next
+🚀
+🚀 **Module 8 – Lesson 5**: Tail Recursion
+Now we learn an important recursion type:
+👉 Tail Recursion
+This is a more efficient style of recursion.
+🎯 **What is**: Tail Recursion?
+A function is tail recursive when:
+The recursive call is the last operation in the function.
+After the recursive call, nothing remains to do.
+📌 **Structure**
+fun(n){
+- if(base case) return;
+
+*Module 8 – Recursion*
+
+19
+- ...
+- fun(smaller input); // last statement
+}
+💻 **Example**
+#include <stdio.h>
+void fun(int n) {
+- if (n == 0)
+- return;
+- printf("%d ", n);
+- fun(n - 1); // last operation
+}
+int main() {
+- fun(5);
+- return 0;
+}
+🧾 Output
+5 4 3 2 1
+🧠 **Why Tail**: Recursion Matters
+Because some compilers can optimize it into loop-like behavior.
+This may reduce memory usage.
+
+*Module 8 – Recursion*
+
+20
+🎯 **Real Life**: Idea
+Think of passing work forward only.
+No pending work after the call.
+📌 **Tail vs**: Non-Tail
+Tail Recursive
+fun(n-1);
+(last line)
+Non-Tail Recursive
+return n + fun(n-1);
+Need addition after function returns
+❌
+💻 **Tail Recursive**: Factorial
+Normal factorial:
+fact(n) = n * fact(n-1)
+Not tail recursive.
+Tail version using accumulator:
+int fact(int n, int ans){
+- if(n==0) return ans;
+- return fact(n-1, n*ans);
+}
+
+*Module 8 – Recursion*
+
+21
+Call:
+fact(5,1)
+🧠 **Dry Run**
+fact(5,1)
+fact(4,5)
+fact(3,20)
+fact(2,60)
+fact(1,120)
+fact(0,120)
+Answer = 120
+🎯 **Where Useful?**
+Factorial optimized version
+Large recursive reductions
+Functional programming styles
+Compiler optimization cases
+⏱ Complexity
+Operation Time
+Tail recursion exampleO(n)
+Space may improve with optimization.
+⚠ Important Note in C
+Not every C compiler guarantees tail-call optimization.
+
+*Module 8 – Recursion*
+
+22
+So concept is important even if optimization may vary.
+🧪 Practice
+Is this tail recursive?
+return fun(n-1);
+✅ **Yes**
+Is this tail recursive?
+return 1 + fun(n-1);
+❌ **No**
+📌 **Summary**
+Tail Recursion:
+Recursive call is last step
+No pending work after call
+Can be optimized
+⏭ Next Lesson
+Head Recursion
+Type next
+🚀
+🚀 **Module 8 – Lesson 6**: Head Recursion
+Now we learn another recursion type:
+
+*Module 8 – Recursion*
+
+23
+👉 Head Recursion
+This is opposite of Tail Recursion.
+🎯 **What is**: Head Recursion?
+A function is head recursive when:
+The recursive call happens first, before other work.
+The function calls itself, then does processing after returning.
+📌 **Structure**
+fun(n){
+- if(base case) return;
+- fun(n-1); // first
+- ...
+}
+💻 **Example**
+#include <stdio.h>
+void fun(int n) {
+- if (n == 0)
+- return;
+- fun(n - 1);
+- printf("%d ", n);
+}
+
+*Module 8 – Recursion*
+
+24
+int main() {
+- fun(5);
+- return 0;
+}
+🧾 Output
+1 2 3 4 5
+🧠 **How It**: Works
+Call:
+fun(5)
+Execution:
+fun(5)
+-> calls fun(4)
+fun(4)
+-> calls fun(3)
+fun(3)
+-> calls fun(2)
+fun(2)
+-> calls fun(1)
+fun(1)
+-> calls fun(0)
+fun(0) stop
+Now returns upward:
+
+*Module 8 – Recursion*
+
+25
+print 1
+print 2
+print 3
+print 4
+print 5
+🎯 **Tail vs**: Head Recursion
+Type Work Happens
+Tail Recursion Before recursive call
+Head RecursionAfter recursive call
+📦 **Comparison Example**
+Tail Recursion
+printf("%d", n);
+fun(n-1);
+Output:
+5 4 3 2 1
+Head Recursion
+fun(n-1);
+printf("%d", n);
+Output:
+
+*Module 8 – Recursion*
+
+26
+1 2 3 4 5
+🎯 **Where Used?**
+Printing ascending order
+Tree traversals
+Recursive building tasks
+Processing after smaller solution returns
+⏱ Complexity
+Operation Time
+fun(n) O(n)
+🧪 Practice
+What prints?
+fun(3)
+(using head recursion code)
+✅ **Answer**:
+1 2 3
+⚠ Important Concept
+Head recursion waits until deepest call finishes.
+
+*Module 8 – Recursion*
+
+27
+So it uses call stack to reverse output naturally.
+📌 **Summary**
+Head Recursion:
+Recursive call first
+Work after return
+Often prints ascending order
+⏭ Next Lesson
+Backtracking Basics (Very Important)
+Type next
+🚀
+🚀 **Module 8 – Lesson 7**: Backtracking
+Basics
+Now we learn one of the most powerful recursion applications:
+👉 Backtracking
+Used to solve problems by:
+Try → Check → If wrong, undo → Try another path
+🎯 **What is**: Backtracking?
+Backtracking is a problem-solving technique where we:
+- Choose an option
+- Move forward recursively
+
+*Module 8 – Recursion*
+
+28
+- If it fails, come back
+- Try next option
+🧠 **Real Life**: Example
+Maze Path 🚪
+At a junction:
+Go Left
+If blocked, come back
+Go Right
+That “come back and retry” is backtracking.
+📌 **Backtracking =**: Recursion + Undo
+It uses recursion to explore possibilities.
+Then reverses wrong choices.
+💻 **Simple Example**: Print Paths
+Choose numbers 1 or 2 until length 2.
+#include <stdio.h>
+void solve(int arr[], int index, int n) {
+- if (index == n) {
+- for (int i = 0; i < n; i++)
+- printf("%d ", arr[i]);
+- printf("\n");
+- return;
+- }
+
+*Module 8 – Recursion*
+
+29
+- for (int choice = 1; choice <= 2; choice++) {
+- arr[index] = choice; // choose
+- solve(arr, index + 1, n); // explore
+- }
+}
+int main() {
+- int arr[2];
+- solve(arr, 0, 2);
+- return 0;
+}
+🧾 Output
+1 1
+1 2
+2 1
+2 2
+🧠 **How It**: Works
+Tree:
+start
+├── 1
+│ ├── 1
+│ └── 2
+└── 2
+- ├── 1
+- └── 2
+🎯 **Classic Problems**: Using Backtracking
+
+*Module 8 – Recursion*
+
+30
+N Queens
+Sudoku Solver
+Maze Solver
+Rat in Maze
+Permutations
+Subsets
+Crossword filling
+📌 **Core Pattern**
+for every choice:
+- choose
+- recurse
+- unchoose (undo if needed)
+💻 **Example with**: Undo
+arr[index] = choice;
+solve(...);
+arr[index] = 0; // undo
+Undo is useful when state must be restored.
+🎯 **Why Powerful?**
+It explores many possibilities systematically.
+If one path fails, tries others automatically.
+⏱ Complexity
+
+*Module 8 – Recursion*
+
+31
+Usually high because many combinations.
+Example:
+2 choices, depth n = O(2^n)
+Depends on problem.
+🧪 Practice
+If choices are {A,B} and length = 2
+Possible outputs?
+✅ **Answer**:
+
+## AA
+
+## AB
+
+## BA
+
+## BB
+
+⚠ Important Note
+Backtracking is slower than direct algorithms, but useful when brute-force search
+is needed intelligently.
+📌 **Summary**
+Backtracking:
+Try choices recursively
+Undo wrong path
+Explore all valid solutions
+
+*Module 8 – Recursion*
+
+32
+🎓 **Module 8 Completed**: Recursion
+Topics Covered:
+✅ **Introduction**
+✅ **Base Case**
+✅ **Recursive Calls**
+✅ **Recursive Tree**
+✅ **Tail Recursion**
+✅ **Head Recursion**
+✅ **Backtracking Basics**
+🧠 **Importance Rating**
+Topic Importance
+Base Case
+⭐
+⭐
+⭐
+⭐
+⭐
+Recursive Calls
+⭐
+⭐
+⭐
+⭐
+⭐
+Recursive Tree
+⭐
+⭐
+⭐
+⭐
+Tail / Head Recursion
+⭐
+⭐
+⭐
+⭐
+Backtracking
+⭐
+⭐
+⭐
+⭐
+⭐
+⏭ Next Module
+🚀 **Module 9**: – Searching Algorithms
+Type:
+Start Module 9
+
+*Module 8 – Recursion*
+
+33

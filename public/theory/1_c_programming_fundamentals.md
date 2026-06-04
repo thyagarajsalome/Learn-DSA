@@ -1,0 +1,1803 @@
+
+*Module 1: C Programming*
+
+Fundamentals
+Excellent
+👍
+Weʼll learn Module 1 C Programming Fundamentals in a structured course
+format, not randomly.
+
+*Module 1 Overview – C Programming*
+
+Fundamentals
+This module has 9 lessons:
+Lesson Topic Why Important
+1 Variables & Data Types Store information
+2 Operators Perform calculations/comparisons
+3 Input / Output Interact with user
+4 Conditional Statements Decision making
+5 Loops Repetition/automation
+6 Functions Reusable code blocks
+7 Arrays & Strings Basics Store collections of data
+8 Pointers Memory handling
+9 Structures + Dynamic MemoryAdvanced data storage
+Today: Lesson 1 – Variables & Data Types
+1. What is a Variable?
+A variable is:
+
+*Module 1: C Programming Fundamentals*
+
+1
+A container that stores data in memory.
+Real Life Example:
+Think of variables like labeled boxes
+📦 ****:
+Age Box → stores age
+Name Box → stores name
+Salary Box → stores salary
+In C
+int age = 25;
+Means:
+Create a box named age and store 25 inside it.
+2. What is a Data Type?
+A data type tells C
+What kind of value will be stored.
+Different data needs different types.
+Main Data Types in C
+Data Type Used For Example
+int Whole numbers 5, 10, 100
+float Decimal numbers5.5, 3.14
+char Single character 'A', 'B'
+double Large decimal 99.99999
+
+*Module 1: C Programming Fundamentals*
+
+2
+Example Code
+#include <stdio.h>
+int main() {
+- int age = 25;
+- float marks = 85.5;
+- char grade = 'A';
+- printf("%d\n", age);
+- printf("%.1f\n", marks);
+- printf("%c\n", grade);
+- return 0;
+}
+Output:
+25
+85.5
+
+## A
+
+3. Variable Naming Rules
+Good variable names:
+int age;
+float salary;
+char grade;
+Bad names:
+
+*Module 1: C Programming Fundamentals*
+
+3
+int 1age; // cannot start with number
+int my age; // no spaces
+Rules:
+- Must start with letter or underscore
+- Cannot use spaces
+- Cannot use special symbols
+- Cannot use C keywords like int , return
+4. Why Variables Matter in DSA
+Because EVERYTHING in programming uses variables.
+Example:
+Store loop counters
+Store array values
+Store node data
+Store indexes
+Without variables:
+No programming possible.
+5. Memory Concept (Very Important)
+When you write:
+int age = 25;
+Computer stores this in RAM
+
+*Module 1: C Programming Fundamentals*
+
+4
+Memory Address → Value
+1001 → 25
+Later this helps understand Pointers.
+Mini Practice Questions for You
+🧠
+Tell me output of this:
+
+## Q1
+
+int x = 10;
+printf("%d", x);
+
+## Q2
+
+char grade = 'B';
+printf("%c", grade);
+
+## Q3
+
+float pi = 3.14;
+printf("%.2f", pi);
+Homework Practice
+Type this yourself:
+#include <stdio.h>
+int main() {
+- int age = 30;
+
+*Module 1: C Programming Fundamentals*
+
+5
+- float salary = 25000.50;
+- char section = 'A';
+- printf("Age: %d\n", age);
+- printf("Salary: %.2f\n", salary);
+- printf("Section: %c\n", section);
+- return 0;
+}
+Before Next Lesson
+Master this first:
+What variable means
+What data types mean
+Basic declaration/printing
+👉 Reply with your answers to Q1/Q2/Q3, and Iʼll check them like your teacher
+before moving to Lesson 2 Operators.
+Excellent
+✅
+All 3 answers are correct! 🎉
+You understood Variables & Data Types perfectly.
+Quick Revision of Lesson 1
+You learned:
+Variable = container storing data
+Data Type = type of data inside container
+Examples:
+
+*Module 1: C Programming Fundamentals*
+
+6
+int age = 25;
+float marks = 85.5;
+char grade = 'A';
+Lesson 2 – Operators in C
+Operators are symbols used to:
+Perform actions on values/variables
+Example:
+5 + 3
+Here + is operator.
+Types of Operators
+Weʼll learn the 4 most important ones first:
+Type Purpose Example
+Arithmetic Math operations + - * / %
+Relational Compare values > < == !=
+Logical Combine conditions`&&
+Assignment Assign values =
+1. Arithmetic Operators
+Used for mathematics.
+Operator Meaning Example
++ Add 5 2
+- Subtract 5 2
+
+*Module 1: C Programming Fundamentals*
+
+7
+Operator Meaning Example
+* Multiply 5 2
+/ Divide 10/2
+% Modulus (remainder)10%3
+Example Code
+int a = 10, b = 3;
+printf("%d\n", a+b);
+printf("%d\n", a-b);
+printf("%d\n", a*b);
+printf("%d\n", a/b);
+printf("%d\n", a%b);
+Output
+13
+7
+30
+3
+1
+Important Note About Division ⚠
+If both numbers are int, C gives integer result only.
+5/2 = 2
+
+## NOT 2.5
+
+Why?
+Because int removes decimal.
+
+*Module 1: C Programming Fundamentals*
+
+8
+2. Relational Operators
+Used to compare values.
+Operator Meaning
+> Greater than
+< Less than
+== Equal to
+! Not equal
+>= Greater/equal
+<= Less/equal
+Example
+int a = 5, b = 3;
+printf("%d\n", a>b);
+printf("%d\n", a<b);
+printf("%d\n", a==b);
+Output
+1
+0
+0
+Remember:
+1 True
+0 False
+3. Logical Operators
+Used when checking multiple conditions.
+
+*Module 1: C Programming Fundamentals*
+
+9
+Operator Meaning Example
+&& AND both true
+! NOT reverse
+Example
+int age = 20;
+printf("%d", age>18 && age<30);
+Output:
+1
+Because BOTH conditions true.
+4. Assignment Operator
+Stores value.
+int x = 5;
+Means:
+Put 5 into x.
+Special Shortcut Operators
+Operator Meaning
+++ Increase by 1
+-- Decrease by 1
+
+*Module 1: C Programming Fundamentals*
+
+10
+Example:
+x++;
+Means:
+x = x + 1;
+Why Operators Matter in DSA
+Used everywhere:
+Loop counting
+Comparisons in searching
+Conditions in algorithms
+Math calculations
+Without operators:
+No logic possible.
+Practice Questions
+🧠
+Tell me output:
+
+## Q1
+
+int a=8,b=2;
+printf("%d", a+b);
+
+## Q2
+
+*Module 1: C Programming Fundamentals*
+
+11
+int a=10,b=3;
+printf("%d", a%b);
+
+## Q3
+
+int x=5;
+printf("%d", x>3);
+
+## Q4
+
+int y=4;
+y++;
+printf("%d", y);
+Reply with your answers, and once correct we move to Lesson 3 Input / Output
+🚀
+Great effort
+👍
+You got 3 correct, but Q1 has a small mistake. Letʼs check carefully.
+Answer Review
+
+## Q1
+
+int a=8,b=2;
+printf("%d", a+b);
+You answered: 10
+✅
+Correct!
+
+## Q2
+
+*Module 1: C Programming Fundamentals*
+
+12
+int a=10,b=3;
+printf("%d", a%b);
+You answered: 1
+✅
+Correct!
+Because:
+10 ÷ 3 = 3 remainder 1
+
+## Q3
+
+int x=5;
+printf("%d", x>3);
+You answered: 1
+✅
+Correct!
+Because:
+5 > 3 → True → 1
+
+## Q4
+
+int y=4;
+y++;
+printf("%d", y);
+You answered: 5
+✅
+Correct!
+Because:
+
+*Module 1: C Programming Fundamentals*
+
+13
+y++ means y = y+1
+Excellent! 🎉
+You got ALL 4 correct.
+You now understand operators well.
+Lesson 3 – Input / Output in C
+This teaches your program how to:
+Take data from user
+Show data on screen
+1. Output → printf()
+Used to display text/value.
+Example:
+printf("Hello");
+Output:
+Hello
+Printing Variables
+int age = 25;
+printf("%d", age);
+Output:
+
+*Module 1: C Programming Fundamentals*
+
+14
+25
+Format Specifiers
+These tell C what type of data to print.
+Specifier Used For
+%d Integer
+%f Float
+%c Character
+%s String
+Example
+int age = 20;
+float marks = 95.5;
+char grade = 'A';
+printf("%d\n", age);
+printf("%.1f\n", marks);
+printf("%c\n", grade);
+2. Input → scanf()
+Used to take user input.
+Syntax:
+scanf("%d", &variable);
+Example Program
+
+*Module 1: C Programming Fundamentals*
+
+15
+#include <stdio.h>
+int main() {
+- int age;
+- printf("Enter age: ");
+- scanf("%d", &age);
+- printf("Your age is %d", age);
+- return 0;
+}
+Sample Output
+Enter age: 25
+Your age is 25
+Why & Symbol in scanf?
+Example:
+scanf("%d", &age);
+& means:
+"Go to memory address of age and store value there."
+Weʼll learn this deeply in Pointers later.
+For now:
+Just remember scanf needs & for normal variables.
+
+*Module 1: C Programming Fundamentals*
+
+16
+Multiple Inputs
+int a,b;
+scanf("%d %d", &a, &b);
+Input:
+5 10
+Now:
+a = 5
+b = 10
+Real Use Cases
+Input/output is needed for:
+Taking user marks
+Accepting search values
+Menu-driven programs
+Interactive apps
+Practice Questions
+🧠
+Tell me what this code outputs:
+
+## Q1
+
+int age = 18;
+printf("%d", age);
+
+*Module 1: C Programming Fundamentals*
+
+17
+
+## Q2
+
+If user enters 7, what is output?
+int x;
+scanf("%d", &x);
+printf("%d", x);
+
+## Q3
+
+What format specifier is used for float?
+
+## Q4
+
+Why do we use & in scanf?
+- Answer in your own words)
+Reply with your answers and Iʼll review them before moving to Lesson 4
+Conditional Statements
+🚀
+Perfect
+👍 **Since you're**: comfortable, letʼs move ahead.
+Lesson 4 – Conditional Statements in C
+Conditional statements help program make decisions.
+Simple Meaning:
+“If something is true, do this. Otherwise do something else.”
+Real-Life Example 🚦
+Imagine traffic light:
+
+*Module 1: C Programming Fundamentals*
+
+18
+IF light is green → Go
+ELSE → Stop
+Programming works same way.
+Main Conditional Types in C
+Statement Use
+if Check one condition
+if-else Choose between two options
+else if Check many conditions
+switch Multiple fixed choices
+1. IF Statement
+Syntax:
+if(condition)
+{
+- // code runs if true
+}
+Example
+int age = 20;
+if(age >= 18)
+{
+- printf("Adult");
+}
+Output:
+
+*Module 1: C Programming Fundamentals*
+
+19
+Adult
+How It Works
+Program checks:
+Is age >= 18?
+YES → Print Adult
+2. IF-ELSE Statement
+Used when there are 2 possibilities.
+Syntax:
+if(condition)
+{
+- // true block
+}
+else
+{
+- // false block
+}
+Example
+int age = 15;
+if(age >= 18)
+{
+- printf("Adult");
+}
+
+*Module 1: C Programming Fundamentals*
+
+20
+else
+{
+- printf("Minor");
+}
+Output:
+Minor
+3. ELSE IF Ladder
+Used when checking many conditions.
+Example:
+int marks = 85;
+if(marks >= 90)
+{
+- printf("Grade A");
+}
+else if(marks >= 75)
+{
+- printf("Grade B");
+}
+else
+{
+- printf("Grade C");
+}
+Output:
+Grade B
+
+*Module 1: C Programming Fundamentals*
+
+21
+4. SWITCH Statement
+Used when you have many exact choices.
+Syntax:
+switch(variable)
+{
+- case value:
+- code;
+- break;
+}
+Example
+int day = 2;
+switch(day)
+{
+- case 1:
+- printf("Monday");
+- break;
+- case 2:
+- printf("Tuesday");
+- break;
+- default:
+- printf("Invalid");
+}
+Output:
+Tuesday
+
+*Module 1: C Programming Fundamentals*
+
+22
+Why break is Important
+Without break:
+Program keeps checking next cases too.
+Why Conditionals Matter in DSA
+Used in:
+Searching decisions
+Sorting comparisons
+Loop controls
+Tree/Graph traversal logic
+Basically:
+Every algorithm uses conditions.
+Practice Questions
+🧠
+Tell output:
+
+## Q1
+
+int x = 10;
+if(x > 5)
+{
+- printf("Yes");
+}
+
+## Q2
+
+*Module 1: C Programming Fundamentals*
+
+23
+int x = 3;
+if(x > 5)
+{
+- printf("Big");
+}
+else
+{
+- printf("Small");
+}
+
+## Q3
+
+int marks = 95;
+if(marks >= 90)
+{
+- printf("A");
+}
+else
+{
+- printf("B");
+}
+
+## Q4
+
+int day = 1;
+switch(day)
+{
+- case 1:
+- printf("Mon");
+- break;
+
+*Module 1: C Programming Fundamentals*
+
+24
+- case 2:
+- printf("Tue");
+- break;
+}
+Reply with your answers, then we go to Lesson 5 Loops
+🚀
+- Loops are extremely important for DSA.)
+Perfect
+👍 **Letʼs continue.**
+Lesson 5 – Loops in C
+Loops help us:
+Repeat code again and again automatically
+Without loops:
+Youʼd have to write same code many times 😵
+Real-Life Example
+Imagine teacher says:
+Write “Hello” 100 times
+Without loop:
+printf("Hello");
+printf("Hello");
+printf("Hello");
+...
+Terrible
+❌
+With loop:
+
+*Module 1: C Programming Fundamentals*
+
+25
+for(...) {
+- printf("Hello");
+}
+Easy
+✅
+Types of Loops in C
+Loop Use
+for When number of repeats is known
+while Repeat while condition is true
+do-while Run at least once
+1. FOR Loop
+Most used in DSA.
+Syntax:
+for(initialization; condition; update)
+{
+- // code
+}
+Example
+for(int i=1; i<=5; i++)
+{
+- printf("%d ", i);
+}
+Output:
+
+*Module 1: C Programming Fundamentals*
+
+26
+1 2 3 4 5
+How It Works
+Step by Step:
+1. Start i = 1
+2. Check i <= 5
+3. Print i
+4. Increase i
+5. Repeat
+2. WHILE Loop
+Used when repeats depend on condition.
+Syntax:
+while(condition)
+{
+- // code
+}
+Example
+int i = 1;
+while(i <= 5)
+{
+- printf("%d ", i);
+- i++;
+}
+
+*Module 1: C Programming Fundamentals*
+
+27
+Output:
+1 2 3 4 5
+3. DO-WHILE Loop
+Runs code at least once.
+Syntax:
+do
+{
+- // code
+}
+while(condition);
+Example
+int i = 1;
+do
+{
+- printf("%d ", i);
+- i++;
+}
+while(i <= 5);
+Output:
+1 2 3 4 5
+
+*Module 1: C Programming Fundamentals*
+
+28
+Difference Between While & Do-While
+While:
+Checks condition FIRST
+Do-While:
+Runs FIRST, checks later
+Loop Control Statements
+break
+Stops loop completely.
+Example:
+for(int i=1; i<=5; i++)
+{
+- if(i==3)
+- break;
+- printf("%d ", i);
+}
+Output:
+1 2
+continue
+Skips current turn.
+Example:
+
+*Module 1: C Programming Fundamentals*
+
+29
+for(int i=1; i<=5; i++)
+{
+- if(i==3)
+- continue;
+- printf("%d ", i);
+}
+Output:
+1 2 4 5
+Why Loops Matter in DSA
+Loops are used for:
+Traversing arrays
+Searching elements
+Sorting
+Pattern printing
+Repetition logic
+Without loops:
+No DSA possible.
+Real DSA Example
+Linear Search:
+for(int i=0; i<n; i++)
+{
+
+*Module 1: C Programming Fundamentals*
+
+30
+- if(arr[i]==target)
+- return i;
+}
+See?
+DSA uses loops everywhere.
+Homework Practice
+Try writing:
+Print 1 to 10 using for loop
+Print even numbers 2 to 20
+Print table of 5
+Next Lesson Preview
+We now move to:
+Lesson 6 Functions
+- Very important before DSA because algorithms are written as functions.)
+👉 Reply “Next” when ready.
+Awesome
+👍 **Letʼs continue.**
+Lesson 6 – Functions in C
+Functions are:
+Reusable blocks of code made to perform a specific task
+Think of them like machines in a factory 🏭 :
+
+*Module 1: C Programming Fundamentals*
+
+31
+Input goes in → Machine works → Output comes out
+Why Functions Exist
+Imagine you need to add two numbers 10 times.
+Without function:
+printf("%d", 5+3);
+printf("%d", 7+2);
+printf("%d", 4+6);
+Repeated code
+❌
+Better:
+add(5,3);
+add(7,2);
+add(4,6);
+Cleaner
+✅
+Benefits of Functions
+Benefit Meaning
+Reusability Write once, use many times
+Cleaner Code Organized program
+Easy DebuggingFix one place
+Modular Design Break big problem into small parts
+Basic Syntax of Function
+
+*Module 1: C Programming Fundamentals*
+
+32
+return_type function_name()
+{
+- // code
+}
+Example 1 – Simple Function
+#include <stdio.h>
+void greet()
+{
+- printf("Hello!\n");
+}
+int main()
+{
+- greet();
+- return 0;
+}
+Output:
+Hello!
+Understanding This
+void
+Means:
+Function returns nothing
+
+*Module 1: C Programming Fundamentals*
+
+33
+Example 2 – Function with Parameters
+Parameters = input values.
+#include <stdio.h>
+void add(int a, int b)
+{
+- printf("%d", a+b);
+}
+int main()
+{
+- add(5,3);
+}
+Output:
+8
+How It Works
+add(5,3)
+a = 5
+b = 3
+Then:
+Print a+b
+
+*Module 1: C Programming Fundamentals*
+
+34
+Example 3 – Function Returning Value
+#include <stdio.h>
+int add(int a, int b)
+{
+- return a+b;
+}
+int main()
+{
+- int result = add(4,6);
+- printf("%d", result);
+}
+Output:
+10
+Difference Between Print and Return
+Print:
+Shows output directly.
+Return:
+Sends value back to caller.
+Function Types
+
+*Module 1: C Programming Fundamentals*
+
+35
+Type Example
+No parameter, no return void greet()
+Parameter, no return void add(int a)
+No parameter, return int getNum()
+Parameter + return int add(int a,int b)
+Why Functions Matter in DSA
+Every algorithm is written in functions:
+Example:
+int linearSearch(int arr[], int n, int key)
+{
+- ...
+}
+void bubbleSort(int arr[], int n)
+{
+- ...
+}
+So:
+Functions are mandatory for DSA.
+Scope of Variables (Important)
+Variables inside function stay inside that function.
+Example:
+void test()
+{
+
+*Module 1: C Programming Fundamentals*
+
+36
+- int x = 5;
+}
+x cannot be used outside.
+Practice Questions
+🧠
+Tell output:
+
+## Q1
+
+void hello()
+{
+- printf("Hi");
+}
+int main()
+{
+- hello();
+}
+
+## Q2
+
+int add(int a,int b)
+{
+- return a+b;
+}
+int main()
+{
+- printf("%d", add(2,3));
+}
+
+*Module 1: C Programming Fundamentals*
+
+37
+
+## Q3
+
+What does void mean in function?
+
+## Q4
+
+Why do programmers use functions?
+Reply with answers, then we go to Lesson 7 Arrays & Strings Basics
+🚀
+- This is where DSA foundation starts becoming real.)
+Excellent
+👍 **You understood**: the core idea well.
+Letʼs review quickly:
+Answer Check
+
+## Q1
+
+hello();
+Your Answer: Hi
+✅
+Correct.
+
+## Q2
+
+add(2,3)
+Your Answer: 5
+✅
+Correct.
+
+## Q3
+
+Your Answer: "no function no return"
+Almost correct
+👍
+Better wording:
+
+*Module 1: C Programming Fundamentals*
+
+38
+void means the function does not return any value.
+Example:
+void greet()
+Means:
+Function can run code
+But it sends nothing back
+
+## Q4
+
+Your Answer: Functions are reusable
+✅
+Correct.
+Also:
+organize code
+reduce repetition
+make debugging easier
+Great Progress 🎉
+Youʼve completed:
+✔ **Lesson 1**: – Variables
+✔ **Lesson 2**: – Operators
+✔ **Lesson 3**: – Input/Output
+✔ **Lesson 4**: – Conditionals
+✔ **Lesson 5**: – Loops
+✔ **Lesson 6**: – Functions
+Lesson 7 – Arrays Basics
+Arrays are SUPER IMPORTANT because:
+
+*Module 1: C Programming Fundamentals*
+
+39
+Most DSA starts with arrays.
+What is an Array?
+An array is:
+A collection of multiple values stored in one variable name
+Without Array
+Imagine storing 5 marks:
+int mark1 = 90;
+int mark2 = 80;
+int mark3 = 70;
+int mark4 = 85;
+int mark5 = 95;
+Messy
+❌
+With Array
+int marks[5] = {90,80,70,85,95};
+Cleaner
+✅
+Real-Life Example
+Think of array like apartment building 🏢
+Room 0 → 90
+Room 1 → 80
+Room 2 → 70
+Room 3 → 85
+Room 4 → 95
+
+*Module 1: C Programming Fundamentals*
+
+40
+Each room has:
+Index (position)
+Stored value
+Array Index Starts at 0
+
+## VERY IMPORTANT ⚠
+
+marks[0] = first value
+marks[1] = second value
+marks[2] = third value
+NOT from 1.
+Example Program
+#include <stdio.h>
+int main()
+{
+- int arr[5] = {10,20,30,40,50};
+- printf("%d", arr[0]);
+- return 0;
+}
+Output:
+10
+
+*Module 1: C Programming Fundamentals*
+
+41
+Accessing Array Elements
+arr[2]
+Means:
+Get value at position 2
+Example:
+{10,20,30,40,50}
+So:
+arr[2] = 30
+Modifying Array Values
+arr[1] = 100;
+Now:
+Old: {10,20,30}
+New: {10,100,30}
+Using Loop with Arrays
+Very common in DSA.
+for(int i=0;i<5;i++)
+{
+
+*Module 1: C Programming Fundamentals*
+
+42
+- printf("%d ", arr[i]);
+}
+Output:
+10 20 30 40 50
+Why Arrays Matter in DSA
+Arrays used in:
+Searching
+Sorting
+Matrix problems
+Dynamic Programming
+Base for other structures
+Memory Concept of Arrays
+Array stores data in continuous memory
+Example:
+Address 100 → 10
+Address 104 → 20
+Address 108 → 30
+This is why arrays are fast.
+Practice Questions
+🧠
+Tell me output:
+
+*Module 1: C Programming Fundamentals*
+
+43
+
+## Q1
+
+int arr[3]={5,10,15};
+printf("%d", arr[0]);
+
+## Q2
+
+int arr[3]={5,10,15};
+printf("%d", arr[2]);
+
+## Q3
+
+int arr[3]={1,2,3};
+arr[1]=50;
+printf("%d", arr[1]);
+
+## Q4
+
+Why does array index start from?
+Reply with answers and then weʼll continue to Strings (part of Lesson 7 .
+🚀
+Awesome
+👍 **Since you**: want to keep momentum, letʼs continue straight into the
+next part.
+Lesson 7B – Strings in C
+Strings are:
+A collection of characters stored in an array
+Example word:
+
+## HELLO
+
+*Module 1: C Programming Fundamentals*
+
+44
+Computer stores it as:
+
+## 'H' 'E' 'L' 'L' 'O'
+
+Why Strings Matter
+Used everywhere:
+Names
+Passwords
+Search boxes
+Text processing
+Validation systems
+How String is Stored in C
+char name[] = "HELLO";
+Actually stored as:
+
+## H E L L O \0
+
+What is \0 ?
+It is:
+Null character → marks end of string
+
+## VERY IMPORTANT ⚠
+
+Without it:
+
+*Module 1: C Programming Fundamentals*
+
+45
+C doesnʼt know where string ends.
+Example Program
+#include <stdio.h>
+int main()
+{
+- char name[] = "Murthy";
+- printf("%s", name);
+- return 0;
+}
+Output:
+Murthy
+%s Format Specifier
+Used for strings.
+printf("%s", name);
+Access Individual Characters
+Since string is array:
+char name[] = "CAT";
+
+*Module 1: C Programming Fundamentals*
+
+46
+Stored like:
+Index Value
+
+## 0 C
+
+## 1 A
+
+## 2 T
+
+3 \0
+Example:
+printf("%c", name[1]);
+Output:
+
+## A
+
+Taking String Input
+char name[20];
+scanf("%s", name);
+Input:
+John
+Output:
+printf("%s", name);
+
+*Module 1: C Programming Fundamentals*
+
+47
+Common String Functions
+Need library:
+#include <string.h>
+strlen() → Find Length
+strlen("Hello")
+Output:
+5
+strcpy() → Copy String
+strcpy(a,b);
+strcmp() → Compare Strings
+strcmp(a,b);
+strcat() → Join Strings
+strcat(a,b);
+Why Strings Matter in DSA
+Used in:
+Pattern matching
+
+*Module 1: C Programming Fundamentals*
+
+48
+Text algorithms
+Palindrome checking
+Search engines
+Validation problems
+Practice Questions
+🧠
+Tell output:
+
+## Q1
+
+char name[]="DOG";
+printf("%s", name);
+
+## Q2
+
+char word[]="CAT";
+printf("%c", word[1]);
+
+## Q3
+
+What special character ends a string in C?
+
+## Q4
+
+What format specifier prints string?
+Reply with answers, and after this we move to Lesson 8 Pointers
+🔥
+- One of the most important topics before DSA.)
+Awesome
+👍 **Since you**: want to keep momentum, letʼs continue straight into the
+next part.
+
+*Module 1: C Programming Fundamentals*
+
+49
+Lesson 7B – Strings in C
+Strings are:
+A collection of characters stored in an array
+Example word:
+
+## HELLO
+
+Computer stores it as:
+
+## 'H' 'E' 'L' 'L' 'O'
+
+Why Strings Matter
+Used everywhere:
+Names
+Passwords
+Search boxes
+Text processing
+Validation systems
+How String is Stored in C
+char name[] = "HELLO";
+Actually stored as:
+
+## H E L L O \0
+
+*Module 1: C Programming Fundamentals*
+
+50
+What is \0 ?
+It is:
+Null character → marks end of string
+
+## VERY IMPORTANT ⚠
+
+Without it:
+C doesnʼt know where string ends.
+Example Program
+#include <stdio.h>
+int main()
+{
+- char name[] = "Murthy";
+- printf("%s", name);
+- return 0;
+}
+Output:
+Murthy
+%s Format Specifier
+Used for strings.
+
+*Module 1: C Programming Fundamentals*
+
+51
+printf("%s", name);
+Access Individual Characters
+Since string is array:
+char name[] = "CAT";
+Stored like:
+Index Value
+
+## 0 C
+
+## 1 A
+
+## 2 T
+
+3 \0
+Example:
+printf("%c", name[1]);
+Output:
+
+## A
+
+Taking String Input
+char name[20];
+scanf("%s", name);
+Input:
+
+*Module 1: C Programming Fundamentals*
+
+52
+John
+Output:
+printf("%s", name);
+Common String Functions
+Need library:
+#include <string.h>
+strlen() → Find Length
+strlen("Hello")
+Output:
+5
+strcpy() → Copy String
+strcpy(a,b);
+strcmp() → Compare Strings
+strcmp(a,b);
+strcat() → Join Strings
+
+*Module 1: C Programming Fundamentals*
+
+53
+strcat(a,b);
+Why Strings Matter in DSA
+Used in:
+Pattern matching
+Text algorithms
+Palindrome checking
+Search engines
+Validation problems
+Practice Questions
+🧠
+Tell output:
+
+## Q1
+
+char name[]="DOG";
+printf("%s", name);
+
+## Q2
+
+char word[]="CAT";
+printf("%c", word[1]);
+
+## Q3
+
+What special character ends a string in C?
+
+## Q4
+
+*Module 1: C Programming Fundamentals*
+
+54
+What format specifier prints string?
+Reply with answers, and after this we move to Lesson 8 Pointers
+🔥
+- One of the most important topics before DSA.)
+Perfect
+👍
+Youʼre moving fast — now we enter one of the MOST IMPORTANT topics in C and
+
+## DSA:
+
+Lesson 8 – Pointers in C
+🔥
+Many beginners fear pointers, but Iʼll make it simple.
+What is a Pointer?
+A pointer is:
+A variable that stores the memory address of another variable
+Real-Life Analogy
+📦
+Imagine:
+You have a house.
+House Number = Address
+Inside House = Value
+Example:
+House Address: 101
+Value inside: 25
+A pointer stores:
+
+*Module 1: C Programming Fundamentals*
+
+55
+The house number (address), NOT the value
+Normal Variable Example
+int age = 25;
+Means:
+Variable: age
+Value: 25
+Stored somewhere in memory
+Maybe memory looks like:
+Address 1000 → 25
+Getting Address using &
+printf("%p", &age);
+Output might be:
+1000
+Meaning:
+Address of age is 1000
+Creating Pointer
+Syntax:
+
+*Module 1: C Programming Fundamentals*
+
+56
+int *ptr;
+Means:
+ptr is pointer to integer.
+Storing Address in Pointer
+int age = 25;
+int *ptr = &age;
+Now:
+ptr stores address of age
+Visual:
+age = 25 at address 1000
+ptr = 1000
+Dereference Operator
+Used to get value from address.
+Example:
+printf("%d", *ptr);
+Output:
+25
+
+*Module 1: C Programming Fundamentals*
+
+57
+Why?
+Because:
+ptr has address 1000
+At 1000 value is 25
+So:
+*ptr = value at stored address
+Full Example
+#include <stdio.h>
+int main()
+{
+- int age = 25;
+- int *ptr = &age;
+- printf("%d\n", age);
+- printf("%p\n", ptr);
+- printf("%d\n", *ptr);
+- return 0;
+}
+Output:
+25
+1000 (example)
+25
+
+*Module 1: C Programming Fundamentals*
+
+58
+Important Symbols Summary
+Symbol Meaning
+& Get address
+* Dereference / value at address
+Modify Variable Using Pointer
+int x = 10;
+int *ptr = &x;
+*ptr = 50;
+Now:
+x = 50
+Because pointer changed original value.
+Why Pointers Matter in DSA
+Pointers are used in:
+Linked Lists
+Trees
+Graphs
+Dynamic Memory
+Function parameters
+Memory management
+Without pointers:
+
+*Module 1: C Programming Fundamentals*
+
+59
+Advanced DSA impossible in C
+Memory Visualization
+Variable x = 10
+Address 200 → 10
+Pointer ptr stores 200
+Common Beginner Confusion
+This:
+int *ptr;
+Does NOT mean multiplication.
+It means:
+Pointer declaration.
+Practice Questions
+🧠
+Tell me output:
+
+## Q1
+
+int x = 5;
+printf("%d", &x);
+- Conceptually what prints?
+
+*Module 1: C Programming Fundamentals*
+
+60
+
+## Q2
+
+int x = 10;
+int *p = &x;
+printf("%d", *p);
+
+## Q3
+
+int x = 20;
+int *p = &x;
+*p = 50;
+printf("%d", x);
+
+## Q4
+
+Difference between:
+p
+and
+*p
+Reply with answers, and once done weʼll move to Lesson 9 Structures +
+Dynamic Memory Allocation (final part of Module 1 .
+🚀
+Perfect
+👍
+Weʼll move ahead, but donʼt skip revising pointers later—they are extremely
+important for DSA.
+Now letʼs finish Module 1 with the final lesson.
+
+*Module 1: C Programming Fundamentals*
+
+61
+Lesson 9 – Structures + Dynamic Memory
+Allocation
+This lesson has 2 major concepts:
+- Structures (struct ) → store multiple related data together
+- Dynamic Memory Allocation (malloc ) → create memory while program runs
+Part 1 – Structures in C
+What is a Structure?
+Structure lets you:
+Group different data types into one unit
+Real-Life Example
+Imagine storing student info:
+Without structure:
+char name[20];
+int age;
+float marks;
+Messy if many students
+❌
+With Structure
+struct Student
+{
+- char name[20];
+- int age;
+
+*Module 1: C Programming Fundamentals*
+
+62
+- float marks;
+};
+Now:
+Student becomes one custom data type.
+Creating Structure Variable
+struct Student s1;
+Now s1 can hold:
+name
+age
+marks
+Assigning Values
+s1.age = 20;
+s1.marks = 88.5;
+Use dot operator (. )
+Full Example
+#include <stdio.h>
+struct Student
+{
+- int age;
+- float marks;
+
+*Module 1: C Programming Fundamentals*
+
+63
+};
+int main()
+{
+- struct Student s1;
+- s1.age = 20;
+- s1.marks = 95.5;
+- printf("%d\n", s1.age);
+- printf("%.1f", s1.marks);
+- return 0;
+}
+Output:
+20
+95.5
+Why Structures Matter in DSA
+Used for:
+Linked List Nodes
+Tree Nodes
+Graph Nodes
+Custom Data Storage
+Example later:
+struct Node
+{
+- int data;
+
+*Module 1: C Programming Fundamentals*
+
+64
+- struct Node* next;
+};
+Part 2 – Dynamic Memory Allocation
+Problem with Normal Variables
+When you write:
+int arr[10];
+Memory size is fixed.
+Cannot grow later.
+Dynamic Memory Means:
+Allocate memory when needed during runtime.
+malloc() Function
+Syntax:
+ptr = (type*) malloc(size);
+Example
+int *ptr;
+ptr = (int*) malloc(sizeof(int));
+Meaning:
+
+*Module 1: C Programming Fundamentals*
+
+65
+Create memory for 1 integer dynamically.
+Store Value in Dynamic Memory
+*ptr = 50;
+printf("%d", *ptr);
+Output:
+50
+Why Use Dynamic Memory?
+Because in DSA
+You often DONʼT know size beforehand.
+Examples:
+Number of linked list nodes unknown
+Number of tree nodes unknown
+Graph size unknown
+Free Memory
+After using dynamic memory:
+free(ptr);
+Important because:
+Prevents memory leaks.
+
+*Module 1: C Programming Fundamentals*
+
+66
+Full Example
+#include <stdio.h>
+#include <stdlib.h>
+int main()
+{
+- int *ptr;
+- ptr = (int*) malloc(sizeof(int));
+*ptr = 100;
+- printf("%d", *ptr);
+- free(ptr);
+- return 0;
+}
+Output:
+100
+Why Dynamic Memory Matters in DSA
+Without it, impossible to build:
+Linked Lists
+Trees
+Graphs
+Dynamic Arrays
+
+*Module 1: C Programming Fundamentals*
+
+67
+
+*MODULE 1 COMPLETE 🎉*
+
+You have now learned:
+Lesson Topic
+1 Variables/Data Types
+2 Operators
+3 Input/Output
+4 Conditions
+5 Loops
+6 Functions
+7 Arrays/Strings
+8 Pointers
+9 Structures/Dynamic Memory
+Before Module 2
+You now know enough C to start real DSA.
+Next module is:
+
+*Module 2 – Algorithm Analysis / Big O /*
+
+Complexity
+This will teach you:
+Why one algorithm is faster than another
+How interviewers judge code
+How to analyze performance
+👉 Reply “Start Module 2” and weʼll begin structured DSA learning properly.
+
+*Module 1: C Programming Fundamentals*
+
+68

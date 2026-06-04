@@ -1,0 +1,1106 @@
+
+*Module 7 – Queue*
+
+🚀 **Module 7**: – Queue (Structured Learning
+in C)
+Queue is one of the most important data structures.
+It is heavily used in:
+CPU Scheduling
+Printer Jobs
+Ticket Booking Systems
+BFS in Graphs
+Call Center Waiting Lines
+📚 **Module 7**: Topics
+We will learn step-by-step:
+- Introduction to Queue
+- Queue using Array
+- Queue using Linked List
+- Enqueue
+- Dequeue
+- Circular Queue
+- Priority Queue
+- Deque
+🎯 **Lesson 1**: – Introduction to Queue
+✅
+
+*Module 7 – Queue*
+
+1
+✅ **What is**: Queue?
+A Queue is a linear data structure that follows:
+👉 FIFO Principle
+First In First Out
+The element inserted first will be removed first.
+Like people standing in a line.
+🧍 Real Life Example
+Bus Queue
+People join from back.
+First person exits first.
+Front -> [A][B][C][D] <- Rear
+Remove A first.
+🧠 **Queue Operations**
+Operation Meaning
+Enqueue Insert element
+Dequeue Remove element
+Front First element
+Rear Last element
+isEmpty Queue empty?
+isFull Queue full?
+
+*Module 7 – Queue*
+
+2
+📌 **Example**
+Insert:
+10, 20, 30
+Front -> [10][20][30] <- Rear
+Now Dequeue:
+Removed = 10
+Front -> [20][30]
+⚙ **Queue in**: C (Basic Array Concept)
+int queue[5];
+int front = -1;
+int rear = -1;
+📍 Why Queue is Important?
+Because many real systems work in waiting order:
+Printer prints first request first
+Website requests processed in order
+Customer care calls waiting line
+⏱ Time Complexity
+Operation Time
+Enqueue O 1
+
+*Module 7 – Queue*
+
+3
+Operation Time
+Dequeue O 1
+(ideal case)
+🎯 **Interview Question**
+Why queue uses FIFO?
+👉 Because first arrived task should get served first.
+🧪 Mini Practice
+If queue has:
+[5, 10, 15]
+After one dequeue?
+✅ **Answer**:
+[10, 15]
+📌 **Summary**
+Queue = FIFO system.
+Insert from Rear.
+Delete from Front.
+⏭ Next Lesson:
+Queue using Array + Full C Program
+
+*Module 7 – Queue*
+
+4
+Type next
+🚀
+🚀 **Module 7 – Lesson 2**: Queue using Array
+(C Program)
+Now we implement Queue using Array.
+This is the easiest and most common beginner method.
+🎯 **Idea**
+We use:
+int queue[MAX];
+int front = -1;
+int rear = -1;
+front → first element index
+rear → last element index
+📦 **Example**
+Empty Queue:
+front = -1
+rear = -1
+After inserting 10, 20, 30
+Index: 0 1 2
+Queue: [10][20][30]
+front = 0
+rear = 2
+
+*Module 7 – Queue*
+
+5
+📌 **Queue Rules**
+Insert (Enqueue)
+Add at rear
+Delete (Dequeue)
+Remove from front
+⚠ Conditions
+Queue Full
+rear == MAX - 1
+Queue Empty
+front == -1 || front > rear
+💻 **Full C**: Program
+#include <stdio.h>
+#define MAX 5
+int queue[MAX];
+int front = -1, rear = -1;
+void display() {
+- if (front == -1 || front > rear) {
+- printf("Queue is Empty\n");
+- return;
+
+*Module 7 – Queue*
+
+6
+- }
+- for (int i = front; i <= rear; i++) {
+- printf("%d ", queue[i]);
+- }
+- printf("\n");
+}
+int main() {
+- queue[++rear] = 10;
+- front = 0;
+- queue[++rear] = 20;
+- queue[++rear] = 30;
+- display();
+- return 0;
+}
+🧾 Output
+10 20 30
+🧠 **Dry Run**
+Step 1
+Insert 10
+[10]
+front = 0
+
+*Module 7 – Queue*
+
+7
+rear = 0
+Step 2
+Insert 20
+[10][20]
+rear = 1
+Step 3
+Insert 30
+[10][20][30]
+rear = 2
+🎯 **Real Use**: Cases
+Waiting customers in bank
+Printer jobs
+Food order queue
+Web request handling
+⏱ Complexity
+Operation Time
+Insert O 1
+Display O(n)
+📌 **Important Limitation**: of Array Queue
+
+*Module 7 – Queue*
+
+8
+If front moves forward after deletions, empty spaces at beginning are wasted.
+That problem is solved by Circular Queue (later lesson).
+🧪 Practice
+If MAX 5 and rear = 4
+Can we insert more?
+✅ **No, queue**: full.
+⏭ Next Lesson
+Enqueue Operation (Proper function in C)
+Type next
+🚀
+🚀 **Module 7 – Lesson 3**: Enqueue Operation
+in Queue (C)
+Now we learn the most important operation:
+👉 Enqueue = Insert element into Queue
+New element always enters from the Rear.
+🎯 **Rule of**: Queue
+Insert from Rear
+Delete from Front
+📦 **Example**
+
+*Module 7 – Queue*
+
+9
+Current Queue:
+Front -> [10][20][30] <- Rear
+Enqueue 40
+Front -> [10][20][30][40] <- Rear
+🧠 **Logic of**: Enqueue
+Step 1: Check Queue Full?
+rear == MAX - 1
+If yes:
+Queue Overflow
+Step 2: If First Element
+If queue empty:
+front = 0;
+rear = 0;
+Step 3: Otherwise
+Increase rear:
+rear++;
+
+*Module 7 – Queue*
+
+10
+queue[rear] = value;
+💻 **Full C**: Program
+#include <stdio.h>
+#define MAX 5
+int queue[MAX];
+int front = -1, rear = -1;
+void enqueue(int value) {
+- if (rear == MAX - 1) {
+- printf("Queue Overflow\n");
+- return;
+- }
+- if (front == -1) {
+- front = 0;
+- }
+- rear++;
+- queue[rear] = value;
+- printf("%d inserted\n", value);
+}
+void display() {
+- if (front == -1 || front > rear) {
+- printf("Queue Empty\n");
+- return;
+- }
+- for (int i = front; i <= rear; i++) {
+- printf("%d ", queue[i]);
+
+*Module 7 – Queue*
+
+11
+- }
+- printf("\n");
+}
+int main() {
+- enqueue(10);
+- enqueue(20);
+- enqueue(30);
+- display();
+- return 0;
+}
+🧾 Output
+10 inserted
+20 inserted
+30 inserted
+10 20 30
+🧠 **Dry Run**
+Initially
+front = -1
+rear = -1
+Enqueue(10)
+
+*Module 7 – Queue*
+
+12
+front = 0
+rear = 0
+[10]
+Enqueue(20)
+rear = 1
+[10][20]
+Enqueue(30)
+rear = 2
+[10][20][30]
+⚠ Overflow Example
+If MAX 5 and queue already has 5 items:
+Cannot insert more
+Queue Overflow
+🎯 **Real Use**: Cases
+New customer joins waiting line
+Print job added
+CPU task enters ready queue
+Food order placed online
+⏱ Time Complexity
+
+*Module 7 – Queue*
+
+13
+Operation Time
+Enqueue O 1
+🧪 Practice
+Queue:
+[5][10]
+rear = 1
+After Enqueue(15)?
+✅ **Answer**:
+[5][10][15]
+rear = 2
+📌 **Summary**
+Enqueue means:
+Add new item at rear
+Fast operation O 1
+⏭ Next Lesson
+Dequeue Operation in Queue (Delete)
+Type next
+🚀
+🚀 **Module 7 – Lesson 4**: Dequeue
+Operation in Queue (C)
+
+*Module 7 – Queue*
+
+14
+Now we learn:
+👉 Dequeue = Remove element from Queue
+In Queue, deletion always happens from the Front.
+🎯 **Queue Rule**
+Insert -> Rear
+Delete -> Front
+FIFO First In First Out
+📦 **Example**
+Current Queue:
+Front -> [10][20][30] <- Rear
+Dequeue:
+Removed = 10
+Front -> [20][30]
+10 removed first because it came first.
+🧠 **Logic of**: Dequeue
+Step 1: Check Empty?
+front == -1 || front > rear
+
+*Module 7 – Queue*
+
+15
+If true:
+Queue Underflow
+Step 2: Remove Front Element
+value = queue[front];
+front++;
+Step 3: If Queue Becomes Empty
+Reset:
+front = rear = -1;
+(when front > rear)
+💻 **Full C**: Program
+#include <stdio.h>
+#define MAX 5
+int queue[MAX];
+int front = 0, rear = 2;
+void dequeue() {
+- if (front > rear) {
+- printf("Queue Underflow\n");
+- return;
+- }
+- int value = queue[front];
+
+*Module 7 – Queue*
+
+16
+- front++;
+- printf("%d removed\n", value);
+- if (front > rear) {
+- front = rear = -1;
+- }
+}
+void display() {
+- if (front == -1) {
+- printf("Queue Empty\n");
+- return;
+- }
+- for (int i = front; i <= rear; i++) {
+- printf("%d ", queue[i]);
+- }
+- printf("\n");
+}
+int main() {
+- queue[0] = 10;
+- queue[1] = 20;
+- queue[2] = 30;
+- display();
+- dequeue();
+- display();
+- return 0;
+}
+
+*Module 7 – Queue*
+
+17
+🧾 Output
+10 20 30
+10 removed
+20 30
+🧠 **Dry Run**
+Initial Queue
+front = 0
+rear = 2
+[10][20][30]
+Dequeue()
+Remove queue[0
+Removed = 10
+front = 1
+Now:
+[20][30]
+⚠ Underflow Example
+If queue empty:
+Queue Underflow
+
+*Module 7 – Queue*
+
+18
+🎯 **Real Use**: Cases
+First waiting customer served
+First print job printed
+First support ticket handled
+First request processed
+⏱ Time Complexity
+Operation Time
+Dequeue O 1
+🧪 Practice
+Queue:
+[5][10][15]
+After one dequeue?
+✅ **Answer**:
+[10][15]
+📌 **Important Note**
+In normal array queue, removed spaces at front get wasted.
+Example:
+
+*Module 7 – Queue*
+
+19
+_ _ [30][40]
+This problem is solved by Circular Queue.
+📌 **Summary**
+Dequeue means:
+Remove from front
+FIFO system
+O 1) time
+⏭ Next Lesson
+Queue using Linked List (Dynamic Queue)
+Type next
+🚀
+🚀 **Module 7 – Lesson 5**: Queue using
+Linked List (Dynamic Queue)
+Now we learn a better queue implementation:
+👉 Queue using Linked List
+This removes the size limitation of array queue.
+🎯 **Why Linked**: List Queue?
+Array Queue Problems
+Fixed size
+
+*Module 7 – Queue*
+
+20
+Wasted space after deletions
+Overflow when array full
+Linked List Solution
+✅ **Dynamic size**
+✅ **Efficient insert/delete**
+✅ **No wasted**: shifting
+🧠 **Structure Used**: in C
+Each node contains:
+data
+next pointer
+struct Node {
+- int data;
+- struct Node *next;
+};
+We maintain:
+front
+rear
+📦 **Example**
+Initial:
+front = NULL
+rear = NULL
+
+*Module 7 – Queue*
+
+21
+After insert 10,20,30
+front
+- ↓
+
+## [10] -> [20] -> [30] -> NULL
+
+- ↑
+- rear
+🎯 **Operations**
+Enqueue
+Insert at rear
+Dequeue
+Delete from front
+💻 **Full C**: Program
+#include <stdio.h>
+#include <stdlib.h>
+struct Node {
+- int data;
+- struct Node *next;
+};
+struct Node *front = NULL;
+struct Node *rear = NULL;
+void enqueue(int value) {
+- struct Node *newNode =
+- (struct Node*)malloc(sizeof(struct Node));
+
+*Module 7 – Queue*
+
+22
+- newNode->data = value;
+- newNode->next = NULL;
+- if (rear == NULL) {
+- front = rear = newNode;
+- } else {
+- rear->next = newNode;
+- rear = newNode;
+- }
+- printf("%d inserted\n", value);
+}
+void dequeue() {
+- if (front == NULL) {
+- printf("Queue Empty\n");
+- return;
+- }
+- struct Node *temp = front;
+- printf("%d removed\n", front->data);
+- front = front->next;
+- if (front == NULL)
+- rear = NULL;
+- free(temp);
+}
+void display() {
+- struct Node *temp = front;
+- while (temp != NULL) {
+
+*Module 7 – Queue*
+
+23
+- printf("%d ", temp->data);
+- temp = temp->next;
+- }
+- printf("\n");
+}
+int main() {
+- enqueue(10);
+- enqueue(20);
+- enqueue(30);
+- display();
+- dequeue();
+- display();
+- return 0;
+}
+🧾 Output
+10 inserted
+20 inserted
+30 inserted
+10 20 30
+10 removed
+20 30
+🧠 **Dry Run**
+Enqueue 10
+
+*Module 7 – Queue*
+
+24
+
+## [10] -> NULL
+
+front = rear = node10
+Enqueue 20
+[10] -> [20]
+rear = node20
+Dequeue
+Remove first node:
+[20]
+front = node20
+🎯 **Real Use**: Cases
+Unlimited customer queue
+Chat server requests
+Operating system scheduling
+Network packet handling
+⏱ Complexity
+Operation Time
+Enqueue O 1
+Dequeue O 1
+📌 **Array vs**: Linked List Queue
+
+*Module 7 – Queue*
+
+25
+Feature Array Linked List
+Size Fixed Dynamic
+Memory Predefined As needed
+Overflow Possible Only memory full
+Speed Fast Fast
+🧪 Practice
+Queue:
+[5] -> [8] -> [12]
+After dequeue?
+✅ **Answer**:
+[8] -> [12]
+📌 **Summary**
+Linked List Queue:
+Dynamic memory
+Insert rear
+Delete front
+No fixed size problem
+⏭ Next Lesson
+Circular Queue (Very Important)
+
+*Module 7 – Queue*
+
+26
+Type next
+🚀
+🚀 **Module 7 – Lesson 6**: Circular Queue
+(Very Important)
+Now we learn the improved version of queue:
+👉 Circular Queue
+Used to reuse empty spaces in array queue.
+❌ **Problem in**: Normal Queue
+Suppose MAX 5
+After insert:
+[10][20][30][40][50]
+Now delete first 3
+[_][_][_][40][50]
+Front moved forward.
+Even though empty spaces exist, rear reached end.
+Cannot insert more in normal queue
+❌
+✅ **Solution =**: Circular Queue
+Rear goes back to beginning.
+[60][70][_][40][50]
+
+*Module 7 – Queue*
+
+27
+Queue works in circle 🔄
+🎯 **Formula**
+Move Rear
+rear = (rear + 1) % MAX;
+Move Front
+front = (front + 1) % MAX;
+🧠 **Conditions**
+Empty Queue
+front == -1
+Full Queue
+(front == (rear + 1) % MAX)
+📦 **Example**
+
+## MAX 5
+
+Insert:
+10 20 30
+
+*Module 7 – Queue*
+
+28
+[10][20][30][_][_]
+- F R
+Delete 10
+Insert 40, 50, 60
+[60][20][30][40][50]
+- R F
+💻 **Full C**: Program
+#include <stdio.h>
+#define MAX 5
+int queue[MAX];
+int front = -1, rear = -1;
+void enqueue(int value) {
+- if (front == (rear + 1) % MAX) {
+- printf("Queue Full\n");
+- return;
+- }
+- if (front == -1)
+- front = rear = 0;
+- else
+- rear = (rear + 1) % MAX;
+- queue[rear] = value;
+}
+void dequeue() {
+- if (front == -1) {
+
+*Module 7 – Queue*
+
+29
+- printf("Queue Empty\n");
+- return;
+- }
+- printf("%d removed\n", queue[front]);
+- if (front == rear)
+- front = rear = -1;
+- else
+- front = (front + 1) % MAX;
+}
+void display() {
+- if (front == -1) {
+- printf("Queue Empty\n");
+- return;
+- }
+- int i = front;
+- while (1) {
+- printf("%d ", queue[i]);
+- if (i == rear)
+- break;
+- i = (i + 1) % MAX;
+- }
+- printf("\n");
+}
+int main() {
+- enqueue(10);
+- enqueue(20);
+- enqueue(30);
+
+*Module 7 – Queue*
+
+30
+- enqueue(40);
+- dequeue();
+- enqueue(50);
+- enqueue(60);
+- display();
+- return 0;
+}
+🧾 Output
+10 removed
+20 30 40 50 60
+🎯 **Real Use**: Cases
+CPU Round Robin Scheduling
+Keyboard Buffer
+Traffic Light Systems
+Streaming Buffers
+Printer Queue
+⏱ Complexity
+Operation Time
+Enqueue O 1
+Dequeue O 1
+
+*Module 7 – Queue*
+
+31
+📌 **Why Important?**
+Interviewers often ask Circular Queue because it shows:
+Index logic
+Modulus usage
+Space optimization
+🧪 Practice
+
+## MAX 5
+
+Rear = 4
+Next rear becomes?
+rear=(4 1)\bmod 5 → 0
+✅ **Answer**: 0
+📌 **Summary**
+Circular Queue:
+Reuses empty spaces
+Better than normal array queue
+Uses modulo arithmetic
+⏭ Next Lesson
+Priority Queue
+Type next
+🚀
+🚀 **Module 7 – Lesson 7**: Priority Queue
+
+*Module 7 – Queue*
+
+32
+Now we learn a powerful queue type:
+👉 Priority Queue
+In normal queue:
+First Come First Serve
+In Priority Queue:
+Higher Priority served first
+🎯 **Example**
+Hospital Emergency Room:
+Patients arrive:
+Ravi - priority 3
+Ajay - priority 1
+Kiran - priority 2
+Smaller number = higher priority
+Serving order:
+Ajay → Kiran → Ravi
+Even if Ravi came first.
+📌 **Where Used?**
+CPU Scheduling
+Emergency systems
+Airline booking upgrades
+Printer with urgent jobs
+
+*Module 7 – Queue*
+
+33
+Network packet scheduling
+🧠 **How It**: Works
+Each item has:
+Value
+Priority
+Example:
+(10,2)
+(20,1)
+(30,3)
+Remove highest priority first.
+📦 **Example Queue**
+[10,p2] [20,p1] [30,p3]
+Dequeue gives:
+20 first
+💻 **Simple C**: Program (Array Based)
+#include <stdio.h>
+#define MAX 5
+struct Item {
+- int value;
+
+*Module 7 – Queue*
+
+34
+- int priority;
+};
+struct Item pq[MAX];
+int size = 0;
+void enqueue(int value, int priority) {
+- if (size == MAX) {
+- printf("Queue Full\n");
+- return;
+- }
+- pq[size].value = value;
+- pq[size].priority = priority;
+- size++;
+}
+void dequeue() {
+- if (size == 0) {
+- printf("Queue Empty\n");
+- return;
+- }
+- int highest = 0;
+- for (int i = 1; i < size; i++) {
+- if (pq[i].priority < pq[highest].priority)
+- highest = i;
+- }
+- printf("%d removed\n", pq[highest].value);
+- for (int i = highest; i < size - 1; i++) {
+- pq[i] = pq[i + 1];
+- }
+
+*Module 7 – Queue*
+
+35
+- size--;
+}
+void display() {
+- for (int i = 0; i < size; i++) {
+- printf("(%d,p%d) ", pq[i].value, pq[i].priority);
+- }
+- printf("\n");
+}
+int main() {
+- enqueue(10,2);
+- enqueue(20,1);
+- enqueue(30,3);
+- display();
+- dequeue();
+- display();
+- return 0;
+}
+🧾 Output
+(10,p2) (20,p1) (30,p3)
+20 removed
+(10,p2) (30,p3)
+🎯 **Real Life**: Example
+
+*Module 7 – Queue*
+
+36
+Printer Queue
+Office file priority = 3
+CEO file priority = 1
+CEO file prints first.
+⏱ Complexity (Simple Array Version)
+Operation Time
+Insert O 1
+Delete Highest PriorityO(n)
+- Heap version later gives better speed)
+📌 **Important Note**
+If two items have same priority:
+Usually first inserted served first.
+🧪 Practice
+Items:
+A p3
+B p1
+C p2
+Who comes first?
+✅ **Answer**: B
+📌 **Summary**
+
+*Module 7 – Queue*
+
+37
+Priority Queue:
+Based on priority, not arrival order
+High priority removed first
+Useful in scheduling systems
+⏭ Next Lesson
+Deque (Double Ended Queue)
+Type next
+🚀
+🚀 **Module 7 – Lesson 8**: Deque (Double
+Ended Queue)
+Now we learn the last topic of Queue Module:
+👉 Deque
+Pronounced:
+Deck
+Means:
+Double Ended Queue
+You can insert and delete from both ends.
+🎯 **Normal Queue**: vs Deque
+Structure Insert Delete
+Queue Rear only Front only
+Deque Front & Rear Front & Rear
+
+*Module 7 – Queue*
+
+38
+📦 **Example**
+Initial:
+[10][20][30]
+Insert Front(5
+[5][10][20][30]
+Insert Rear(40):
+[5][10][20][30][40]
+Delete Front:
+[10][20][30][40]
+Delete Rear:
+[10][20][30]
+📌 **Types of**: Deque
+- Input Restricted Deque
+Insert only one side
+Delete both sides
+- Output Restricted Deque
+
+*Module 7 – Queue*
+
+39
+Delete only one side
+Insert both sides
+🎯 **Where Used?**
+Browser history
+Undo / Redo systems
+Sliding window problems
+Task scheduling
+Cache systems
+💻 **Simple C**: Program (Array Based)
+#include <stdio.h>
+#define MAX 5
+int dq[MAX];
+int front = -1, rear = -1;
+void insertRear(int val) {
+- if (rear == MAX - 1) {
+- printf("Full\n");
+- return;
+- }
+- if (front == -1)
+- front = 0;
+- dq[++rear] = val;
+}
+void deleteFront() {
+
+*Module 7 – Queue*
+
+40
+- if (front == -1 || front > rear) {
+- printf("Empty\n");
+- return;
+- }
+- printf("%d removed\n", dq[front]);
+- front++;
+- if (front > rear)
+- front = rear = -1;
+}
+void display() {
+- if (front == -1) {
+- printf("Empty\n");
+- return;
+- }
+- for (int i = front; i <= rear; i++)
+- printf("%d ", dq[i]);
+- printf("\n");
+}
+int main() {
+- insertRear(10);
+- insertRear(20);
+- insertRear(30);
+- display();
+- deleteFront();
+- display();
+
+*Module 7 – Queue*
+
+41
+- return 0;
+}
+🧾 Output
+10 20 30
+10 removed
+20 30
+🧠 **Real Life**: Example
+Browser Tabs / History
+You move:
+backward
+forward
+Both ends concept.
+⏱ Complexity
+Operation Time
+Insert Front O 1
+Insert Rear O 1
+Delete Front O 1
+Delete Rear O 1
+(ideal implementation)
+🧪 Practice
+
+*Module 7 – Queue*
+
+42
+Deque:
+[10][20][30]
+Delete Rear →
+✅ **Answer**:
+[10][20]
+📌 **Summary**
+Deque:
+Powerful queue
+Both side insert/delete
+Used in many advanced problems
+🎓 **Module 7 Completed**: Queue
+Topics Covered:
+✅ **Introduction**
+✅ **Queue using**: Array
+✅ **Queue using**: Linked List
+✅ **Enqueue**
+✅ **Dequeue**
+✅ **Circular Queue**
+✅ **Priority Queue**
+✅ **Deque**
+
+*Module 7 – Queue*
+
+43
+🧠 **My Rating**: of Importance
+Topic Importance
+Queue Basics
+⭐
+⭐
+⭐
+⭐
+⭐
+Circular Queue
+⭐
+⭐
+⭐
+⭐
+⭐
+Linked List Queue
+⭐
+⭐
+⭐
+⭐
+Priority Queue
+⭐
+⭐
+⭐
+⭐
+⭐
+Deque
+⭐
+⭐
+⭐
+⭐
+⏭ Next Module
+🚀 **Module 8**: – Recursion
+Type:
+Start Module 8
+
+*Module 7 – Queue*
+
+44

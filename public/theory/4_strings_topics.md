@@ -1,0 +1,1118 @@
+
+*Module 4 – Strings Topics*
+
+Excellent
+👍
+🔥
+Welcome to Module 4 Strings.
+Strings are extremely important because many interview questions and real-world
+applications involve text.
+
+*Module 4 – Strings Topics*
+
+Lesson Topic
+1 String Basics
+2 String Input / Output
+3 String Functions
+4 String Traversal
+5 Reverse String
+6 Palindrome Check
+7 String Comparison
+8 Pattern Matching Basics
+Lesson 1 – String Basics
+🚀
+What is a String?
+A string is:
+A collection of characters stored in an array
+Simple meaning:
+A word/sentence made of characters.
+
+*Module 4 – Strings T opics*
+
+1
+Example
+Word:
+
+## HELLO
+
+Stored in C as:
+char name[] = "HELLO";
+Internal Storage in Memory
+Actually stored like:
+
+## H E L L O \0
+
+What is \0 ?
+It is:
+Null Character
+Meaning:
+Marks end of string.
+
+## VERY IMPORTANT ⚠
+
+Without it:
+C wonʼt know where string ends.
+Why String Uses Character Array
+
+*Module 4 – Strings T opics*
+
+2
+Because:
+Each letter is stored separately.
+Example:
+char word[]="CAT";
+Stored as:
+Index Value
+
+## 0 C
+
+## 1 A
+
+## 2 T
+
+3 \0
+Accessing Characters
+Like arrays:
+printf("%c", word[1]);
+Output:
+
+## A
+
+Declaring String
+Two ways:
+Method 1
+char name[10]="Murthy";
+
+*Module 4 – Strings T opics*
+
+3
+Method 2
+char name[]="Murthy";
+Important Rule ⚠
+Need extra space for \0 .
+Example:
+HELLO = 5 letters
+Need size = 6
+Printing String
+Use:
+printf("%s", name);
+Example
+char name[]="Murthy";
+printf("%s", name);
+Output:
+Murthy
+Difference Between Character and String
+
+*Module 4 – Strings T opics*
+
+4
+Type Example
+Character 'A'
+String "ABC"
+Why Strings Matter in DSA
+Used in:
+Search engines
+Password validation
+Pattern matching
+Text editors
+Compiler design
+Common Beginner Mistakes ⚠
+Wrong:
+char name='Hello';
+Correct:
+char name[]="Hello";
+Time Complexity of Accessing Character
+word[2]
+Direct access:
+
+*Module 4 – Strings T opics*
+
+5
+
+## O(1)
+
+Practice Questions
+🧠
+Tell me:
+
+## Q1
+
+What ends every string in C?
+
+## Q2
+
+Difference between:
+
+## 'A'
+
+and
+
+## "ABC"
+
+## Q3
+
+How print full string?
+
+## Q4
+
+Why string is considered character array?
+Reply with answers, then we go to:
+Lesson 2 – String Input / Output
+🚀
+Excellent
+👍
+Letʼs continue.
+
+*Module 4 – Strings T opics*
+
+6
+
+*Module 4 – Lesson 2: String Input / Output*
+
+🚀
+This lesson teaches:
+How to take string input from user
+and print/display strings
+Printing String Output
+We use:
+printf("%s", stringName);
+Example
+char name[] = "Murthy";
+printf("%s", name);
+Output:
+Murthy
+%s Means
+String format specifier
+Used to print full string.
+
+*Module 4 – Strings T opics*
+
+7
+Taking Input Using scanf
+Syntax:
+scanf("%s", stringName);
+Example
+#include <stdio.h>
+int main()
+{
+- char name[20];
+- scanf("%s", name);
+- printf("%s", name);
+- return 0;
+}
+Input
+Murthy
+Output:
+Murthy
+Why No & in String scanf? ⚠
+Normally:
+
+*Module 4 – Strings T opics*
+
+8
+scanf("%d",&x);
+But for string:
+scanf("%s",name);
+No & .
+Why?
+Because:
+String name itself already acts like address.
+- Youʼll understand deeper later with pointers.)
+Limitation of scanf
+Problem:
+Stops reading at space
+Example Input
+Murthy Kumar
+Using scanf:
+scanf("%s",name);
+Stores only:
+Murthy
+
+*Module 4 – Strings T opics*
+
+9
+NOT full sentence.
+Better Input Method → fgets
+Used for full line input.
+Syntax
+fgets(stringName,size,stdin);
+Example
+char name[50];
+fgets(name,50,stdin);
+Input:
+Murthy Kumar
+Stores:
+Murthy Kumar
+Difference Table
+Method Reads Space?
+scanf No
+fgets Yes
+
+*Module 4 – Strings T opics*
+
+10
+Full Example
+#include <stdio.h>
+int main()
+{
+- char name[50];
+- fgets(name,50,stdin);
+- printf("%s",name);
+- return 0;
+}
+Why String I/O Matters
+Used in:
+Login systems
+Search bars
+User forms
+Text processing apps
+Common Mistakes ⚠
+Wrong:
+scanf("%s",&name);
+Correct:
+
+*Module 4 – Strings T opics*
+
+11
+scanf("%s",name);
+Time Complexity
+Input/output generally:
+O(n)
+Because each char processed.
+Practice Questions
+🧠
+Tell me:
+
+## Q1
+
+Which format specifier prints string?
+
+## Q2
+
+Why donʼt we use & in string scanf?
+
+## Q3
+
+Which function takes full line including spaces?
+
+## Q4
+
+Problem of scanf with strings?
+Reply with answers, then we go to:
+Lesson 3 – String Functions
+🚀
+Excellent
+👍
+
+*Module 4 – Strings T opics*
+
+12
+Letʼs move ahead.
+
+*Module 4 – Lesson 3: String Functions*
+
+🚀
+String functions help us:
+Perform operations on strings easily
+Instead of writing everything manually.
+Need this library first:
+#include <string.h>
+Most Important String Functions
+Function Purpose
+strlen() Find length
+strcpy() Copy string
+strcat() Join strings
+strcmp() Compare strings
+1. strlen() – Find Length
+Returns:
+Number of characters in string
+Example
+char name[]="Hello";
+printf("%d", strlen(name));
+
+*Module 4 – Strings T opics*
+
+13
+Output:
+5
+Important Note ⚠
+strlen() does NOT count:
+\0
+2. strcpy() – Copy String
+Used to copy one string into another.
+Syntax
+strcpy(destination, source);
+Example
+char a[20];
+char b[]="Hello";
+strcpy(a,b);
+printf("%s",a);
+Output:
+Hello
+
+*Module 4 – Strings T opics*
+
+14
+3. strcat() – Concatenate / Join
+Joins two strings.
+Example
+char a[20]="Hello ";
+char b[]="World";
+strcat(a,b);
+printf("%s",a);
+Output:
+Hello World
+4. strcmp() – Compare Strings
+Checks whether strings are same.
+Example
+strcmp("abc","abc")
+Output:
+0
+Means:
+Equal
+
+*Module 4 – Strings T opics*
+
+15
+Compare Result Meaning
+Result Meaning
+0 Equal
+- 0 First smaller
+- 0 First greater
+Why Use strcmp Instead of == ? ⚠
+Wrong:
+if(a==b)
+Correct:
+if(strcmp(a,b)==0)
+Because:
+Strings cannot be compared with == directly.
+Full Example
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+- char a[]="Cat";
+- char b[]="Cat";
+- if(strcmp(a,b)==0)
+- {
+
+*Module 4 – Strings T opics*
+
+16
+- printf("Equal");
+- }
+- return 0;
+}
+Output:
+Equal
+Real Use Cases
+These functions used in:
+Login/password check
+Text merge
+Validation systems
+Data copying
+Time Complexity
+Function Complexity
+strlen O(n)
+strcpy O(n)
+strcat O(n)
+strcmp O(n)
+Why?
+Because they process characters one by one.
+Practice Questions
+🧠
+
+*Module 4 – Strings T opics*
+
+17
+Tell me:
+
+## Q1
+
+Which function finds string length?
+
+## Q2
+
+Which function copies string?
+
+## Q3
+
+What does strcmp() return if strings equal?
+
+## Q4
+
+Why canʼt we use == for strings?
+Reply and weʼll go to:
+Lesson 4 – String Traversal
+🚀
+Excellent
+👍
+Letʼs continue.
+
+*Module 4 – Lesson 4: String Traversal*
+
+🚀
+Traversal means:
+Visiting each character of string one by one
+Simple meaning:
+Go through every letter.
+Real-Life Example
+📚
+
+*Module 4 – Strings T opics*
+
+18
+Word:
+
+## HELLO
+
+Traversal means checking:
+
+## H
+
+## E
+
+## L
+
+## L
+
+## O
+
+One by one.
+Why String Traversal Matters
+Because almost every string problem uses traversal:
+Reverse string
+Count vowels
+Palindrome
+Search character
+Pattern matching
+Method 1 – Using Length
+Code
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+
+*Module 4 – Strings T opics*
+
+19
+- char str[]="HELLO";
+- for(int i=0;i<strlen(str);i++)
+- {
+- printf("%c\n",str[i]);
+- }
+- return 0;
+}
+Output
+
+## H
+
+## E
+
+## L
+
+## L
+
+## O
+
+Method 2 – Using Null Character
+Better/commonly used.
+Code
+for(int i=0;str[i]!='\0';i++)
+{
+- printf("%c\n",str[i]);
+}
+Why This Works
+Because:
+
+*Module 4 – Strings T opics*
+
+20
+Every string ends with:
+\0
+Loop stops when reaches end.
+Preferred Method
+In interviews:
+Usually preferred:
+str[i]!='\0'
+Because efficient.
+Example – Count Characters
+int count=0;
+for(int i=0;str[i]!='\0';i++)
+{
+- count++;
+}
+Output:
+Length of string
+Example – Count Vowels
+
+*Module 4 – Strings T opics*
+
+21
+for(int i=0;str[i]!='\0';i++)
+{
+- if(str[i]=='a'||str[i]=='e'||str[i]=='i'||str[i]=='o'||str
+[i]=='u')
+- {
+- count++;
+- }
+}
+Time Complexity
+Traversal checks all chars:
+O(n)
+Why Traversal Important for DSA
+Traversal is base for:
+String algorithms
+Parsing
+Text manipulation
+Pattern searching
+Common Mistake ⚠
+Wrong:
+for(i=0;i<=strlen(str);i++)
+May go out of bounds.
+
+*Module 4 – Strings T opics*
+
+22
+Better:
+for(i=0;i<strlen(str);i++)
+Or:
+str[i]!='\0'
+Practice Questions
+🧠
+Tell me:
+
+## Q1
+
+What ends traversal loop in strings?
+
+## Q2
+
+Big O of string traversal?
+
+## Q3
+
+Why use '\0' in traversal?
+
+## Q4
+
+Traversal means?
+Reply and we go to:
+Lesson 5 – Reverse String
+🚀
+Excellent
+👍
+Now we move to one of the most popular interview problems.
+
+*Module 4 – Strings T opics*
+
+23
+
+*Module 4 – Lesson 6: Palindrome Check*
+
+🚀
+Palindrome means:
+A word/string that reads same forward and backward
+Examples
+Palindrome words:
+
+## MADAM
+
+## LEVEL
+
+## RADAR
+
+## MALAYALAM
+
+Non-Palindrome:
+
+## HELLO
+
+## WORLD
+
+## CAT
+
+Logic Behind Palindrome
+To check palindrome:
+Compare front and back characters.
+Example
+Word:
+
+*Module 4 – Strings T opics*
+
+24
+
+## MADAM
+
+Compare:
+
+## M == M
+
+✅
+
+## A == A
+
+✅
+
+## D == D
+
+✅
+All match:
+Palindrome.
+Method – Two Pointer Technique
+Use:
+start = first index
+end = last index
+Compare while moving inward.
+C Code
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+- char str[]="MADAM";
+- int start=0;
+- int end=strlen(str)-1;
+- int palindrome=1;
+
+*Module 4 – Strings T opics*
+
+25
+- while(start<end)
+- {
+- if(str[start]!=str[end])
+- {
+- palindrome=0;
+- break;
+- }
+- start++;
+- end--;
+- }
+- if(palindrome)
+- printf("Palindrome");
+- else
+- printf("Not Palindrome");
+- return 0;
+}
+Output
+Palindrome
+How It Works
+Step-by-step:
+Compare first & last
+Compare second & second-last
+Continue until middle
+
+*Module 4 – Strings T opics*
+
+26
+Why This Method Is Efficient
+We donʼt reverse whole string.
+We just compare.
+Very smart/efficient.
+Time Complexity
+Half traversal:
+O(n)
+Space Complexity
+Only few vars:
+
+## O(1)
+
+Real Use Cases
+Palindrome logic used in:
+Validation problems
+DNA sequence matching
+Text pattern checks
+Competitive coding
+Common Mistakes ⚠
+
+*Module 4 – Strings T opics*
+
+27
+Mistake 1
+Using:
+start<=end
+Better:
+start<end
+Mistake 2
+Forget break when mismatch.
+Practice Questions
+🧠
+Tell me:
+
+## Q1
+
+Is "LEVEL" palindrome?
+
+## Q2
+
+Is "HELLO" palindrome?
+
+## Q3
+
+What two variables used in palindrome logic?
+
+## Q4
+
+Big O of palindrome check?
+Reply and weʼll go to:
+Lesson 7 – String Comparison
+🚀
+
+*Module 4 – Strings T opics*
+
+28
+Excellent
+👍
+Letʼs continue.
+
+*Module 4 – Lesson 7: String Comparison*
+
+🚀
+String comparison means:
+Checking whether two strings are same or different
+Real-Life Example
+📚
+Login system:
+Saved Password = "admin123"
+Entered Password = "admin123"
+Need compare both.
+Important Rule ⚠
+In C
+We CANNOT compare strings using ==
+Wrong Way
+❌
+if(str1 == str2)
+This compares:
+Memory addresses, NOT text.
+
+*Module 4 – Strings T opics*
+
+29
+Correct Way
+✅
+Use:
+strcmp(str1,str2)
+What is strcmp() ?
+Means:
+String Compare
+Compares two strings character by character.
+Syntax
+strcmp(string1,string2);
+Return Values
+Result Meaning
+0 Equal
+- 0 First smaller
+- 0 First greater
+Example 1 – Equal Strings
+strcmp("CAT","CAT")
+Returns:
+
+*Module 4 – Strings T opics*
+
+30
+0
+Example 2 – Not Equal
+strcmp("CAT","DOG")
+Returns non-zero.
+Full Program
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+- char a[]="HELLO";
+- char b[]="HELLO";
+- if(strcmp(a,b)==0)
+- {
+- printf("Equal");
+- }
+- else
+- {
+- printf("Not Equal");
+- }
+- return 0;
+}
+
+*Module 4 – Strings T opics*
+
+31
+Output
+Equal
+How strcmp Works Internally
+Compares:
+1st char
+2nd char
+3rd char
+...
+Until mismatch/end.
+Manual Comparison Logic
+Without strcmp:
+int same=1;
+for(int i=0;str1[i]!='\0'||str2[i]!='\0';i++)
+{
+- if(str1[i]!=str2[i])
+- {
+- same=0;
+- break;
+- }
+}
+Time Complexity
+
+*Module 4 – Strings T opics*
+
+32
+Worst case:
+O(n)
+Why?
+May compare all chars.
+Real Use Cases
+Used in:
+Login validation
+Password matching
+Search matching
+Text filtering
+Common Mistakes ⚠
+Wrong:
+if(a=b)
+Assignment, not comparison.
+Wrong:
+if(a==b)
+Address compare only.
+Correct:
+
+*Module 4 – Strings T opics*
+
+33
+if(strcmp(a,b)==0)
+Practice Questions
+🧠
+Tell me:
+
+## Q1
+
+What function compares strings?
+
+## Q2
+
+What does strcmp() return if equal?
+
+## Q3
+
+Why can't use == for strings?
+
+## Q4
+
+Big O of string comparison?
+Reply and we go to:
+Lesson 8 – Pattern Matching Basics
+🚀
+(final lesson of Module 4 .
+Excellent
+👍
+Youʼve reached the final lesson of Module 4.
+
+*Module 4 – Lesson 8: Pattern Matching*
+
+Basics
+🚀
+Pattern matching means:
+
+*Module 4 – Strings T opics*
+
+34
+Finding a small string (pattern) inside a bigger string
+Simple meaning:
+Search text inside text.
+Real-Life Example
+📚
+Suppose:
+Main text:
+"I love programming"
+Pattern:
+"love"
+Need check if:
+"love" exists in sentence.
+That is:
+Pattern Matching.
+Real World Uses
+Pattern matching used in:
+Search engines
+Find/Replace in Word
+Browser search
+Spam filters
+
+*Module 4 – Strings T opics*
+
+35
+Text editors
+Basic Idea
+We compare:
+Pattern with each possible position in text.
+Example
+Text:
+
+## ABCDE
+
+Pattern:
+
+## CD
+
+Check:
+AB → No
+BC → No
+CD → Yes
+✅
+Found.
+Naive Pattern Matching Algorithm
+Simple/basic method.
+Steps
+
+*Module 4 – Strings T opics*
+
+36
+1. Start from first character
+2. Compare pattern
+3. If mismatch → move one step
+4. Repeat
+C Code
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+- char text[]="HELLOWORLD";
+- char pattern[]="WORLD";
+- int found=0;
+- for(int i=0;i<=strlen(text)-strlen(pattern);i++)
+- {
+- int j;
+- for(j=0;j<strlen(pattern);j++)
+- {
+- if(text[i+j]!=pattern[j])
+- {
+- break;
+- }
+- }
+- if(j==strlen(pattern))
+- {
+- found=1;
+- break;
+- }
+
+*Module 4 – Strings T opics*
+
+37
+- }
+- if(found)
+- printf("Pattern Found");
+- else
+- printf("Not Found");
+- return 0;
+}
+Output
+Pattern Found
+How It Works
+Suppose:
+
+## TEXT = HELLO
+
+## PATTERN = LL
+
+Compare:
+
+## HE
+
+❌
+
+## EL
+
+❌
+
+## LL
+
+✅
+Time Complexity
+Worst Case:
+
+*Module 4 – Strings T opics*
+
+38
+O(n*m)
+Where:
+n = text length
+m = pattern length
+Because:
+Nested comparisons.
+Why Important in DSA
+Pattern matching is foundation for advanced algorithms like:
+KMP Algorithm
+Rabin-Karp
+Boyer Moore
+Youʼll learn advanced later.
+Common Mistakes ⚠
+Forget:
+strlen(text)-strlen(pattern)
+Need avoid overflow.
+Wrong Nested Comparison Logic
+Need:
+
+*Module 4 – Strings T opics*
+
+39
+text[i+j]
+
+## NOT
+
+text[i]
+Practice Questions
+🧠
+Tell me:
+
+## Q1
+
+Pattern matching means?
+
+## Q2
+
+Used in which real-life application?
+
+## Q3
+
+Big O of naive pattern matching?
+
+## Q4
+
+Why nested loops used here?
+
+*MODULE 4 COMPLETE 🎉*
+
+You finished:
+Lesson Topic
+1 String Basics
+2 String Input/Output
+3 String Functions
+4 String Traversal
+
+*Module 4 – Strings T opics*
+
+40
+Lesson Topic
+5 Reverse String
+6 Palindrome
+7 String Comparison
+8 Pattern Matching
+Next Module Preview
+Now we move to:
+
+*Module 5 – Linked Lists*
+
+Where DSA becomes more advanced
+🔥
+Youʼll learn:
+Nodes
+Dynamic memory structures
+Pointer-based data storage
+Insert/Delete dynamically
+👉 Reply “Start Module 5” when ready
+🚀
+
+*Module 4 – Strings T opics*
+
+41

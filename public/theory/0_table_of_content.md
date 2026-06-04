@@ -1,0 +1,186 @@
+
+*Table of Content*
+
+Absolutely
+👍
+Here is your complete structured DSA syllabus/table in clean list format so you
+can use it like a roadmap/checklist while learning.
+Complete DSA Course Structure / Syllabus
+
+*Module 1 – C Programming Fundamentals*
+
+- Variables & Data Types
+- Operators
+- Input / Output
+- Conditional Statements
+- Loops
+- Functions
+- Arrays Basics
+- Strings
+- Pointers
+- Structures
+- Dynamic Memory Allocation
+
+*Module 2 – Algorithm Analysis*
+
+- What is Algorithm
+- Time Complexity
+- Space Complexity
+T able of Content
+1
+- Big O Notation
+- Big Omega
+- Big Theta
+- Best / Average / Worst Case
+- Complexity Analysis of Loops
+- Complexity Analysis of Nested Loops
+
+*Module 3 – Arrays*
+
+- Introduction to Arrays
+- Traversal
+- Insertion
+- Deletion
+- Searching in Array
+- Updating Elements
+- Multi-Dimensional Arrays
+- Matrix Basics
+
+*Module 4 – Strings*
+
+- String Basics
+- String Input / Output
+- String Functions
+- String Traversal
+- Reverse String
+- Palindrome Check
+- String Comparison
+- Pattern Matching Basics
+T able of Content
+2
+
+*Module 5 – Linked Lists*
+
+- Introduction to Linked List
+- Singly Linked List
+- Insert Node
+- Delete Node
+- Traverse Linked List
+- Search in Linked List
+- Doubly Linked List
+- Circular Linked List
+
+*Module 6 – Stack*
+
+- Introduction to Stack
+- Stack using Array
+- Stack using Linked List
+- Push Operation
+- Pop Operation
+- Peek Operation
+- Applications of Stack
+
+*Module 7 – Queue*
+
+- Introduction to Queue
+- Queue using Array
+- Queue using Linked List
+- Enqueue
+- Dequeue
+T able of Content
+3
+- Circular Queue
+- Priority Queue
+- Deque
+
+*Module 8 – Recursion*
+
+- Introduction to Recursion
+- Base Case
+- Recursive Calls
+- Recursive Tree
+- Tail Recursion
+- Head Recursion
+- Backtracking Basics
+
+*Module 9 – Searching Algorithms*
+
+- Linear Search
+- Binary Search
+- Recursive Binary Search
+
+*Module 10 – Sorting Algorithms*
+
+- Bubble Sort
+- Selection Sort
+- Insertion Sort
+- Merge Sort
+- Quick Sort
+- Heap Sort
+- Comparison of Sorting Techniques
+T able of Content
+4
+
+*Module 11 – Hashing*
+
+- Introduction to Hashing
+- Hash Functions
+- Hash Table
+- Collision Handling
+- Linear Probing
+- Chaining
+
+*Module 12 – Trees*
+
+- Introduction to Trees
+- Binary Tree
+- Binary Search Tree
+- Tree Traversals
+- AVL Tree
+- Heap
+- Trie
+
+*Module 13 – Graphs*
+
+- Introduction to Graph
+- Graph Representation
+- BFS
+- DFS
+- Dijkstra Algorithm
+- Floyd Warshall
+- Minimum Spanning Tree
+- Primʼs Algorithm
+T able of Content
+5
+- Kruskalʼs Algorithm
+
+*Module 14 – Advanced Algorithms*
+
+- Greedy Algorithms
+- Dynamic Programming
+- Divide and Conquer
+- Backtracking Advanced
+Recommended Study Flow
+Foundation:
+
+*Module 1 → Module 2*
+
+Core DSA:
+
+*Module 3 → Module 10*
+
+Advanced DSA:
+
+*Module 11 → Module 14*
+
+My Expert Suggestion
+💡
+Since you're learning step-by-step:
+We should follow this order instead of jumping:
+1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9 → 10 → 11 → 12 → 13 → 14
+Because each builds on previous.
+Would you like me to convert this into a progress tracker checklist format ( ☐ /
+✅
+style) so you can mark completed topics as we learn each one?
+T able of Content
+6
