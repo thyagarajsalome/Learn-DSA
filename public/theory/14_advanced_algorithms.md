@@ -1,395 +1,49 @@
+# Module 14: Advanced Algorithms
 
-*Module 14 – Advanced*
+With core data structures mastered, we can study advanced algorithm design paradigms.
 
-Algorithms
-🚀 **Module 14**: – Advanced Algorithms
-(Structured Learning in C)
-Now we begin the final major module:
-👉 Advanced Algorithms
-These algorithms solve complex optimization and decision problems efficiently.
-Used in:
-Route planning
-Scheduling
-Finance
-AI / Games
-Resource allocation
-Dynamic systems
-📚 **Module 14**: Topics
-We will learn step-by-step:
-- Greedy Algorithms
-- Dynamic Programming
-- Divide and Conquer
-- Backtracking Advanced
+---
 
-*Module 14 – Advanced Algorithms*
+## 1. Greedy Algorithms
 
-1
-🎯 **Lesson 1**: – Greedy Algorithms
-✅ **What is**: Greedy Algorithm?
-A Greedy Algorithm:
-Makes the best immediate/local choice at each step, hoping it leads to global
-optimum.
-It does not reconsider past choices.
-🧠 **Real Life**: Example
-Making change for ₹ 37 using largest notes/coins first:
-₹ 20
-₹ 10
-₹ 5
-₹ 2
-Fast local best choices.
-📦 **Example**: Activity Selection
-Choose max non-overlapping meetings.
-Meetings:
-(1,2), (3,4), (0,6), (5,7), (8,9)
-Greedy rule:
-Pick earliest finishing meeting first.
+### ❓ What is a Greedy Algorithm?
+An algorithm that makes the locally optimal choice at each step, hoping that these local choices lead to a globally optimal solution.
 
-*Module 14 – Advanced Algorithms*
+- *Pros*: Fast, simple to write.
+- *Cons*: Doesn't always yield the absolute best solution.
+- *Examples*: Dijkstra's Shortest Path, Prim's and Kruskal's Minimum Spanning Tree algorithms.
 
-2
-🎯 **Why Greedy**: Works Sometimes
-If problem has:
-Greedy choice property
-Optimal substructure
-Then greedy gives optimal answer.
-📌 **Famous Greedy**: Problems
-Dijkstra (non-negative edges)
-Primʼs MST
-Kruskalʼs MST
-Huffman Coding
-Activity Selection
-Fractional Knapsack
-💻 **Simple Example**: (Coin Count Logic)
-int coins[] = {20,10,5,2,1};
-int amount = 37;
-Take largest possible repeatedly.
-⏱ Complexity
-Often efficient after sorting:
-O(n log n)
-or better.
+---
 
-*Module 14 – Advanced Algorithms*
+## 2. Dynamic Programming (DP)
 
-3
-⚠ Greedy Does NOT Always Work
-Example: some coin systems or 0/1 knapsack.
-Need DP instead.
-🧪 Practice
-Choose max meetings:
-(1,2), (2,3), (3,4)
-Greedy can choose all 3
-✅
-📌 **Summary**
-Greedy:
-Best immediate choice
-Fast and elegant
-Works only for suitable problems
-⏭ Next Lesson
-Dynamic Programming
-Type next
-🚀
-🚀 **Module 14 – Lesson 2**: Dynamic
-Programming (DP)
-Now we learn one of the most powerful algorithm techniques:
+### ❓ What is Dynamic Programming?
+An optimization technique used to solve complex problems by breaking them down into overlapping subproblems, solving each subproblem **exactly once**, and storing their results.
 
-*Module 14 – Advanced Algorithms*
+### 💡 Why do we need it?
+In recursion, we often compute the same value repeatedly. For example, computing Fibonacci $F(5)$ requires computing $F(3)$ twice. DP saves CPU time by caching results.
 
-4
-👉 Dynamic Programming
-Used when recursion repeats same work.
-🎯 **What is**: Dynamic Programming?
-Dynamic Programming means:
-Solve complex problems by breaking into smaller overlapping subproblems and
-storing answers.
-So we donʼt recalculate again and again.
-🧠 **Real Life**: Example
-You solve math homework formulas once and reuse notes later.
-Instead of solving same question repeatedly.
-📦 **Example**: Fibonacci
-Normal recursion:
-fib(5)
-= fib(4) + fib(3)
-But fib(3) gets computed many times.
-Wasteful
-❌
-🎯 **DP Solution**
-Store computed answers.
-fib(0)=0
-fib(1)=1
+```
+                     F(5)
+                   /      \
+                F(4)      F(3)  <── Already solved!
+               /    \     /   \
+             F(3)   F(2) F(2) F(1)
+```
 
-*Module 14 – Advanced Algorithms*
+### 🔍 Two Approaches
+1. **Memoization (Top-Down)**: Write recursion but store computed subproblem results in a lookup table.
+2. **Tabulation (Bottom-Up)**: Solve base cases first and fill a table iteratively from bottom to top.
 
-5
-fib(2)=1
-fib(3)=2
-fib(4)=3
-fib(5)=5
-📌 **Two Main**: DP Styles
-- Memoization (Top Down)
-Recursion + cache.
-- Tabulation (Bottom Up)
-Build table from smallest answers upward.
-💻 **C Program**: (Tabulation Fibonacci)
-#include <stdio.h>
-int main() {
-- int n = 6;
-- int dp[7];
-- dp[0] = 0;
-- dp[1] = 1;
-- for (int i = 2; i <= n; i++)
-- dp[i] = dp[i-1] + dp[i-2];
-- printf("%d", dp[n]);
-- return 0;
-}
+---
 
-*Module 14 – Advanced Algorithms*
+## 3. Divide-and-Conquer
 
-6
-🧾 Output
-8
-(fib(6)=8 )
-🎯 **When to**: Use DP?
-If problem has:
-Overlapping Subproblems
-Same smaller problems repeat.
-Optimal Substructure
-Best answer built from best smaller answers.
-📌 **Famous DP**: Problems
-Fibonacci
-0/1 Knapsack
-Longest Common Subsequence
-Coin Change
-Matrix Chain Multiplication
-Floyd Warshall
-⏱ Complexity Example
-Fibonacci:
-Normal recursion:
+### ❓ What is it?
+A strategy that breaks a large problem into smaller, independent subproblems, solves the subproblems recursively, and merges their results.
+- *Examples*: Binary Search, Merge Sort, Quick Sort.
 
-*Module 14 – Advanced Algorithms*
+---
 
-7
-O 2^n
-
-## DP
-
-O(n)
-Huge improvement
-✅
-📌 **Memoization vs**: Tabulation
-Method Style
-Memoization Recursive
-Tabulation Iterative
-⚠ Common Mistake
-Using DP when no repeated subproblems exist.
-Then unnecessary.
-🧪 Practice
-Best method for repeated Fibonacci calls?
-✅ **Dynamic Programming**
-📌 **Summary**
-Dynamic Programming:
-Save repeated results
-Faster than naive recursion
-Powerful optimization tool
-⏭ Next Lesson
-
-*Module 14 – Advanced Algorithms*
-
-8
-Divide and Conquer
-Type next
-🚀
-🚀 **Module 14 – Lesson 4**: Backtracking
-Advanced
-Now we learn the final advanced topic:
-👉 Backtracking Advanced
-A powerful search technique for trying possibilities intelligently.
-🎯 **What is**: Backtracking?
-Backtracking means:
-Try a choice, continue forward, and if it fails, undo it and try another choice.
-It is recursion + decision making + undoing.
-🧠 **Real Life**: Example
-Trying lock password:
-Try one digit
-Continue
-Wrong? go back
-Try another combination
-📌 **Core Pattern**
-
-*Module 14 – Advanced Algorithms*
-
-9
-Choose
-Explore
-Unchoose
-Try next
-🎯 **Why “Advanced”?**
-Because now we solve real problems like:
-N Queens
-Sudoku Solver
-Rat in Maze
-Graph Coloring
-Permutations
-Subsets
-📦 **Example**: N Queens
-Place queens on chessboard so none attack each other.
-For 4 4 board:
-
-## Q . . .
-
-## . . Q .
-
-## . Q . .
-
-## . . . Q
-
-Need valid arrangement.
-Try positions row by row.
-Wrong placement? Backtrack.
-📦 **Example**: Maze Path
-
-*Module 14 – Advanced Algorithms*
-
-10
-
-## S . X
-
-## . . X
-
-## . . E
-
-S = Start
-E = End
-X = blocked
-Try path. Dead end? Return.
-💻 **C Example**: (Print All Binary Strings
-Length n)
-#include <stdio.h>
-void solve(char arr[], int idx, int n) {
-- if (idx == n) {
-- arr[n] = '\0';
-- printf("%s\n", arr);
-- return;
-- }
-- arr[idx] = '0';
-- solve(arr, idx + 1, n);
-- arr[idx] = '1';
-- solve(arr, idx + 1, n);
-}
-int main() {
-- char arr[10];
-- solve(arr, 0, 3);
-
-*Module 14 – Advanced Algorithms*
-
-11
-- return 0;
-}
-🧾 Output
-000
-001
-010
-011
-100
-101
-110
-111
-🎯 **How It**: Works
-Tree of choices:
-start
-├─0
-│ ├─0
-│ └─1
-└─1
-- ├─0
-- └─1
-⏱ Complexity
-Often exponential.
-Example binary choices depth n:
-O 2^n
-Can be expensive but necessary for some problems.
-
-*Module 14 – Advanced Algorithms*
-
-12
-📌 **Optimization Ideas**
-Pruning invalid paths early
-Constraint checking
-Smart ordering choices
-🎯 **Real Use**: Cases
-Puzzle solvers
-Scheduling constraints
-AI search problems
-Combination generation
-🧪 Practice
-If each step has 2 choices and depth = 4
-Total combinations:
-2^4 16
-📌 **Summary**
-Backtracking Advanced:
-Try possibilities recursively
-Undo wrong moves
-Great for puzzles and constraints
-🎓 **Module 14 Completed**: Advanced
-Algorithms
-
-*Module 14 – Advanced Algorithms*
-
-13
-Topics Covered:
-✅ **Greedy Algorithms**
-✅ **Dynamic Programming**
-✅ **Divide and**: Conquer
-✅ **Backtracking Advanced**
-🧠 **Importance Rating**
-Topic Importance
-Greedy
-⭐
-⭐
-⭐
-⭐
-⭐
-Dynamic Programming
-⭐
-⭐
-⭐
-⭐
-⭐
-Divide & Conquer
-⭐
-⭐
-⭐
-⭐
-⭐
-Backtracking
-⭐
-⭐
-⭐
-⭐
-🏆 **CONGRATULATIONS —**: You Completed
-Full Roadmap
-You finished structured learning of:
-✅ **Queue**
-✅ **Recursion**
-✅ **Searching**
-✅ **Sorting**
-✅ **Hashing**
-✅ **Trees**
-✅ **Graphs**
-✅ **Advanced Algorithms**
-⏭ Best Next Step (Highly Recommended)
-
-*Module 14 – Advanced Algorithms*
-
-14
-Type any one:
-📌 **Need Full**: Revision Sheet
-📌 **Need 100**: DSA Interview Questions in C
-📌 **Need DSA**: Practice Roadmap 30 Days
-📌 **Need Placement**: Level DSA
-📌 **Need Real**: Projects using DSA in C
-📌 **Need Visual**: Mind Map of All DSA
-I can take you to expert level next.
-
-*Module 14 – Advanced Algorithms*
-
-15
+## 🏆 Graduation Complete!
+Congratulations! You have completed the DSA Learning Curriculum. You have mastered the logic, mathematical constraints, and memory representation models that power modern software. Keep visualising, keep coding!

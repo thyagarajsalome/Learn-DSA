@@ -1,186 +1,49 @@
+# 📚 Complete DSA Course Syllabus & Learning Roadmap
 
-*Table of Content*
+Welcome to the **Structured Data Structures & Algorithms (DSA) Roadmap**. Use this roadmap as a checklist. Each module builds upon the previous one, guiding you from basic C programming to complex network graph routing.
 
-Absolutely
-👍
-Here is your complete structured DSA syllabus/table in clean list format so you
-can use it like a roadmap/checklist while learning.
-Complete DSA Course Structure / Syllabus
+---
 
-*Module 1 – C Programming Fundamentals*
+## 🗺️ Learning Roadmap Overview
 
-- Variables & Data Types
-- Operators
-- Input / Output
-- Conditional Statements
-- Loops
-- Functions
-- Arrays Basics
-- Strings
-- Pointers
-- Structures
-- Dynamic Memory Allocation
+```
+[Module 1: C Basics] ──► [Module 2: Algorithm Analysis] ──► [Module 3: Arrays]
+                                                                  │
+[Module 6: Stacks]   ◄── [Module 5: Linked Lists]        ◄── [Module 4: Strings]
+      │
+[Module 7: Queues]   ──► [Module 8: Recursion]           ──► [Module 9: Searching]
+                                                                  │
+[Module 12: Trees]   ◄── [Module 11: Hashing]            ◄── [Module 10: Sorting]
+      │
+[Module 13: Graphs]  ──► [Module 14: Advanced Algorithms] (Mastery! 🎓)
+```
 
-*Module 2 – Algorithm Analysis*
+---
 
-- What is Algorithm
-- Time Complexity
-- Space Complexity
-T able of Content
-1
-- Big O Notation
-- Big Omega
-- Big Theta
-- Best / Average / Worst Case
-- Complexity Analysis of Loops
-- Complexity Analysis of Nested Loops
+## 📅 Chapter Outline & Checklist
 
-*Module 3 – Arrays*
+### 🔹 Level 1: Foundations & Basics
+- [ ] **Module 1: C Programming Fundamentals** — Pointers, structures, and dynamic memory allocation (`malloc`/`free`).
+- [ ] **Module 2: Algorithm Analysis** — Big O notation, worst-case time complexity, and nested loop runtime estimation.
 
-- Introduction to Arrays
-- Traversal
-- Insertion
-- Deletion
-- Searching in Array
-- Updating Elements
-- Multi-Dimensional Arrays
-- Matrix Basics
+### 🔹 Level 2: Linear Data Structures
+- [ ] **Module 3: Arrays & Memory Models** — Address calculation math (row/column-major) and sparse matrix compression.
+- [ ] **Module 4: Strings & Pattern Matching** — Null-termination, search functions, and pattern detection.
+- [ ] **Module 5: Linked Lists** — Singly, Doubly, and Circular list structures and pointer link swaps.
+- [ ] **Module 6: Stacks & Applications** — LIFO stack frames, infix-to-postfix conversion, and parentheses matching.
+- [ ] **Module 7: Queues & Circular Ring Buffers** — FIFO buffers, circular wraparounds, priority queues, and double-ended queues.
 
-*Module 4 – Strings*
+### 🔹 Level 3: Algorithmic Logic
+- [ ] **Module 8: Recursion & Backtracking** — Call stack activation records, head/tail recursion, and maze backtracking.
+- [ ] **Module 9: Searching Techniques** — Linear scan vs. Logarithmic Binary Search.
+- [ ] **Module 10: Sorting Techniques** — Quadratic sorting vs. Merge and Quick Sort divide-and-conquer divisions.
 
-- String Basics
-- String Input / Output
-- String Functions
-- String Traversal
-- Reverse String
-- Palindrome Check
-- String Comparison
-- Pattern Matching Basics
-T able of Content
-2
+### 🔹 Level 4: Non-Linear Structures & Networking
+- [ ] **Module 11: Hashing & Tables** — Hash functions, open-addressing probing, and separate chaining buckets.
+- [ ] **Module 12: Trees & Hierarchies** — Binary trees, BST search logic, AVL self-balancing rotations, and Heaps.
+- [ ] **Module 13: Graphs & Network Routing** — Adjacency lists, BFS/DFS traversal, Dijkstra's shortest path, and Minimum Spanning Trees (MST).
+- [ ] **Module 14: Advanced Algorithms** — Greedy choices, Dynamic Programming memoization, and Divide-and-Conquer.
 
-*Module 5 – Linked Lists*
+---
 
-- Introduction to Linked List
-- Singly Linked List
-- Insert Node
-- Delete Node
-- Traverse Linked List
-- Search in Linked List
-- Doubly Linked List
-- Circular Linked List
-
-*Module 6 – Stack*
-
-- Introduction to Stack
-- Stack using Array
-- Stack using Linked List
-- Push Operation
-- Pop Operation
-- Peek Operation
-- Applications of Stack
-
-*Module 7 – Queue*
-
-- Introduction to Queue
-- Queue using Array
-- Queue using Linked List
-- Enqueue
-- Dequeue
-T able of Content
-3
-- Circular Queue
-- Priority Queue
-- Deque
-
-*Module 8 – Recursion*
-
-- Introduction to Recursion
-- Base Case
-- Recursive Calls
-- Recursive Tree
-- Tail Recursion
-- Head Recursion
-- Backtracking Basics
-
-*Module 9 – Searching Algorithms*
-
-- Linear Search
-- Binary Search
-- Recursive Binary Search
-
-*Module 10 – Sorting Algorithms*
-
-- Bubble Sort
-- Selection Sort
-- Insertion Sort
-- Merge Sort
-- Quick Sort
-- Heap Sort
-- Comparison of Sorting Techniques
-T able of Content
-4
-
-*Module 11 – Hashing*
-
-- Introduction to Hashing
-- Hash Functions
-- Hash Table
-- Collision Handling
-- Linear Probing
-- Chaining
-
-*Module 12 – Trees*
-
-- Introduction to Trees
-- Binary Tree
-- Binary Search Tree
-- Tree Traversals
-- AVL Tree
-- Heap
-- Trie
-
-*Module 13 – Graphs*
-
-- Introduction to Graph
-- Graph Representation
-- BFS
-- DFS
-- Dijkstra Algorithm
-- Floyd Warshall
-- Minimum Spanning Tree
-- Primʼs Algorithm
-T able of Content
-5
-- Kruskalʼs Algorithm
-
-*Module 14 – Advanced Algorithms*
-
-- Greedy Algorithms
-- Dynamic Programming
-- Divide and Conquer
-- Backtracking Advanced
-Recommended Study Flow
-Foundation:
-
-*Module 1 → Module 2*
-
-Core DSA:
-
-*Module 3 → Module 10*
-
-Advanced DSA:
-
-*Module 11 → Module 14*
-
-My Expert Suggestion
-💡
-Since you're learning step-by-step:
-We should follow this order instead of jumping:
-1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9 → 10 → 11 → 12 → 13 → 14
-Because each builds on previous.
-Would you like me to convert this into a progress tracker checklist format ( ☐ /
-✅
-style) so you can mark completed topics as we learn each one?
-T able of Content
-6
+💡 **Expert Suggestion**: Follow the exact sequence above. DSA is hierarchical—you cannot fully grasp **Linked Lists (Module 5)** without understanding **Pointers (Module 1)**, and you cannot master **Graphs (Module 13)** without utilizing **Stacks/Queues (Modules 6 & 7)**.
