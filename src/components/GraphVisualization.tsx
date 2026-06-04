@@ -356,10 +356,10 @@ export default function GraphVisualization() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         
         {/* SVG Drawing Canvas */}
-        <div className="lg:col-span-2 bg-slate-50/50 dark:bg-slate-950 border border-slate-200 dark:border-slate-900 rounded-2xl min-h-[300px] relative overflow-hidden shadow-inner">
+        <div className="lg:col-span-2 bg-slate-50/50 dark:bg-slate-950 border border-slate-200 dark:border-slate-900 rounded-2xl min-h-[300px] relative overflow-x-auto shadow-inner">
           <svg
             onClick={handleCanvasClick}
-            className="w-full h-72 cursor-crosshair"
+            className="w-[450px] md:w-full h-72 cursor-crosshair mx-auto shrink-0"
           >
             {/* Draw Edges */}
             {edges.map((edge, idx) => {

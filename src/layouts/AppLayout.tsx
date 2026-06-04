@@ -1,5 +1,5 @@
 import { Link, Outlet, useLocation } from "react-router-dom";
-import { BookOpen, Award, CheckCircle2, Sun, Moon, Sparkles } from "lucide-react";
+import { BookOpen, Award, CheckCircle2, Sun, Moon, Sparkles, Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 
 interface SyllabusBlock {
@@ -58,6 +58,7 @@ export default function AppLayout() {
   const [theme, setTheme] = useState<"light" | "dark">(() => {
     return (localStorage.getItem("dsa_theme") as "light" | "dark") || "light";
   });
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   // Toggle Theme helper
   const handleToggleTheme = () => {
@@ -101,10 +102,20 @@ export default function AppLayout() {
   const progressPercent = totalTopics > 0 ? Math.round((completedCount / totalTopics) * 100) : 0;
 
   return (
-    <div className="flex h-screen bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 overflow-hidden font-sans theme-transition">
+    <div className="flex h-screen bg-slate-50 dark:bg-slate-955 text-slate-800 dark:text-slate-100 overflow-hidden font-sans theme-transition">
       
+      {/* Backdrop overlay for mobile */}
+      {isSidebarOpen && (
+        <div 
+          className="fixed inset-0 bg-slate-950/50 backdrop-blur-sm z-40 lg:hidden"
+          onClick={() => setIsSidebarOpen(false)}
+        />
+      )}
+
       {/* Sidebar - Google Styled */}
-      <aside className="w-72 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex flex-col h-full shrink-0 shadow-sm theme-transition">
+      <aside className={`fixed lg:static inset-y-0 left-0 z-50 w-72 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-805 flex flex-col h-full shrink-0 shadow-xl lg:shadow-sm transition-transform duration-300 ease-in-out lg:translate-x-0 ${
+        isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+      } theme-transition`}>
         
         {/* Sidebar Header */}
         <div className="p-5 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
@@ -118,14 +129,24 @@ export default function AppLayout() {
             </div>
           </div>
           
-          {/* Light/Dark mode toggler */}
-          <button
-            onClick={handleToggleTheme}
-            className="p-2 rounded-full border border-slate-200 dark:border-slate-850 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500 dark:text-slate-400 transition-colors"
-            title="Toggle theme mode"
-          >
-            {theme === "light" ? <Moon className="h-4.5 w-4.5" /> : <Sun className="h-4.5 w-4.5 text-yellow-400" />}
-          </button>
+          <div className="flex items-center space-x-1">
+            {/* Light/Dark mode toggler */}
+            <button
+              onClick={handleToggleTheme}
+              className="p-2 rounded-full border border-slate-200 dark:border-slate-850 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500 dark:text-slate-400 transition-colors"
+              title="Toggle theme mode"
+            >
+              {theme === "light" ? <Moon className="h-4.5 w-4.5" /> : <Sun className="h-4.5 w-4.5 text-yellow-400" />}
+            </button>
+            {/* Mobile Close Button */}
+            <button
+              onClick={() => setIsSidebarOpen(false)}
+              className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500 dark:text-slate-400 lg:hidden"
+              title="Close sidebar"
+            >
+              <X className="h-4.5 w-4.5" />
+            </button>
+          </div>
         </div>
 
         {/* Global Progress Bar */}
@@ -167,6 +188,7 @@ export default function AppLayout() {
                     <Link
                       key={topic.id}
                       to={path}
+                      onClick={() => setIsSidebarOpen(false)}
                       className={`group flex items-center justify-between p-2 rounded-xl transition-all duration-150 ${
                         isActive
                           ? "bg-blue-50 dark:bg-blue-950/30 text-blue-700 dark:text-blue-400 font-semibold"
@@ -211,10 +233,41 @@ export default function AppLayout() {
         </div>
       </aside>
 
-      {/* Main Content Area */}
-      <main className="flex-1 overflow-y-auto bg-slate-50 dark:bg-slate-950 p-6 md:p-8 flex flex-col min-w-0 theme-transition">
-        <Outlet />
-      </main>
+      {/* Main Content Wrapper */}
+      <div className="flex-1 flex flex-col h-full overflow-hidden min-w-0">
+        
+        {/* Mobile Header (Hidden on Desktop) */}
+        <header className="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-6 py-4 flex items-center justify-between lg:hidden shrink-0 z-30 transition-colors">
+          <div className="flex items-center space-x-3">
+            <button
+              onClick={() => setIsSidebarOpen(true)}
+              className="p-2 -ml-2 rounded-xl text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+              title="Open navigation menu"
+            >
+              <Menu className="h-5 w-5" />
+            </button>
+            <div className="flex items-center space-x-2">
+              <div className="w-8 h-8 rounded-lg bg-blue-600 dark:bg-blue-500 flex items-center justify-center shadow">
+                <BookOpen className="h-4 w-4 text-white" />
+              </div>
+              <span className="font-bold text-sm tracking-tight text-slate-900 dark:text-white">Learn DSA</span>
+            </div>
+          </div>
+          
+          <button
+            onClick={handleToggleTheme}
+            className="p-2 rounded-full border border-slate-200 dark:border-slate-805 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500 dark:text-slate-400 transition-colors"
+            title="Toggle theme mode"
+          >
+            {theme === "light" ? <Moon className="h-4.5 w-4.5" /> : <Sun className="h-4.5 w-4.5 text-yellow-400" />}
+          </button>
+        </header>
+
+        {/* Main Content Area */}
+        <main className="flex-1 overflow-y-auto bg-slate-50 dark:bg-slate-950 p-6 md:p-8 flex flex-col min-w-0 theme-transition">
+          <Outlet />
+        </main>
+      </div>
     </div>
   );
 }

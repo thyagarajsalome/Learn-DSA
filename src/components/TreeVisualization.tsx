@@ -370,12 +370,14 @@ export default function TreeVisualization() {
 
           {/* Graphical Tree display box */}
           <div className="bg-slate-50/50 dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800/80 rounded-2xl p-6 min-h-[320px] relative overflow-hidden flex flex-col justify-between shadow-inner">
-            <div className="relative w-full max-w-[500px] h-[280px] mx-auto">
-              <svg className="absolute inset-0 w-full h-full">
-                {renderLines(root)}
-              </svg>
-              <div className="absolute inset-0">
-                {renderNodes(root)}
+            <div className="overflow-x-auto w-full">
+              <div className="relative w-[500px] h-[280px] mx-auto shrink-0">
+                <svg className="absolute inset-0 w-full h-full">
+                  {renderLines(root)}
+                </svg>
+                <div className="absolute inset-0">
+                  {renderNodes(root)}
+                </div>
               </div>
             </div>
 
